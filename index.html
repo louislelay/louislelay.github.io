@@ -42,7 +42,7 @@
         display: flex;
         flex-direction: column;
         min-height: 100vh;
-        transition: margin-left 0.3s ease-in-out;
+        transition: transform 0.3s ease-in-out;
         margin-left: 25%;
         margin-right: 10%;
     }
@@ -123,9 +123,9 @@
             display: block;
         }
 
-        #content {
+        /* #content {
             margin-left: 10%;
-        }
+        } */
     }
 
     </style>
@@ -254,13 +254,23 @@
 
         function toggleSidebar() {
             document.getElementById('sidebar').classList.toggle('show');
-            document.getElementById('content').style.marginLeft = document.getElementById('sidebar').classList.contains('show') ? '25%' : '10%';
+            adjustContentMargin();
         }
 
         function closeSidebar() {
             document.getElementById('sidebar').classList.remove('show');
-            document.getElementById('content').style.marginLeft = '10%';
+            adjustContentMargin();
         }
+
+        function adjustContentMargin() {
+            if (window.innerWidth > 768) {
+                document.getElementById('content').style.marginLeft = '25%';
+            } else {
+                document.getElementById('content').style.marginLeft = document.getElementById('sidebar').classList.contains('show') ? '25%' : '10%';
+            }
+        }
+
+        window.addEventListener('resize', adjustContentMargin);
 
         async function fetchPullRequests() {
             const response = await fetch('https://api.github.com/search/issues?q=author:louislelay+type:pr');
