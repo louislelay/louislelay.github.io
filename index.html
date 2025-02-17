@@ -23,6 +23,7 @@
         position: fixed;
         height: 100vh;
         overflow-y: auto;
+        transition: transform 0.3s ease-in-out;
     }
 
     #sidebar a {
@@ -38,7 +39,6 @@
 
     #content {
         flex-grow: 1;
-        /* padding: 5%; */
         display: flex;
         flex-direction: column;
         min-height: 100vh;
@@ -59,7 +59,6 @@
         justify-content: space-between;
         padding-top: 3%;
     }
-
     a {
         color: blue !important;
         text-decoration: none;
@@ -95,16 +94,45 @@
         height: auto;
         aspect-ratio: 16 / 9;
     }
+    
+    #menu-button {
+        display: none;
+        background-color: #333;
+        color: white;
+        border: none;
+        padding: 10px 15px;
+        font-size: 16px;
+        position: fixed;
+        top: 10px;
+        left: 10px;
+        cursor: pointer;
+    }
+
+    @media (max-width: 768px) {
+        #sidebar {
+            transform: translateX(-100%);
+            width: 60%;
+        }
+        
+        #sidebar.show {
+            transform: translateX(0);
+        }
+
+        #menu-button {
+            display: block;
+        }
+    }
 
     </style>
 </head>
 <body>
+    <button id="menu-button" onclick="toggleSidebar()">☰ Menu</button>
     <div id="sidebar">
         <h2>Louis Le Lay</h2>
-        <a href="#about" onclick="showSection('about')">About Me</a>
-        <a href="#background" onclick="showSection('background')">Background</a>
-        <a href="#projects" onclick="showSection('projects')">Projects</a>
-        <a href="#opensource" onclick="showSection('opensource')">Open Source Contributions</a>
+        <a href="#about" onclick="showSection('about'); closeSidebar();">About Me</a>
+        <a href="#background" onclick="showSection('background'); closeSidebar();">Background</a>
+        <a href="#projects" onclick="showSection('projects'); closeSidebar();">Projects</a>
+        <a href="#opensource" onclick="showSection('opensource'); closeSidebar();">Open Source Contributions</a>
     </div>
     <div id="content">
     <!-- About Me Section -->
@@ -217,6 +245,14 @@
                 section.classList.remove('active');
             });
             document.getElementById(id).classList.add('active');
+        }
+
+        function toggleSidebar() {
+            document.getElementById('sidebar').classList.toggle('show');
+        }
+
+        function closeSidebar() {
+            document.getElementById('sidebar').classList.remove('show');
         }
 
         async function fetchPullRequests() {
