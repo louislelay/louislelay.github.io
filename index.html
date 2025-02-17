@@ -5,80 +5,97 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Louis Le Lay - Personal Website</title>
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            display: flex;
-        }
-        #sidebar {
-            width: 250px;
-            background-color: #333;
-            color: white;
-            padding: 20px;
-            display: flex;
-            flex-direction: column;
-            align-items: flex-start;
-            white-space: nowrap;
-            position: fixed;
-            height: 100vh;
-            overflow-y: auto;
-        }
-        #sidebar a {
-            color: white !important;
-            text-decoration: none;
-            padding: 5px 10px;
-            display: inline-block;
-        }
-        #sidebar a:hover {
-            background-color: #575757;
-        }
-        #content {
-            flex-grow: 1;
-            padding: 20px;
-            display: flex;
-            flex-direction: column;
-            min-height: 100vh;
-            margin-left: 300px;
-            margin-right: 30%;
-        }
-        .section {
-            display: none;
-            flex-grow: 1;
-            margin-bottom: 20px; /* Adds spacing between sections */
-        }
-        .active {
-            display: block;
-            flex-direction: column;
-            justify-content: space-between;
-        }
-        a {
-            color: blue !important;
-            text-decoration: none;
-        }
-        .date {
-            margin-top: 20px;
-            font-weight: bold;
-        }
-        .repo {
-            margin-left: 20px;
-            font-weight: bold;
-        }
-        .pr {
-            margin-left: 40px;
-        }
-        .spacer {
-            flex-grow: 1;
-        }
-        .contact-links a {
-            color: blue;
-            text-decoration: none;
-            margin-right: 15px;
-        }
-        .project-video {
-            width: 100%;
-            max-width: 560px;
-            height: 315px;
-        }
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        display: flex;
+    }
+
+    #sidebar {
+        width: 20%;
+        background-color: #333;
+        color: white;
+        padding: 1%;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        white-space: nowrap;
+        position: fixed;
+        height: 100vh;
+        overflow-y: auto;
+    }
+
+    #sidebar a {
+        color: white !important;
+        text-decoration: none;
+        padding: 2% 5%;
+        display: inline-block;
+    }
+
+    #sidebar a:hover {
+        background-color: #575757;
+    }
+
+    #content {
+        flex-grow: 1;
+        /* padding: 5%; */
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+        margin-left: 25%;
+        margin-right: 10%;
+    }
+
+    .section {
+        display: none;
+        flex-direction: column;
+        justify-content: space-between;
+        padding-top: 3%;
+    }
+
+    .active {
+        display: block;
+        flex-direction: column;
+        justify-content: space-between;
+        padding-top: 3%;
+    }
+
+    a {
+        color: blue !important;
+        text-decoration: none;
+    }
+
+    .date {
+        margin-top: 5%;
+        font-weight: bold;
+    }
+
+    .repo {
+        margin-left: 5%;
+        font-weight: bold;
+    }
+
+    .pr {
+        margin-left: 10%;
+    }
+
+    .spacer {
+        flex-grow: 1;
+    }
+
+    .contact-links a {
+        color: blue;
+        text-decoration: none;
+        margin-right: 3%;
+    }
+
+    .project-video {
+        width: 100%;
+        max-width: 80%;
+        height: auto;
+        aspect-ratio: 16 / 9;
+    }
+
     </style>
 </head>
 <body>
@@ -168,8 +185,7 @@
             integration into the IsaacLab repository. <a href="https://github.com/isaac-sim/IsaacLab" target="_blank">{GitHub Repo}</a>
         </p>
         <iframe class="project-video" src="https://www.youtube.com/embed/dT1HWIXhEPs" frameborder="0" allowfullscreen> </iframe>
-
-        </iframe>
+    
         <h2>VR-Based Throwing Accuracy Study</h2>
         <p>
             Developed a VR simulation to study the impact of visual feedback 
