@@ -1,3 +1,4 @@
 title: Louis Le Lay
 description: My Personal Website
-theme: minima
+# theme: minima
+theme: hacker
