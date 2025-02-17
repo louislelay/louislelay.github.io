@@ -42,6 +42,7 @@
         display: flex;
         flex-direction: column;
         min-height: 100vh;
+        transition: margin-left 0.3s ease-in-out;
         margin-left: 25%;
         margin-right: 10%;
     }
@@ -120,6 +121,10 @@
 
         #menu-button {
             display: block;
+        }
+
+        #content {
+            margin-left: 10%;
         }
     }
 
@@ -249,10 +254,12 @@
 
         function toggleSidebar() {
             document.getElementById('sidebar').classList.toggle('show');
+            document.getElementById('content').style.marginLeft = document.getElementById('sidebar').classList.contains('show') ? '25%' : '10%';
         }
 
         function closeSidebar() {
             document.getElementById('sidebar').classList.remove('show');
+            document.getElementById('content').style.marginLeft = '10%';
         }
 
         async function fetchPullRequests() {
