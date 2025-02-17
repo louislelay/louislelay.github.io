@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Louis Le Lay - Personal Website</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            display: flex;
+            height: 100vh;
+        }
+        #sidebar {
+            width: 250px;
+            background-color: #333;
+            color: white;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+        }
+        #sidebar a {
+            color: white;
+            text-decoration: none;
+            padding: 10px 0;
+            display: block;
+        }
+        #sidebar a:hover {
+            background-color: #575757;
+        }
+        #content {
+            flex-grow: 1;
+            padding: 20px;
+        }
+        .section {
+            display: none;
+        }
+        .active {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <div id="sidebar">
+        <h2>Louis Le Lay</h2>
+        <a href="#about" onclick="showSection('about')">About Me</a>
+        <a href="#experience" onclick="showSection('experience')">Experience</a>
+        <a href="#projects" onclick="showSection('projects')">Projects</a>
+        <a href="#opensource" onclick="showSection('opensource')">Open Source Contributions</a>
+    </div>
+    <div id="content">
+        <div id="about" class="section active">
+            <h1>About Me</h1>
+            <p>Welcome to my personal website. I am a robotics engineer with experience in sensor fusion, AI, and simulation.</p>
+        </div>
+        <div id="experience" class="section">
+            <h1>Experience</h1>
+            <p>Details about my professional experience.</p>
+        </div>
+        <div id="projects" class="section">
+            <h1>Projects</h1>
+            <p>Showcase of my projects.</p>
+        </div>
+        <div id="opensource" class="section">
+            <h1>Open Source Contributions</h1>
+            <p>My contributions to open source projects.</p>
+        </div>
+    </div>
+    <script>
+        function showSection(id) {
+            document.querySelectorAll('.section').forEach(section => {
+                section.classList.remove('active');
+            });
+            document.getElementById(id).classList.add('active');
+        }
+    </script>
+</body>
+</html>
