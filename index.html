@@ -88,14 +88,41 @@
         text-decoration: none;
         margin-right: 3%;
     }
-
+    
     .project-video {
         width: 100%;
         max-width: 80%;
         height: auto;
         aspect-ratio: 16 / 9;
     }
-    
+
+    .image-gallery {
+        margin-top: 1em;
+        text-align: center; /* Example styling */
+        }
+
+    .project-image {
+        height: 30vh;
+        width: auto;
+        /* max-width: 90%; */
+        margin-bottom: 1em;
+    }
+
+    button.prev,
+    button.next {
+        background-color: #444;
+        color: white;
+        border: none;
+        padding: 6px 10px;
+        margin: 0 5px;
+        cursor: pointer;
+    }
+
+    button.prev:hover,
+    button.next:hover {
+        background-color: #666;
+    }
+
     #menu-button {
         display: none;
         background-color: #333;
@@ -215,10 +242,14 @@
             specifically for the BD-X robot from Disney Research, ensuring compatibility 
             with existing RL frameworks. The environment was designed and implemented with 
             a focus on efficient training and simulation, leading to its successful 
-            integration into the IsaacLab repository. <a href="https://github.com/isaac-sim/IsaacLab" target="_blank">{GitHub Repo}</a>
+            integration into the IsaacLab repository. 
+
+            <a href="https://github.com/isaac-sim/IsaacLab" target="_blank">{GitHub Repo}</a>
         </p>
+
         <iframe class="project-video" src="https://www.youtube.com/embed/dT1HWIXhEPs" frameborder="0" allowfullscreen> </iframe>
     
+
         <h2>VR-Based Throwing Accuracy Study</h2>
         <p>
             Developed a VR simulation to study the impact of visual feedback 
@@ -227,11 +258,151 @@
             training by building a detailed VR model and conducting experimental 
             analysis. The findings demonstrated the effectiveness of VR in skill 
             training, highlighting its potential for improving motor learning 
-            and accuracy. <a href="https://github.com/MPL-projects/vr-project" target="_blank">{GitHub Repo}</a>
+            and accuracy. 
+
+            <a href="https://github.com/MPL-projects/vr-project" target="_blank">{GitHub Repo}</a>
         </p>
+
         <iframe class="project-video" src="https://www.youtube.com/embed/TBcGD_-SzD4" frameborder="0" allowfullscreen></iframe>
 
-        <h2>More Past Projects Coming Soon</h2>
+
+        <h2>Bipedal Wheeled Robot</h2>
+        <p>
+            Developed a wheeled bipedal robot in SolidWorks, focusing on an 
+            innovative mechanism that eliminates cantilevering for enhanced 
+            stability. After 3D printing the structure, I programmed it using 
+            ROS2 for seamless locomotion control. The final design exhibits 
+            high agility in diverse environments and demonstrates robust 
+            motion capabilities.
+            
+            <a href="https://github.com/louislelay/Bipedal_Work" target="_blank">GitHub Repo</a>
+        </p>
+        <!-- Slideshow for multiple images (example) -->
+        <div class="image-gallery" data-project="bipedalWheeledRobot">
+            <img class="project-image" 
+                 src="media/BipedalWheeledRobot/robot-v3-irl.jpeg" 
+                 alt="Robot v3 - IRL after 3D Printing" style="display:block;">
+            <img class="project-image" 
+                 src="media/BipedalWheeledRobot/robot-v3-cad.jpeg" 
+                 alt="Robot v2 - Solidworks CAD" style="display:none;">
+            <button class="prev" onclick="plusSlides(-1, 'bipedalWheeledRobot')">Previous</button>
+            <button class="next" onclick="plusSlides(1, 'bipedalWheeledRobot')">Next</button>
+        </div>
+    
+    
+        <h2>Experimental Equipment for Orthostatic Exercise – University of Tokyo</h2>
+        <p>
+            Created a robotic assistive system to facilitate sit-to-stand motion 
+            from a soft chair, primarily targeting elderly individuals. Using 
+            MATLAB for both EMG-based intent detection and real-time seat hardening, 
+            the project significantly reduced muscle strain, as validated by 
+            camera and EMG analyses. 
+            
+            <a href="https://github.com/louislelay/Experimental-Equipment-for-Orthostatic-Exercise" target="_blank">GitHub Repo</a>
+        </p>
+        <div class="image-gallery" data-project="orthostaticExercise">
+            <img class="project-image"
+                 src="media/ExperimentalEquipmentForOrthostaticExercise/equipment.jpeg"
+                 alt="Equipment" style="display:block;">
+            <img class="project-image"
+                 src="media/ExperimentalEquipmentForOrthostaticExercise/equipment-cad.png"
+                 alt="CAD of the Equipment" style="display:none;">
+            <img class="project-image"
+                 src="media/ExperimentalEquipmentForOrthostaticExercise/equipment-plan.png"
+                 alt="Plan of the Equipment" style="display:none;">
+            <img class="project-image"
+                 src="media/ExperimentalEquipmentForOrthostaticExercise/experiment.png"
+                 alt="Experiment" style="display:none;">
+            <button class="prev" onclick="plusSlides(-1, 'orthostaticExercise')">Previous</button>
+            <button class="next" onclick="plusSlides(1, 'orthostaticExercise')">Next</button>
+        </div>
+    
+    
+        <h2>Semantic Sensor Fusion for Unitree Go1 – University of Tokyo</h2>
+        <p>
+            Enhanced the Go1 quadruped robot’s perception by fusing LiDAR and 
+            Realsense camera data via ROS, enabling a semantic mapping approach 
+            using machine learning. This setup allows the robot to label and 
+            interpret its surroundings, supporting tasks like person-following 
+            and object-centric SLAM.  
+        </p>
+        <div class="image-gallery" data-project="semanticGo1">
+            <img class="project-image"
+                 src="media/SemanticSensorFusionGo1/WuJiaxuPoster-eng.png"
+                 alt="Semantic Sensor Fusion Poster (translated to English)" style="display:block;">
+            <img class="project-image"
+                 src="media/SemanticSensorFusionGo1/fusion-rviz.png"
+                 alt="Fusion of the 3D LiDAR and RGB-D data" style="display:none;">
+            <img class="project-image"
+                 src="media/SemanticSensorFusionGo1/WuJiaxuPoster-jp.jpeg"
+                 alt="Semantic Sensor Fusion Poster (Japanese original version)" style="display:none;">
+            <button class="prev" onclick="plusSlides(-1, 'semanticGo1')">Previous</button>
+            <button class="next" onclick="plusSlides(1, 'semanticGo1')">Next</button>
+        </div>
+    
+    
+        <h2>Lane Detection and Vehicle Tracking – Sorbonne University</h2>
+        <p>
+            Implemented a computer vision pipeline in C++ (OpenCV) that detects road lanes via 
+            edge detection and Hough transforms, then identifies and counts vehicles using 
+            bounding box tracking. The solution performs reliably under varying conditions, 
+            demonstrating robust detection accuracy and efficient vehicle counting. 
+            
+            <a href="https://github.com/louislelay/Lane-Detection-and-Vehicle-Tracking" target="_blank">GitHub Repo</a>
+        </p>
+        <div class="image-gallery" data-project="laneDetection">
+            <img class="project-image"
+                 src="media/LaneDetectionAndVehicleTracking/count.jpeg"
+                 alt="Counting the Vehicles" style="display:block;">
+            <img class="project-image"
+                 src="media/LaneDetectionAndVehicleTracking/steps.jpeg"
+                 alt="Steps in Image Analysis" style="display:none;">
+            <button class="prev" onclick="plusSlides(-1, 'laneDetection')">Previous</button>
+            <button class="next" onclick="plusSlides(1, 'laneDetection')">Next</button>
+        </div>
+    
+    
+        <h2>8 DOF Quadruped Robot</h2>
+        <p>
+            Conceived a low-cost quadruped inspired by Boston Dynamics’ SPOT and MIT’s Cheetah, 
+            starting with a 3D-printed leg prototype driven by two servo motors and an Arduino. 
+            The current setup lays groundwork for a full 12 DOF upgrade, with plans to 
+            implement advanced leg control algorithms for more dynamic movement.
+        </p>
+
+        <iframe class="project-video" src="https://www.youtube.com/embed/jixDbttGpBg" frameborder="0" allowfullscreen> </iframe>
+
+        <div class="image-gallery" data-project="8DofQuadruped">
+            <img class="project-image"
+                 src="media/8DOFQuadruped/quadruped-cad.png"
+                 alt="Quadruped Robot CAD- Prototype v1" style="display:block;">
+            <img class="project-image"
+                 src="media/8DOFQuadruped/leg-cad.png"
+                 alt="Quadruped Robot Leg CAD - Prototype v1" style="display:none;">
+            <img class="project-image"
+                 src="media/8DOFQuadruped/leg-irl-1.jpeg"
+                 alt="Quadruped Robot Leg - Prototype v1" style="display:none;">
+            <img class="project-image"
+                 src="media/8DOFQuadruped/leg-irl-2.jpeg"
+                 alt="Quadruped Robot Leg - Prototype v1" style="display:none;">
+            <button class="prev" onclick="plusSlides(-1, '8DofQuadruped')">Previous</button>
+            <button class="next" onclick="plusSlides(1, '8DofQuadruped')">Next</button>
+        </div>
+    
+    
+        <h2>C++ Game – Sorbonne University</h2>
+        <p>
+            Designed a minimalist 1v1 game on an 8×8 pixel grid entirely in C++, 
+            supporting both keyboard and gamepad inputs without relying 
+            on any external game engine. This project showcased core game-loop 
+            coding, collision handling, and rendering logic in a compact yet 
+            fully functional environment.  
+            
+            <a href="https://github.com/MPL-projects/POO-game" target="_blank">GitHub Repo</a>
+        </p>
+
+        <iframe class="project-video" src="https://www.youtube.com/embed/MueVXqSQhI4&t=1s" frameborder="0" allowfullscreen> </iframe>
+
     </div>
 
     <!-- Open Source Contributions -->
@@ -244,8 +415,99 @@
         <p> </p>
     </div>
     <!-- </div> -->
+
+
+
     <script>
+
+        // window.addEventListener("load", () => {
+        //     unifyAllGalleries(); // or unifyHeightsInGallery(...)
+        // });
+
+
+        function unifyAllGalleries() {
+            // Grab all .image-gallery elements
+            const allGalleries = document.querySelectorAll('.image-gallery');
+            allGalleries.forEach(gallery => {
+                unifyHeightsInGallery(gallery);
+            });
+        }
+
+        function unifyHeightsInGallery(gallery) {
+            const images = gallery.querySelectorAll('.project-image');
+            let maxHeight = 0;
+
+            // Build an array of Promises so we only measure after images load
+            const loadPromises = Array.from(images).map(img => {
+                return new Promise(resolve => {
+                    if (img.complete) {
+                        resolve();
+                    } else {
+                        img.onload = resolve;
+                        img.onerror = resolve;
+                    }
+                });
+            });
+
+            // Once all images in this gallery are loaded, compute the final uniform height
+            Promise.all(loadPromises).then(() => {
+                // Determine the forced width (80% of gallery container)
+                const galleryWidth = gallery.clientWidth;
+                const targetWidth = galleryWidth * 0.5;
+
+                // Compute each image's would-be displayed height at that width
+                images.forEach(img => {
+                    // aspect ratio = naturalHeight / naturalWidth
+                    const aspectRatio = img.naturalHeight / img.naturalWidth;
+                    const thisDisplayedHeight = targetWidth * aspectRatio;
+
+                    if (thisDisplayedHeight > maxHeight) {
+                        maxHeight = thisDisplayedHeight;
+                    }
+                });
+
+                // Now set all images to that same final width & height
+                images.forEach(img => {
+                    img.style.width = targetWidth + 'px';
+                    img.style.height = maxHeight + 'px';
+                    img.style.objectFit = 'contain';  // or 'cover' if you prefer cropping
+                });
+            });
+        }
+
+        // Basic slideshow logic for multiple projects
+        function plusSlides(n, projectId) {
+
+            const gallery = document.querySelector(`.image-gallery[data-project="${projectId}"]`);
+            const slides = gallery.querySelectorAll('.project-image');
+            
+            // Find current visible slide index
+            let currentIndex = 0;
+            for (let i = 0; i < slides.length; i++) {
+                if (slides[i].style.display === 'block') {
+                    currentIndex = i;
+                    break;
+                }
+            }
+    
+            // Hide current slide
+            slides[currentIndex].style.display = 'none';
+    
+            // Calculate new index
+            let newIndex = currentIndex + n;
+            if (newIndex < 0) {
+                newIndex = slides.length - 1;
+            } else if (newIndex >= slides.length) {
+                newIndex = 0;
+            }
+    
+            // Show new slide
+            slides[newIndex].style.display = 'block';
+        }
+
         function showSection(id) {
+            unifyAllGalleries();
+
             document.querySelectorAll('.section').forEach(section => {
                 section.classList.remove('active');
             });
