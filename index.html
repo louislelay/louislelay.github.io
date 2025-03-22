@@ -532,42 +532,73 @@
         window.addEventListener('resize', adjustContentMargin);
 
         async function fetchPullRequests() {
-            const response = await fetch('https://api.github.com/search/issues?q=author:louislelay+type:pr');
-            const data = await response.json();
+            let page = 1;
+            let allPRs = [];
+
+            // Loop until a page returns less than 100 items (indicating the last page)
+            while (true) {
+                const response = await fetch(`https://api.github.com/search/issues?q=author:louislelay+type:pr&per_page=100&page=${page}`);
+                const data = await response.json();
+                
+                // If no items, break out of the loop
+                if (!data.items || data.items.length === 0) break;
+                
+                allPRs = allPRs.concat(data.items);
+                
+                // If fewer than 100 items, then this is the last page.
+                if (data.items.length < 100) break;
+                
+                page++;
+            }
+
             const prContainer = document.getElementById('github-prs');
             prContainer.innerHTML = '';
             
             const groupedPRs = {};
-            for (const pr of data.items) {
+            for (const pr of allPRs) {
+                // Skip closed PRs that were not merged
                 if (pr.state === 'closed' && !pr.pull_request.merged_at) continue;
+                
                 const date = new Date(pr.created_at).toLocaleDateString();
                 const repoName = pr.repository_url.split('/').pop();
                 const orgName = pr.repository_url.split('/')[4] || repoName;
                 const status = pr.pull_request.merged_at ? 'Merged' : 'Pending';
                 const repoLink = `https://github.com/${orgName}/${repoName}`;
                 const prNumber = pr.html_url.split('/').pop();
+
+                // Get repository data to fetch the star count
                 const starsResponse = await fetch(`https://api.github.com/repos/${orgName}/${repoName}`);
                 const repoData = await starsResponse.json();
                 const stars = repoData.stargazers_count || 0;
                 
                 if (!groupedPRs[date]) groupedPRs[date] = {};
-                if (!groupedPRs[date][repoName]) groupedPRs[date][repoName] = { orgName, repoLink, stars, prs: [] };
+                if (!groupedPRs[date][repoName]) {
+                groupedPRs[date][repoName] = { orgName, repoLink, stars, prs: [] };
+                }
                 
                 groupedPRs[date][repoName].prs.push({ title: pr.title, status, prNumber, prLink: pr.html_url });
             }
             
+            // Render the grouped pull requests
             for (const [date, repos] of Object.entries(groupedPRs)) {
                 prContainer.innerHTML += `<p class="date">${date}</p>`;
                 for (const [repoName, repoData] of Object.entries(repos)) {
-                    prContainer.innerHTML += `<p class="repo"><a href="${repoData.repoLink}" target="_blank">${repoData.orgName}/${repoName} (${repoData.stars}★)</a></p><ul>`;
-                    repoData.prs.forEach(pr => {
-                        prContainer.innerHTML += `<li class="pr">${pr.status} - ${pr.title} <a href="${pr.prLink}" target="_blank">[#${pr.prNumber}]</a></li>`;
-                    });
-                    prContainer.innerHTML += `</ul>`;
+                prContainer.innerHTML += `<p class="repo">
+                    <a href="${repoData.repoLink}" target="_blank">${repoData.orgName}/${repoName} (${repoData.stars}★)</a>
+                </p><ul>`;
+                repoData.prs.forEach(pr => {
+                    prContainer.innerHTML += `<li class="pr">${pr.status} - ${pr.title} 
+                    <a href="${pr.prLink}" target="_blank">[#${pr.prNumber}]</a>
+                    </li>`;
+                });
+                prContainer.innerHTML += `</ul>`;
                 }
             }
         }
+
         fetchPullRequests();
+
+
     </script>
 </body>
 </html>
