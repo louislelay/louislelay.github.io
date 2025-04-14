@@ -90,10 +90,14 @@
     }
     
     .project-video {
-        width: 100%;
-        max-width: 80%;
-        height: auto;
-        aspect-ratio: 16 / 9;
+        height: 30vh;
+        width: 55vh;
+        /* max-width: 100%; */
+        /* object-fit: contain; */
+        /* display: block; */
+        /* margin: 0 auto 1em auto; */
+        margin-bottom: 1em;
+        display: none;
     }
 
     .image-gallery {
@@ -317,11 +321,24 @@
             <a href="https://github.com/louislelay/kinova_isaaclab_sim2real" target="_blank">{GitHub Repo (currently private, but soon to be released)}</a>
         </p>
 
-        <iframe class="project-video" src="https://www.youtube.com/embed/zhHApKISTvw" frameborder="0" allowfullscreen> </iframe>
-    
-        <iframe class="project-video" src="https://www.youtube.com/embed/PFjB_rF-dME" frameborder="0" allowfullscreen> </iframe>
-
+        <div class="image-gallery" data-project="8DofQuadruped">
+            <!-- Video as the first slide -->
+            <iframe class="project-video" 
+                    src="https://www.youtube.com/embed/zhHApKISTvw"
+                    frameborder="0" allowfullscreen 
+                    style="display: block;"></iframe>
+            <iframe class="project-video" 
+                    src="https://www.youtube.com/embed/PFjB_rF-dME"
+                    frameborder="0" allowfullscreen 
+                    style="display: none;"></iframe>
         
+            <!-- Navigation buttons -->
+            <button class="prev" onclick="plusSlides(-1, '8DofQuadruped')">Previous</button>
+            <button class="next" onclick="plusSlides(1, '8DofQuadruped')">Next</button>
+        </div>
+
+
+
         <h2>Disney BD-X Robot Locomotion Training</h2>
         <p>
             Developed a reinforcement learning environment for biped robot locomotion, 
@@ -333,7 +350,7 @@
             <a href="https://github.com/isaac-sim/IsaacLab" target="_blank">{GitHub Repo}</a>
         </p>
 
-        <iframe class="project-video" src="https://www.youtube.com/embed/dT1HWIXhEPs" frameborder="0" allowfullscreen> </iframe>
+        <iframe class="project-video" src="https://www.youtube.com/embed/dT1HWIXhEPs" frameborder="0" allowfullscreen style="display:block;"> </iframe>
     
 
         <h2>VR-Based Throwing Accuracy Study</h2>
@@ -349,7 +366,7 @@
             <a href="https://github.com/MPL-projects/vr-project" target="_blank">{GitHub Repo}</a>
         </p>
 
-        <iframe class="project-video" src="https://www.youtube.com/embed/TBcGD_-SzD4" frameborder="0" allowfullscreen></iframe>
+        <iframe class="project-video" src="https://www.youtube.com/embed/TBcGD_-SzD4" frameborder="0" allowfullscreen style="display:block;"></iframe>
 
 
         <h2>Bipedal Wheeled Robot</h2>
@@ -361,7 +378,7 @@
             high agility in diverse environments and demonstrates robust 
             motion capabilities.
         </p>
-        <!-- Slideshow for multiple images (example) -->
+
         <div class="image-gallery" data-project="bipedalWheeledRobot">
             <img class="project-image" 
                  src="media/BipedalWheeledRobot/robot-v3-irl.jpeg" 
@@ -383,6 +400,7 @@
             
             <a href="https://github.com/louislelay/Experimental-Equipment-for-Orthostatic-Exercise" target="_blank">{GitHub Repo}</a>
         </p>
+
         <div class="image-gallery" data-project="orthostaticExercise">
             <img class="project-image"
                  src="media/ExperimentalEquipmentForOrthostaticExercise/equipment.jpeg"
@@ -409,6 +427,7 @@
             interpret its surroundings, supporting tasks like person-following 
             and object-centric SLAM.  
         </p>
+
         <div class="image-gallery" data-project="semanticGo1">
             <img class="project-image"
                  src="media/SemanticSensorFusionGo1/WuJiaxuPoster-eng.png"
@@ -433,6 +452,7 @@
             
             <a href="https://github.com/louislelay/Lane-Detection-and-Vehicle-Tracking" target="_blank">{GitHub Repo}</a>
         </p>
+
         <div class="image-gallery" data-project="laneDetection">
             <img class="project-image"
                  src="media/LaneDetectionAndVehicleTracking/count.jpeg"
@@ -453,25 +473,39 @@
             implement advanced leg control algorithms for more dynamic movement.
         </p>
 
-        <iframe class="project-video" src="https://www.youtube.com/embed/jixDbttGpBg" frameborder="0" allowfullscreen> </iframe>
-
         <div class="image-gallery" data-project="8DofQuadruped">
+            <!-- Video as the first slide -->
+            <iframe class="project-video" 
+                    src="https://www.youtube.com/embed/jixDbttGpBg" 
+                    frameborder="0" allowfullscreen 
+                    style="display: block;"></iframe>
+        
+            <!-- Images -->
             <img class="project-image"
                  src="media/8DOFQuadruped/quadruped-cad.png"
-                 alt="Quadruped Robot CAD- Prototype v1" style="display:block;">
+                 alt="Quadruped Robot CAD - Prototype v1" 
+                 style="display: none;">
+                 
             <img class="project-image"
                  src="media/8DOFQuadruped/leg-cad.png"
-                 alt="Quadruped Robot Leg CAD - Prototype v1" style="display:none;">
+                 alt="Quadruped Robot Leg CAD - Prototype v1" 
+                 style="display: none;">
+                 
             <img class="project-image"
                  src="media/8DOFQuadruped/leg-irl-1.jpeg"
-                 alt="Quadruped Robot Leg - Prototype v1" style="display:none;">
+                 alt="Quadruped Robot Leg - Prototype v1" 
+                 style="display: none;">
+                 
             <img class="project-image"
                  src="media/8DOFQuadruped/leg-irl-2.jpeg"
-                 alt="Quadruped Robot Leg - Prototype v1" style="display:none;">
+                 alt="Quadruped Robot Leg - Prototype v1" 
+                 style="display: none;">
+        
+            <!-- Navigation buttons -->
             <button class="prev" onclick="plusSlides(-1, '8DofQuadruped')">Previous</button>
             <button class="next" onclick="plusSlides(1, '8DofQuadruped')">Next</button>
         </div>
-    
+        
     
         <h2>C++ Game – Sorbonne University</h2>
         <p>
@@ -484,7 +518,7 @@
             <a href="https://github.com/MPL-projects/POO-game" target="_blank">{GitHub Repo}</a>
         </p>
 
-        <iframe class="project-video" src="https://www.youtube.com/embed/MueVXqSQhI4" frameborder="0" allowfullscreen> </iframe>
+        <iframe class="project-video" src="https://www.youtube.com/embed/MueVXqSQhI4" frameborder="0" allowfullscreen style="display:block;"> </iframe>
 
     </div>
 
@@ -517,31 +551,39 @@
         }
 
         function unifyHeightsInGallery(gallery) {
-            const images = gallery.querySelectorAll('.project-image');
+            const mediaElements = gallery.querySelectorAll('.project-image, .project-video');
             let maxHeight = 0;
 
-            // Build an array of Promises so we only measure after images load
-            const loadPromises = Array.from(images).map(img => {
+            const loadPromises = Array.from(mediaElements).map(el => {
                 return new Promise(resolve => {
-                    if (img.complete) {
-                        resolve();
+                    if (el.tagName === 'IMG') {
+                        if (el.complete) {
+                            resolve();
+                        } else {
+                            el.onload = resolve;
+                            el.onerror = resolve;
+                        }
                     } else {
-                        img.onload = resolve;
-                        img.onerror = resolve;
+                        // For iframes, just resolve (can't load-detect easily)
+                        resolve();
                     }
                 });
             });
 
-            // Once all images in this gallery are loaded, compute the final uniform height
             Promise.all(loadPromises).then(() => {
-                // Determine the forced width (80% of gallery container)
                 const galleryWidth = gallery.clientWidth;
                 const targetWidth = galleryWidth * 0.5;
 
-                // Compute each image's would-be displayed height at that width
-                images.forEach(img => {
-                    // aspect ratio = naturalHeight / naturalWidth
-                    const aspectRatio = img.naturalHeight / img.naturalWidth;
+                mediaElements.forEach(el => {
+                    let aspectRatio;
+
+                    if (el.tagName === 'IMG') {
+                        aspectRatio = el.naturalHeight / el.naturalWidth;
+                    } else {
+                        // Assume default 16:9 for iframe
+                        aspectRatio = 9 / 16;
+                    }
+
                     const thisDisplayedHeight = targetWidth * aspectRatio;
 
                     if (thisDisplayedHeight > maxHeight) {
@@ -549,20 +591,19 @@
                     }
                 });
 
-                // Now set all images to that same final width & height
-                images.forEach(img => {
-                    img.style.width = targetWidth + 'px';
-                    img.style.height = maxHeight + 'px';
-                    img.style.objectFit = 'contain';  // or 'cover' if you prefer cropping
+                mediaElements.forEach(el => {
+                    el.style.width = targetWidth + 'px';
+                    el.style.height = maxHeight + 'px';
                 });
             });
         }
+
 
         // Basic slideshow logic for multiple projects
         function plusSlides(n, projectId) {
 
             const gallery = document.querySelector(`.image-gallery[data-project="${projectId}"]`);
-            const slides = gallery.querySelectorAll('.project-image');
+            const slides = gallery.querySelectorAll('.project-image, .project-video');
             
             // Find current visible slide index
             let currentIndex = 0;
