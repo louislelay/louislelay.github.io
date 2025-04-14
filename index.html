@@ -616,6 +616,10 @@
     
             // Hide current slide
             slides[currentIndex].style.display = 'none';
+
+            if (slides[currentIndex].tagName === 'IFRAME') {
+                slides[currentIndex].src = slides[currentIndex].src;
+            }
     
             // Calculate new index
             let newIndex = currentIndex + n;
@@ -627,6 +631,8 @@
     
             // Show new slide
             slides[newIndex].style.display = 'block';
+
+
         }
 
         function showSection(id) {
