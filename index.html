@@ -535,10 +535,18 @@
     <!-- </div> -->
     <div id="opensource" class="section">
         <h1>Open Source Contributions</h1>
-        <p>My recent contributions to open-source projects:</p>
+        <p> &nbsp; </p>
+        <h2>My GitHub Stats</h2>
+        <p>&emsp;-&emsp;⭐ Total Stars Earned:&emsp;&emsp;&emsp;&nbsp;160+</p>
+        <p>&emsp;-&emsp;⏳ Total commits (2025):&emsp;&emsp;&nbsp;700+</p>
+        <p>&emsp;-&emsp;🎉 Total PRs:&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&nbsp;70+</p>
+        <p>&emsp;-&emsp;⚠️ Total Issues:&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&nbsp;26</p>
+        <p>&emsp;-&emsp;🔖 Contributed to (last year):&ensp;19</p>
+        <p> &nbsp; </p>
+        <h2>My recent contributions to open-source projects</h2>
         <div id="github-prs">Loading...</div>
         <div class="spacer"></div>
-        <p> </p>
+        <p> &nbsp; </p>
     </div>
     <!-- </div> -->
 
@@ -712,7 +720,10 @@
                 const starsResponse = await fetch(`https://api.github.com/repos/${orgName}/${repoName}`);
                 const repoData = await starsResponse.json();
                 const stars = repoData.stargazers_count || 0;
-                
+
+                // ←—— only include repos with more than 10 stars
+                if (stars <= 10) continue;
+
                 if (!groupedPRs[date]) groupedPRs[date] = {};
                 if (!groupedPRs[date][repoName]) {
                 groupedPRs[date][repoName] = { orgName, repoLink, stars, prs: [] };
