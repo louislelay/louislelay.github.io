@@ -198,14 +198,10 @@
     <!-- About Me Section -->
     <div id="about" class="section active">
         <h1>About Louis Le Lay</h1>
-        <p> Hello! I'm Louis Le Lay, a Robotics Engineering student at Sorbonne University and 
-            currently pursuing a dual degree in Information Technology at ETS Montréal.  
-            I specialize in computer vision and simulation with extensive experience 
-            in ROS, ROS2, SLAM, and machine learning.
-        </p>
-        <p>
-            Having worked with Airbus on robotic automation and at the University of Tokyo on 
-            semantic sensor fusion, I thrive in AI-driven robotics projects that integrate perception and control. 
+        <p> Robotics engineering student with hands-on contributions to open-source simulation frameworks, sim-to-real 
+            reinforcement learning pipelines, and multi-sensor fusion in ROS 2. Comfortable with C++/Python,
+            real-time control, and modern DevOps. Seeking to work where advanced simulation and AI
+            methods drive practical robotic capabilities.
         </p>
         <h3>🔧 Core Skills</h3>
         <ul>
@@ -535,10 +531,18 @@
     <!-- </div> -->
     <div id="opensource" class="section">
         <h1>Open Source Contributions</h1>
-        <p>My recent contributions to open-source projects:</p>
+        <p> &nbsp; </p>
+        <h2>My GitHub Stats</h2>
+        <p>&emsp;-&emsp;⭐ Total Stars Earned:&emsp;&emsp;&emsp;&nbsp;160+</p>
+        <p>&emsp;-&emsp;⏳ Total commits (2025):&emsp;&emsp;&nbsp;700+</p>
+        <p>&emsp;-&emsp;🎉 Total PRs:&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&nbsp;70+</p>
+        <p>&emsp;-&emsp;⚠️ Total Issues:&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&nbsp;26</p>
+        <p>&emsp;-&emsp;🔖 Contributed to (last year):&ensp;19</p>
+        <p> &nbsp; </p>
+        <h2>My recent contributions to open-source projects</h2>
         <div id="github-prs">Loading...</div>
         <div class="spacer"></div>
-        <p> </p>
+        <p> &nbsp; </p>
     </div>
     <!-- </div> -->
 
@@ -712,7 +716,10 @@
                 const starsResponse = await fetch(`https://api.github.com/repos/${orgName}/${repoName}`);
                 const repoData = await starsResponse.json();
                 const stars = repoData.stargazers_count || 0;
-                
+
+                // ←—— only include repos with more than 10 stars
+                if (stars <= 10) continue;
+
                 if (!groupedPRs[date]) groupedPRs[date] = {};
                 if (!groupedPRs[date][repoName]) {
                 groupedPRs[date][repoName] = { orgName, repoLink, stars, prs: [] };
