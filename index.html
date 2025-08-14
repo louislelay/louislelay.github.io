@@ -1,753 +1,225 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Louis Le Lay - Personal Website</title>
-    <style>
-    body {
-        font-family: Arial, sans-serif;
-        margin: 0;
-        display: flex;
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Louis Le Lay - Robotics</title>
+  <meta name="description" content="Personal site of Louis Le Lay: robotics, publications, teaching, talks." /> 
+  <style> 
+    :root{
+      --bg: #ffffff;
+      --fg: #111111;
+      --muted:#666666;
+      --link:#0a66c2;
+      --maxw: 720px;
+      --pad: 18px;
+      --radius: 10px;
+    }
+    @media (prefers-color-scheme: dark){
+      :root{
+        --bg:#0b0b0b;
+        --fg:#f2f2f2;
+        --muted:#a6a6a6;
+        --link:#8ab4f8;
+      }
+    }
+    html,body{height:100%}
+    body{
+      margin:0;
+      font: 16px/1.6 system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, "Helvetica Neue", Arial, sans-serif;
+      background: var(--bg);
+      color: var(--fg);
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+    }
+    .wrap{max-width:var(--maxw); margin:0 auto; padding: calc(var(--pad) * 1.25) var(--pad);}
+    header{
+      position: sticky; top: 0;
+      background: color-mix(in oklab, var(--bg) 90%, transparent);
+      backdrop-filter: blur(6px);
+      border-bottom: 1px solid color-mix(in oklab, var(--fg) 10%, transparent);
+      z-index: 10;
+    }
+    nav ul{display:flex; gap:14px; list-style:none; margin:0; padding:0; flex-wrap: wrap;}
+    nav a{
+      display:inline-block; padding:6px 10px; border-radius: 8px;
+      text-decoration: none; color: var(--fg);
+    }
+    nav a:hover, nav a:focus{outline: none; background: color-mix(in oklab, var(--fg) 10%, transparent);}
+    .title{margin: 28px 0 10px; font-size: clamp(28px, 5vw, 40px); line-height:1.2}
+    p{margin: 0 0 14px;}
+    .muted{color: var(--muted)}
+    a{color: var(--link)}
+    main section{margin: 36px 0;}
+    h2{
+      font-size: 20px; margin: 22px 0 10px;
+      border-bottom: 1px solid color-mix(in oklab, var(--fg) 15%, transparent);
+      padding-bottom: 6px;
+    }
+    .card{
+      border: 1px solid color-mix(in oklab, var(--fg) 12%, transparent);
+      border-radius: var(--radius);
+      padding: 14px 16px; margin: 10px 0;
+    }
+    ul.clean{list-style:none; padding:0; margin: 8px 0;}
+    ul.clean li{margin: 6px 0;}
+    footer{
+      margin-top: 40px; padding-top: 18px;
+      border-top: 1px solid color-mix(in oklab, var(--fg) 10%, transparent);
+      font-size: 14px;
+    }
+    .skip-link{
+      position:absolute; left:-9999px; top:auto; width:1px; height:1px; overflow:hidden;
+    }
+    .skip-link:focus{
+      position:static; width:auto; height:auto; padding:8px 10px; border-radius:8px;
+      background: color-mix(in oklab, var(--fg) 10%, var(--bg));
+    }
+    .intro{
+      display:grid;
+      grid-template-columns: 1fr 140px; 
+      align-items:start;
+      gap:16px;
+      margin: 6px 0 18px;
+    }
+    @media (max-width: 560px){
+      .intro{ grid-template-columns: 1fr; }
+    }
+    .avatar{
+      width:140px; aspect-ratio:1;
+      border-radius: 12px;          
+      object-fit: cover;
+      border: 1px solid color-mix(in oklab, var(--fg) 12%, transparent);
+      box-shadow: 0 2px 10px color-mix(in oklab, var(--fg) 8%, transparent);
     }
 
-    #sidebar {
-        width: 20%;
-        background-color: #333;
-        color: white;
-        padding: 1%;
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-        white-space: nowrap;
-        position: fixed;
-        height: 100vh;
-        overflow-y: auto;
-        transition: transform 0.3s ease-in-out;
-    }
-
-    #sidebar a {
-        color: white !important;
-        text-decoration: none;
-        padding: 2% 5%;
-        display: inline-block;
-    }
-
-    #sidebar a:hover {
-        background-color: #575757;
-    }
-
-    #content {
-        flex-grow: 1;
-        display: flex;
-        flex-direction: column;
-        min-height: 100vh;
-        transition: transform 0.3s ease-in-out;
-        margin-left: 25%;
-        margin-right: 10%;
-    }
-
-    .section {
-        display: none;
-        flex-direction: column;
-        justify-content: space-between;
-        padding-top: 3%;
-    }
-
-    .active {
-        display: block;
-        flex-direction: column;
-        justify-content: space-between;
-        padding-top: 3%;
-    }
-    a {
-        color: blue !important;
-        text-decoration: none;
-    }
-
-    .date {
-        margin-top: 5%;
-        font-weight: bold;
-    }
-
-    .repo {
-        margin-left: 5%;
-        font-weight: bold;
-    }
-
-    .pr {
-        margin-left: 10%;
-    }
-
-    .spacer {
-        flex-grow: 1;
-    }
-
-    .contact-links a {
-        color: blue;
-        text-decoration: none;
-        margin-right: 3%;
-    }
-    
-    .project-video {
-        height: 30vh;
-        width: 55vh;
-        /* max-width: 100%; */
-        /* object-fit: contain; */
-        /* display: block; */
-        /* margin: 0 auto 1em auto; */
-        margin-bottom: 1em;
-        display: none;
-    }
-
-    .image-gallery {
-        margin-top: 1em;
-        text-align: center; /* Example styling */
-        }
-
-    .project-image {
-        height: 30vh;
-        width: auto;
-        /* max-width: 90%; */
-        margin-bottom: 1em;
-    }
-
-    .experience h2 {
-        font-size: 1.8rem;
-        color: #333;
-    }
-
-    .experience .location {
-        font-size: 1rem;
-        color: #777;
-    }
-
-    .experience .dates {
-        font-size: 0.9rem;
-        color: #555;
-    }
-
-    .experience .responsibilities {
-        list-style-type: disc;
-        padding-left: 20px;
-    }
-
-    .experience .responsibilities li {
-        margin-bottom: 5px;
-    }
-
-    button.prev,
-    button.next {
-        background-color: #444;
-        color: white;
-        border: none;
-        padding: 6px 10px;
-        margin: 0 5px;
-        cursor: pointer;
-    }
-
-    button.prev:hover,
-    button.next:hover {
-        background-color: #666;
-    }
-
-    #menu-button {
-        display: none;
-        background-color: #333;
-        color: white;
-        border: none;
-        padding: 10px 15px;
-        font-size: 16px;
-        position: fixed;
-        top: 10px;
-        left: 10px;
-        cursor: pointer;
-    }
-
-    @media (max-width: 768px) {
-        #sidebar {
-            transform: translateX(-100%);
-            width: 60%;
-        }
-        
-        #sidebar.show {
-            transform: translateX(0);
-        }
-
-        #menu-button {
-            display: block;
-        }
-
-        /* #content {
-            margin-left: 10%;
-        } */
-    }
-
-    </style>
+  </style>
 </head>
 <body>
-    <button id="menu-button" onclick="toggleSidebar()">☰ Menu</button>
-    <div id="sidebar">
-        <h2>Louis Le Lay</h2>
-        <a href="#about" onclick="showSection('about'); closeSidebar();">About Me</a>
-        <a href="#background" onclick="showSection('background'); closeSidebar();">Background</a>
-        <a href="#projects" onclick="showSection('projects'); closeSidebar();">Projects</a>
-        <a href="#opensource" onclick="showSection('opensource'); closeSidebar();">Open Source Contributions</a>
-    </div>
-    <div id="content">
-    <!-- About Me Section -->
-    <div id="about" class="section active">
-        <h1>About Louis Le Lay</h1>
-        <p> Robotics engineering student with hands-on contributions to open-source simulation frameworks, sim-to-real 
-            reinforcement learning pipelines, and multi-sensor fusion in ROS 2. Comfortable with C++/Python,
-            real-time control, and modern DevOps. Seeking to work where advanced simulation and AI
-            methods drive practical robotic capabilities.
-        </p>
-        <h3>🔧 Core Skills</h3>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header role="banner">
+    <div class="wrap" style="display:flex; align-items:center; justify-content:space-between; gap:14px; flex-wrap:wrap;">
+      <strong><a href="#top" style="text-decoration:none; color:inherit;">Louis Le Lay</a></strong>
+      <nav aria-label="Primary">
         <ul>
-            <li><strong>Programming & Tools:</strong> C++, Python, ROS, ROS2, Git, Docker, Gazebo, Mujoco, IsaacSim, IsaacLab, PyBullet, MATLAB</li>
-            <li><strong>Core Competencies:</strong> Sensor Fusion, SLAM, VR Simulation, Machine Learning, Reinforcement Learning, Sim2Real Transfer, Control Systems</li>
+          <li><a href="projects.html">Projects</a></li>
+          <li><a href="contributions.html">OS Contributions</a></li>
+          <!-- <li><a href="#blog">Blog</a></li>
+          <li><a href="#publications">Publications</a></li>
+          <li><a href="#robotics">Robotics</a></li>
+          <li><a href="#talks">Talks</a></li>
+          <li><a href="#teaching">Teaching</a></li> -->
         </ul>
-        <h3>📩 Contact</h3>
-        <p class="contact-links">
-            <a href="mailto:le.lay.louis@gmail.com">Email</a> |
-            <a href="https://www.linkedin.com/in/louis-le-lay/">LinkedIn</a> |
-            <a href="https://github.com/louislelay">GitHub</a>
-        </p>
+      </nav>
     </div>
+  </header>
 
-    <!-- Background Section -->
-    <div id="background" class="section">
-        <h1>Background</h1>
+  <main id="main" class="wrap">
+    <h1 class="title" id="top">Hello!</h1>
 
-        <h2>💼 Experience</h2>
+    <p>
+      I’m <strong>Louis Le Lay</strong>, a robotics engineer student turning advanced simulation and AI into real-world capabilities.
+      I work on <em>reinforcement learning</em>, <em>sim-to-real transfer</em>, and <em>multi-sensor fusion</em>, building 
+      robots that can move, see, and adapt in both simulation and reality.
+    </p>
+    <p>
+      I’ve contributed to open-source projects like <a href="https://github.com/isaac-sim/IsaacLab" target="_blank" rel="noopener">Isaac Lab</a>,
+        <a href="https://github.com/google-deepmind/mujoco_menagerie" target="_blank" rel="noopener">MuJoCo Menagerie</a>, and 
+        <a href="https://github.com/IntelRealSense/realsense-ros" target="_blank" rel="noopener">RealSense-ROS</a>, and built 
+        sim-to-real tools from Kinova Gen3 manipulation pipelines to Disney BD-X locomotion tasks.
+    </p>
+    <p>
+      My experience spans <strong>PAL Robotics</strong>, <strong>the University of Tokyo</strong>, <strong>Naova</strong>, and <strong>AIRBUS</strong>, with skills 
+      in Python, C++, ROS/ROS2, and simulation platforms like Isaac Lab and MuJoCo. I’ve worked with hardware from Kinova arms and Unitree quadrupeds to custom 
+      bipeds and full humanoids. 
+    </p>
+    <p>
+      My current work at <strong>PAL Robotics</strong> focuses on developing a RL-based locomotion for PAL's humanoid robot Kangaroo, using Isaac Lab.
+    </p>
+    <p>
+      Outside of work, I enjoy mentoring students on Isaac Lab and building my own biped robots.
+    </p>
 
-        <section class="experience">
-            <header>
-                <h3>Robotics Software Developer – Naova (RoboCup Team)</h3>
-                <p class="location">
-                Montreal, Canada <span class="dates">(Nov 2024 – Present)</span>
-                </p>
-            </header>
-            <ul class="responsibilities">
-                <li>Worked on walking control and referee signals perception.</li>
-            </ul>
-        </section>
+    <img class="avatar"
+       src="media/me.jpg"
+       alt="Me"
+       width="640" height="640"
+       loading="lazy" decoding="async">
 
 
-        <section class="experience">
-            <header>
-                <h3>Robotics Research Engineer Intern – Real World Robot Informatics Lab, University of Tokyo</h3>
-                <p class="location">
-                Tokyo, Japan <span class="dates">(Jun 2024 – Aug 2024)</span>
-                </p>
-            </header>
-            <ul class="responsibilities">
-                <li>Worked on sensor fusion for 3D-LiDAR and RGB-D camera to enhance GO1 robot perception.</li>
-            </ul>
-        </section>
-
-        <section class="experience">
-            <header>
-                <h3>Robotics Engineer Student (Industry Collaboration Project) – AIRBUS</h3>
-                <p class="location">
-                Paris, France <span class="dates">(Sept 2023 - June 2024)</span>
-                </p>
-            </header>
-            <ul class="responsibilities">
-                <li>Developed A320 cockpit automation POC, targeting a 13% production time cut and 2026 factory implementation.</li>
-            </ul>
-        </section>
-
-        <section class="experience">
-            <header>
-                <h3>Robotics Software Developer – Robotech</h3>
-                <p class="location">
-                Paris, France <span class="dates">(Sept 2022 - June 2024)</span>
-                </p>
-            </header>
-            <ul class="responsibilities">
-                <li>Worked on a ROS2-based control system through Gazebo for French Cup of Robotics.</li>
-            </ul>
-        </section>
-
-        <h2>🎓 Education</h2>
-
-        <section class="experience">
-            <header>
-                <h3>Master of Engineering – Robotics</h3>
-                <p class="location">
-                Sorbonne University – Paris, France <span class="dates">(2022 – 2025)</span>
-                </p>
-            </header>
-        </section>
-
-        <section class="experience">
-            <header>
-                <h3>Master of Engineering – Information Technology (Double Diploma)</h3>
-                <p class="location">
-                ETS Montréal – Montréal, Canada <span class="dates">(2024 – 2025)</span>
-                </p>
-            </header>
-        </section>
-
-        <h2>📜 Certifications</h2>
-
-        <ul>
-            <li>MIT - Machine Learning with Python (Dec 2023)</li>
-            <li>NVIDIA - Learn OpenUSD: An Introduction (Nov 2024)</li>
+    <section id="robotics" aria-labelledby="robotics-heading">
+      <h2 id="robotics-heading">Simulation & Reinforcement Learning</h2>
+      <p>
+        My work centers on physics simulation: designing, training, and validating control policies 
+        before taking them to hardware. I craft custom RL environments, refine rewards for stable 
+        locomotion, and bridge simulation and robots for dependable sim-to-real transfer.
+      </p>
+      <div class="card">
+        <p class="muted" style="margin:0 0 8px;">Example projects</p>
+        <ul class="clean" style="margin:0;">
+          <li>• <a href="https://www.youtube.com/watch?v=dT1HWIXhEPs" target="_blank" rel="noopener">Disney BD-X biped locomotion task (video)</a></li>
+          <li>• <a href="https://www.youtube.com/watch?v=5cP7AM1-FTA" target="_blank" rel="noopener">Kinova Gen3 sim-to-real reach policy (video)</a></li>
+          <li>• <a href="https://github.com/MuammerBay/isaac_so_arm101" target="_blank" rel="noopener">RL manipulation with SO-ARM101 robot (repository)</a></li>
         </ul>
-    </div>
+      </div>
+    </section>
 
-    <!-- Projects Section -->
-    <div id="projects" class="section">
-        <h1>Projects</h1>
-        
+    <section id="open-access" aria-labelledby="open-access-heading">
+      <h2 id="open-access-heading">Open access</h2>
+      <p>
+        I keep most of my work public whenever possible.
+      </p>
+    </section>
 
-        <h2>Kinova Gen3 RL & Sim2Real Toolkit</h2>
-        <p>
-            To enable Sim2Real deployment for the Kinova Gen3 robot, I set up a 
-            modular pipeline using Isaac Lab’s extension system. The project 
-            includes training scripts, pre-trained models, and ROS2 tools to 
-            run RL policies directly on the real robot, without requiring Isaac 
-            Lab or Isaac Sim at runtime. I've collaborated with the <a href="https://initrobots.ca/">INIT lab</a> 
-            at ÉTS Montréal to validate the full deployment on real 
-            hardware.
+    <!-- <section id="publications" aria-labelledby="pubs-heading">
+      <h2 id="pubs-heading">Publications</h2>
+      <ul class="clean">
+        <li><strong>Paper Title</strong> — Venue, Year. <a href="#">pdf</a> · <a href="#">code</a> · <a href="#">bib</a></li>
+        <li><strong>Another Title</strong> — Venue, Year. <a href="#">pdf</a> · <a href="#">code</a></li>
+      </ul>
+    </section>
 
-            <a href="https://github.com/louislelay/kinova_isaaclab_sim2real" target="_blank">{GitHub Repo}</a>
-        </p>
+    <section id="talks" aria-labelledby="talks-heading">
+      <h2 id="talks-heading">Talks</h2>
+      <ul class="clean">
+        <li><strong>Talk name</strong> — Event, Year. <a href="#">slides</a> · <a href="#">video</a></li>
+      </ul>
+    </section>
 
-        <div class="image-gallery" data-project="kinova">
-            <!-- Video as the first slide -->
-            <iframe class="project-video" 
-                    src="https://www.youtube.com/embed/5cP7AM1-FTA"
-                    frameborder="0" allowfullscreen 
-                    style="display: block;"></iframe>
-            <iframe class="project-video" 
-                    src="https://www.youtube.com/embed/zhHApKISTvw"
-                    frameborder="0" allowfullscreen 
-                    style="display: none;"></iframe>
-            <iframe class="project-video" 
-                    src="https://www.youtube.com/embed/PFjB_rF-dME"
-                    frameborder="0" allowfullscreen 
-                    style="display: none;"></iframe>
-        
-            <!-- Navigation buttons -->
-            <button class="prev" onclick="plusSlides(-1, 'kinova')">Previous</button>
-            <button class="next" onclick="plusSlides(1, 'kinova')">Next</button>
-        </div>
+    <section id="teaching" aria-labelledby="teaching-heading">
+      <h2 id="teaching-heading">Teaching</h2>
+      <ul class="clean">
+        <li><strong>Course / Workshop</strong> — Role, Year. <a href="#">materials</a></li>
+      </ul>
+    </section>
 
+    <section id="blog" aria-labelledby="blog-heading">
+      <h2 id="blog-heading">Blog</h2>
+      <div class="card">
+        <ul class="clean" style="margin:0;">
+          <li><a href="#">Balancing as a low-frequency task</a> — May 2025</li>
+          <li><a href="#">Intro to optimal control: LQR</a> — Feb 2025</li>
+          <li><a href="#">Notes on QP optimality tolerances</a> — Nov 2024</li>
+        </ul>
+      </div>
+    </section> -->
 
-
-        <h2>Disney BD-X Robot Locomotion Training</h2>
-        <p>
-            Developed a reinforcement learning environment for biped robot locomotion, 
-            specifically for the BD-X robot from Disney Research, ensuring compatibility 
-            with existing RL frameworks. The environment was designed and implemented with 
-            a focus on efficient training and simulation, leading to its successful 
-            integration into the IsaacLab repository. 
-
-            <a href="https://github.com/isaac-sim/IsaacLab" target="_blank">{GitHub Repo}</a>
-        </p>
-
-        <iframe class="project-video" 
-                src="https://www.youtube.com/embed/dT1HWIXhEPs" 
-                frameborder="0" allowfullscreen 
-                style="display: block;"></iframe>
-
-
-        <h2>VR-Based Throwing Accuracy Study</h2>
-        <p>
-            Developed a VR simulation to study the impact of visual feedback 
-            on throwing accuracy as part of a ball-throwing precision study. 
-            The project aimed to investigate skill transfer through VR-based 
-            training by building a detailed VR model and conducting experimental 
-            analysis. The findings demonstrated the effectiveness of VR in skill 
-            training, highlighting its potential for improving motor learning 
-            and accuracy. 
-
-            <a href="https://github.com/MPL-projects/vr-project" target="_blank">{GitHub Repo}</a>
-        </p>
-
-        <iframe class="project-video" 
-                src="https://www.youtube.com/embed/TBcGD_-SzD4" 
-                frameborder="0" allowfullscreen 
-                style="display: block;"></iframe>
-
-        <h2>Bipedal Wheeled Robot</h2>
-        <p>
-            Developed a wheeled bipedal robot in SolidWorks, focusing on an 
-            innovative mechanism that eliminates cantilevering for enhanced 
-            stability. After 3D printing the structure, I programmed it using 
-            ROS2 for seamless locomotion control. The final design exhibits 
-            high agility in diverse environments and demonstrates robust 
-            motion capabilities.
-        </p>
-
-        <div class="image-gallery" data-project="bipedalWheeledRobot">
-            <img class="project-image" 
-                 src="media/BipedalWheeledRobot/robot-v3-irl.jpeg" 
-                 alt="Robot v3 - IRL after 3D Printing" style="display:block;">
-            <img class="project-image" 
-                 src="media/BipedalWheeledRobot/robot-v3-cad.jpeg" 
-                 alt="Robot v2 - Solidworks CAD" style="display:none;">
-            <button class="prev" onclick="plusSlides(-1, 'bipedalWheeledRobot')">Previous</button>
-            <button class="next" onclick="plusSlides(1, 'bipedalWheeledRobot')">Next</button>
-        </div>
-    
-    
-        <h2>Experimental Equipment for Orthostatic Exercise – University of Tokyo</h2>
-        <p>
-            Developped code for a robotic assistive system to facilitate sit-to-stand motion 
-            from a soft chair, primarily targeting elderly individuals. Using MATLAB for both 
-            EMG-based intent detection and real-time seat hardening, the project reduced 
-            muscle strain, as validated by camera and EMG analyses. 
-            
-            <a href="https://github.com/louislelay/Experimental-Equipment-for-Orthostatic-Exercise" target="_blank">{GitHub Repo}</a>
-        </p>
-
-        <div class="image-gallery" data-project="orthostaticExercise">
-            <img class="project-image"
-                 src="media/ExperimentalEquipmentForOrthostaticExercise/equipment.jpeg"
-                 alt="Equipment" style="display:block;">
-            <img class="project-image"
-                 src="media/ExperimentalEquipmentForOrthostaticExercise/equipment-cad.png"
-                 alt="CAD of the Equipment" style="display:none;">
-            <img class="project-image"
-                 src="media/ExperimentalEquipmentForOrthostaticExercise/equipment-plan.png"
-                 alt="Plan of the Equipment" style="display:none;">
-            <img class="project-image"
-                 src="media/ExperimentalEquipmentForOrthostaticExercise/experiment.png"
-                 alt="Experiment" style="display:none;">
-            <button class="prev" onclick="plusSlides(-1, 'orthostaticExercise')">Previous</button>
-            <button class="next" onclick="plusSlides(1, 'orthostaticExercise')">Next</button>
-        </div>
-    
-    
-        <h2>Semantic Sensor Fusion for Unitree Go1 – University of Tokyo</h2>
-        <p>
-            Enhanced the Go1 quadruped robot’s perception by fusing LiDAR and 
-            Realsense camera data via ROS, enabling a semantic mapping approach 
-            using machine learning. This setup allows the robot to label and 
-            interpret its surroundings, supporting tasks like person-following 
-            and object-centric SLAM.  
-        </p>
-
-        <div class="image-gallery" data-project="semanticGo1">
-            <img class="project-image"
-                 src="media/SemanticSensorFusionGo1/WuJiaxuPoster-eng.png"
-                 alt="Semantic Sensor Fusion Poster (translated to English)" style="display:block;">
-            <img class="project-image"
-                 src="media/SemanticSensorFusionGo1/fusion-rviz.png"
-                 alt="Fusion of the 3D LiDAR and RGB-D data" style="display:none;">
-            <img class="project-image"
-                 src="media/SemanticSensorFusionGo1/WuJiaxuPoster-jp.jpeg"
-                 alt="Semantic Sensor Fusion Poster (Japanese original version)" style="display:none;">
-            <button class="prev" onclick="plusSlides(-1, 'semanticGo1')">Previous</button>
-            <button class="next" onclick="plusSlides(1, 'semanticGo1')">Next</button>
-        </div>
-    
-    
-        <h2>Lane Detection and Vehicle Tracking – Sorbonne University</h2>
-        <p>
-            Implemented a computer vision pipeline in C++ (OpenCV) that detects road lanes via 
-            edge detection and Hough transforms, then identifies and counts vehicles using 
-            bounding box tracking. The solution performs reliably under varying conditions, 
-            demonstrating robust detection accuracy and efficient vehicle counting. 
-            
-            <a href="https://github.com/louislelay/Lane-Detection-and-Vehicle-Tracking" target="_blank">{GitHub Repo}</a>
-        </p>
-
-        <div class="image-gallery" data-project="laneDetection">
-            <img class="project-image"
-                 src="media/LaneDetectionAndVehicleTracking/count.jpeg"
-                 alt="Counting the Vehicles" style="display:block;">
-            <img class="project-image"
-                 src="media/LaneDetectionAndVehicleTracking/steps.jpeg"
-                 alt="Steps in Image Analysis" style="display:none;">
-            <button class="prev" onclick="plusSlides(-1, 'laneDetection')">Previous</button>
-            <button class="next" onclick="plusSlides(1, 'laneDetection')">Next</button>
-        </div>
-    
-    
-        <h2>8 DOF Quadruped Robot</h2>
-        <p>
-            Conceived a low-cost quadruped inspired by Boston Dynamics’ SPOT and MIT’s Cheetah, 
-            starting with a 3D-printed leg prototype driven by two servo motors and an Arduino. 
-            The current setup lays groundwork for a full 12 DOF upgrade, with plans to 
-            implement advanced leg control algorithms for more dynamic movement.
-        </p>
-
-        <div class="image-gallery" data-project="8DofQuadruped">
-            <!-- Video as the first slide -->
-            <iframe class="project-video" 
-                    src="https://www.youtube.com/embed/jixDbttGpBg" 
-                    frameborder="0" allowfullscreen 
-                    style="display: block;"></iframe>
-        
-            <!-- Images -->
-            <img class="project-image"
-                 src="media/8DOFQuadruped/quadruped-cad.png"
-                 alt="Quadruped Robot CAD - Prototype v1" 
-                 style="display: none;">
-                 
-            <img class="project-image"
-                 src="media/8DOFQuadruped/leg-cad.png"
-                 alt="Quadruped Robot Leg CAD - Prototype v1" 
-                 style="display: none;">
-                 
-            <img class="project-image"
-                 src="media/8DOFQuadruped/leg-irl-1.jpeg"
-                 alt="Quadruped Robot Leg - Prototype v1" 
-                 style="display: none;">
-                 
-            <img class="project-image"
-                 src="media/8DOFQuadruped/leg-irl-2.jpeg"
-                 alt="Quadruped Robot Leg - Prototype v1" 
-                 style="display: none;">
-        
-            <!-- Navigation buttons -->
-            <button class="prev" onclick="plusSlides(-1, '8DofQuadruped')">Previous</button>
-            <button class="next" onclick="plusSlides(1, '8DofQuadruped')">Next</button>
-        </div>
-        
-    
-        <h2>C++ Game – Sorbonne University</h2>
-        <p>
-            Designed a minimalist 1v1 game on an 8×8 pixel grid entirely in C++, 
-            supporting both keyboard and gamepad inputs without relying 
-            on any external game engine. This project showcased core game-loop 
-            coding, collision handling, and rendering logic in a compact yet 
-            fully functional environment.  
-            
-            <a href="https://github.com/MPL-projects/POO-game" target="_blank">{GitHub Repo}</a>
-        </p>
-
-        <iframe class="project-video" src="https://www.youtube.com/embed/MueVXqSQhI4" frameborder="0" allowfullscreen style="display:block;"> </iframe>
-
-    </div>
-
-    <!-- Open Source Contributions -->
-    <!-- </div> -->
-    <div id="opensource" class="section">
-        <h1>Open Source Contributions</h1>
-        <p> &nbsp; </p>
-        <h2>My GitHub Stats</h2>
-        <p>&emsp;-&emsp;⭐ Total Stars Earned:&emsp;&emsp;&emsp;&nbsp;160+</p>
-        <p>&emsp;-&emsp;⏳ Total commits (2025):&emsp;&emsp;&nbsp;700+</p>
-        <p>&emsp;-&emsp;🎉 Total PRs:&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&nbsp;70+</p>
-        <p>&emsp;-&emsp;⚠️ Total Issues:&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&nbsp;26</p>
-        <p>&emsp;-&emsp;🔖 Contributed to (last year):&ensp;19</p>
-        <p> &nbsp; </p>
-        <h2>My recent contributions to open-source projects</h2>
-        <div id="github-prs">Loading...</div>
-        <div class="spacer"></div>
-        <p> &nbsp; </p>
-    </div>
-    <!-- </div> -->
-
-
-
-    <script>
-
-        // window.addEventListener("load", () => {
-        //     unifyAllGalleries(); // or unifyHeightsInGallery(...)
-        // });
-
-
-        function unifyAllGalleries() {
-            // Grab all .image-gallery elements
-            const allGalleries = document.querySelectorAll('.image-gallery');
-            allGalleries.forEach(gallery => {
-                unifyHeightsInGallery(gallery);
-            });
-        }
-
-        function unifyHeightsInGallery(gallery) {
-            const mediaElements = gallery.querySelectorAll('.project-image, .project-video');
-            let maxHeight = 0;
-
-            const loadPromises = Array.from(mediaElements).map(el => {
-                return new Promise(resolve => {
-                    if (el.tagName === 'IMG') {
-                        if (el.complete) {
-                            resolve();
-                        } else {
-                            el.onload = resolve;
-                            el.onerror = resolve;
-                        }
-                    } else {
-                        // For iframes, just resolve (can't load-detect easily)
-                        resolve();
-                    }
-                });
-            });
-
-            Promise.all(loadPromises).then(() => {
-                const galleryWidth = gallery.clientWidth;
-                const targetWidth = galleryWidth * 0.5;
-
-                mediaElements.forEach(el => {
-                    let aspectRatio;
-
-                    if (el.tagName === 'IMG') {
-                        aspectRatio = el.naturalHeight / el.naturalWidth;
-                    } else {
-                        // Assume default 16:9 for iframe
-                        aspectRatio = 9 / 16;
-                    }
-
-                    const thisDisplayedHeight = targetWidth * aspectRatio;
-
-                    if (thisDisplayedHeight > maxHeight) {
-                        maxHeight = thisDisplayedHeight;
-                    }
-                });
-
-                mediaElements.forEach(el => {
-                    el.style.width = targetWidth + 'px';
-                    el.style.height = maxHeight + 'px';
-                });
-            });
-        }
-
-
-        // Basic slideshow logic for multiple projects
-        function plusSlides(n, projectId) {
-
-            const gallery = document.querySelector(`.image-gallery[data-project="${projectId}"]`);
-            const slides = gallery.querySelectorAll('.project-image, .project-video');
-            
-            // Find current visible slide index
-            let currentIndex = 0;
-            for (let i = 0; i < slides.length; i++) {
-                if (slides[i].style.display === 'block') {
-                    currentIndex = i;
-                    break;
-                }
-            }
-    
-            // Hide current slide
-            slides[currentIndex].style.display = 'none';
-
-            if (slides[currentIndex].tagName === 'IFRAME') {
-                slides[currentIndex].src = slides[currentIndex].src;
-            }
-    
-            // Calculate new index
-            let newIndex = currentIndex + n;
-            if (newIndex < 0) {
-                newIndex = slides.length - 1;
-            } else if (newIndex >= slides.length) {
-                newIndex = 0;
-            }
-    
-            // Show new slide
-            slides[newIndex].style.display = 'block';
-
-
-        }
-
-        function showSection(id) {
-            unifyAllGalleries();
-
-            document.querySelectorAll('.section').forEach(section => {
-                section.classList.remove('active');
-            });
-            document.getElementById(id).classList.add('active');
-        }
-
-        function toggleSidebar() {
-            document.getElementById('sidebar').classList.toggle('show');
-            adjustContentMargin();
-        }
-
-        function closeSidebar() {
-            document.getElementById('sidebar').classList.remove('show');
-            adjustContentMargin();
-        }
-
-        function adjustContentMargin() {
-            if (window.innerWidth > 768) {
-                document.getElementById('content').style.marginLeft = '25%';
-            } else {
-                document.getElementById('content').style.marginLeft = document.getElementById('sidebar').classList.contains('show') ? '25%' : '10%';
-            }
-        }
-
-        window.addEventListener('resize', adjustContentMargin);
-
-        async function fetchPullRequests() {
-            let page = 1;
-            let allPRs = [];
-
-            // Loop until a page returns less than 100 items (indicating the last page)
-            while (true) {
-                const response = await fetch(`https://api.github.com/search/issues?q=author:louislelay+type:pr&per_page=100&page=${page}`);
-                const data = await response.json();
-                
-                // If no items, break out of the loop
-                if (!data.items || data.items.length === 0) break;
-                
-                allPRs = allPRs.concat(data.items);
-                
-                // If fewer than 100 items, then this is the last page.
-                if (data.items.length < 100) break;
-                
-                page++;
-            }
-
-            const prContainer = document.getElementById('github-prs');
-            prContainer.innerHTML = '';
-            
-            const groupedPRs = {};
-            for (const pr of allPRs) {
-                // Skip closed PRs that were not merged
-                if (pr.state === 'closed' && !pr.pull_request.merged_at) continue;
-                
-                const date = new Date(pr.created_at).toLocaleDateString();
-                const repoName = pr.repository_url.split('/').pop();
-                const orgName = pr.repository_url.split('/')[4] || repoName;
-                const status = pr.pull_request.merged_at ? 'Merged' : 'Pending';
-                const repoLink = `https://github.com/${orgName}/${repoName}`;
-                const prNumber = pr.html_url.split('/').pop();
-
-                // Get repository data to fetch the star count
-                const starsResponse = await fetch(`https://api.github.com/repos/${orgName}/${repoName}`);
-                const repoData = await starsResponse.json();
-                const stars = repoData.stargazers_count || 0;
-
-                // ←—— only include repos with more than 10 stars
-                if (stars <= 10) continue;
-
-                if (!groupedPRs[date]) groupedPRs[date] = {};
-                if (!groupedPRs[date][repoName]) {
-                groupedPRs[date][repoName] = { orgName, repoLink, stars, prs: [] };
-                }
-                
-                groupedPRs[date][repoName].prs.push({ title: pr.title, status, prNumber, prLink: pr.html_url });
-            }
-            
-            // Render the grouped pull requests
-            for (const [date, repos] of Object.entries(groupedPRs)) {
-                prContainer.innerHTML += `<p class="date">${date}</p>`;
-                for (const [repoName, repoData] of Object.entries(repos)) {
-                prContainer.innerHTML += `<p class="repo">
-                    <a href="${repoData.repoLink}" target="_blank">${repoData.orgName}/${repoName} (${repoData.stars}★)</a>
-                </p><ul>`;
-                repoData.prs.forEach(pr => {
-                    prContainer.innerHTML += `<li class="pr">${pr.status} - ${pr.title} 
-                    <a href="${pr.prLink}" target="_blank">[#${pr.prNumber}]</a>
-                    </li>`;
-                });
-                prContainer.innerHTML += `</ul>`;
-                }
-            }
-        }
-
-        fetchPullRequests();
-
-
-    </script>
+    <footer role="contentinfo">
+      <p>
+        © <span id="y">2025</span> Louis Le Lay · <a href="#top" title="Back to top">π</a><br />
+        Content licensed under <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="license noopener">CC BY 4.0</a>.<br />
+        Contact: 
+        <a href="https://github.com/louislelay" target="_blank" rel="noopener">GitHub</a> · 
+        <a href="https://www.linkedin.com/in/louis-le-lay/" target="_blank" rel="noopener">LinkedIn</a> · 
+        <a href="https://x.com/LouisLeLay4" target="_blank" rel="noopener">Twitter</a> · 
+        <a href="mailto:le.lay.louis@gmail.com">e-mail</a>
+      </p>
+      <script>
+        // keep the year current, but keep the HTML fully static if JS is disabled
+        const y = document.getElementById('y'); if (y) y.textContent = new Date().getFullYear();
+      </script>
+    </footer>
+  </main>
 </body>
 </html>
