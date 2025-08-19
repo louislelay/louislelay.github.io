@@ -1,89 +1,182 @@
 <!doctype html>
 <html lang="en">
+
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Open-source contributions - Louis Le Lay</title>
   <meta name="description" content="PRs, issues, reviews, and patches to open-source projects." />
-  <style> 
-    :root{
+  <style>
+    :root {
       --bg: #ffffff;
       --fg: #111111;
-      --muted:#666666;
-      --link:#0a66c2;
+      --muted: #666666;
+      --link: #0a66c2;
       --maxw: 720px;
       --pad: 18px;
       --radius: 10px;
     }
-    @media (prefers-color-scheme: dark){
-      :root{
-        --bg:#0b0b0b;
-        --fg:#f2f2f2;
-        --muted:#a6a6a6;
-        --link:#8ab4f8;
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #0b0b0b;
+        --fg: #f2f2f2;
+        --muted: #a6a6a6;
+        --link: #8ab4f8;
       }
     }
-    html,body{height:100%}
-    body{
-      margin:0;
+
+    html,
+    body {
+      height: 100%
+    }
+
+    body {
+      margin: 0;
       font: 16px/1.6 system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, "Helvetica Neue", Arial, sans-serif;
       background: var(--bg);
       color: var(--fg);
       -webkit-font-smoothing: antialiased;
       text-rendering: optimizeLegibility;
     }
-    .wrap{max-width:var(--maxw); margin:0 auto; padding: calc(var(--pad) * 1.25) var(--pad);}
-    header{
-      position: sticky; top: 0;
+
+    .wrap {
+      max-width: var(--maxw);
+      margin: 0 auto;
+      padding: calc(var(--pad) * 1.25) var(--pad);
+    }
+
+    header {
+      position: sticky;
+      top: 0;
       background: color-mix(in oklab, var(--bg) 90%, transparent);
       backdrop-filter: blur(6px);
       border-bottom: 1px solid color-mix(in oklab, var(--fg) 10%, transparent);
       z-index: 10;
     }
-    nav ul{display:flex; gap:14px; list-style:none; margin:0; padding:0; flex-wrap: wrap;}
-    nav a{
-      display:inline-block; padding:6px 10px; border-radius: 8px;
-      text-decoration: none; color: var(--fg);
+
+    nav ul {
+      display: flex;
+      gap: 14px;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      flex-wrap: wrap;
     }
-    nav a:hover, nav a:focus{outline: none; background: color-mix(in oklab, var(--fg) 10%, transparent);}
-    .title{margin: 28px 0 10px; font-size: clamp(28px, 5vw, 40px); line-height:1.2}
-    p{margin: 0 0 14px;}
-    .muted{color: var(--muted)}
-    a{color: var(--link)}
-    main section{margin: 36px 0;}
-    h2{
-      font-size: 20px; margin: 22px 0 10px;
+
+    nav a {
+      display: inline-block;
+      padding: 6px 10px;
+      border-radius: 8px;
+      text-decoration: none;
+      color: var(--fg);
+    }
+
+    nav a:hover,
+    nav a:focus {
+      outline: none;
+      background: color-mix(in oklab, var(--fg) 10%, transparent);
+    }
+
+    .title {
+      margin: 28px 0 10px;
+      font-size: clamp(28px, 5vw, 40px);
+      line-height: 1.2
+    }
+
+    p {
+      margin: 0 0 14px;
+    }
+
+    .muted {
+      color: var(--muted)
+    }
+
+    a {
+      color: var(--link)
+    }
+
+    main section {
+      margin: 36px 0;
+    }
+
+    h2 {
+      font-size: 20px;
+      margin: 22px 0 10px;
       border-bottom: 1px solid color-mix(in oklab, var(--fg) 15%, transparent);
       padding-bottom: 6px;
     }
-    .card{
+
+    .card {
       border: 1px solid color-mix(in oklab, var(--fg) 12%, transparent);
       border-radius: var(--radius);
-      padding: 14px 16px; margin: 10px 0;
+      padding: 14px 16px;
+      margin: 10px 0;
     }
-    ul.clean{list-style:none; padding:0; margin: 8px 0;}
-    ul.clean li{margin: 6px 0;}
-    footer{
-      margin-top: 40px; padding-top: 18px;
+
+    ul.clean {
+      list-style: none;
+      padding: 0;
+      margin: 8px 0;
+    }
+
+    ul.clean li {
+      margin: 6px 0;
+    }
+
+    footer {
+      margin-top: 40px;
+      padding-top: 18px;
       border-top: 1px solid color-mix(in oklab, var(--fg) 10%, transparent);
       font-size: 14px;
     }
-    .skip-link{
-      position:absolute; left:-9999px; top:auto; width:1px; height:1px; overflow:hidden;
+
+    .skip-link {
+      position: absolute;
+      left: -9999px;
+      top: auto;
+      width: 1px;
+      height: 1px;
+      overflow: hidden;
     }
-    .skip-link:focus{
-      position:static; width:auto; height:auto; padding:8px 10px; border-radius:8px;
+
+    .skip-link:focus {
+      position: static;
+      width: auto;
+      height: auto;
+      padding: 8px 10px;
+      border-radius: 8px;
       background: color-mix(in oklab, var(--fg) 10%, var(--bg));
     }
-    .list{display:grid; gap:12px; margin-top:16px}
-    .item{border:1px solid color-mix(in oklab,var(--fg) 12%, transparent); border-radius:var(--radius); padding:12px 14px}
-    .item h2{font-size:16px; margin:0 0 6px}
-    .meta{font-size:13px; color:var(--muted)}
+
+    .list {
+      display: grid;
+      gap: 12px;
+      margin-top: 16px
+    }
+
+    .item {
+      border: 1px solid color-mix(in oklab, var(--fg) 12%, transparent);
+      border-radius: var(--radius);
+      padding: 12px 14px
+    }
+
+    .item h2 {
+      font-size: 16px;
+      margin: 0 0 6px
+    }
+
+    .meta {
+      font-size: 13px;
+      color: var(--muted)
+    }
   </style>
 </head>
+
 <body>
   <header>
-    <div class="wrap" style="display:flex; align-items:center; justify-content:space-between; gap:14px; flex-wrap:wrap;">
+    <div class="wrap"
+      style="display:flex; align-items:center; justify-content:space-between; gap:14px; flex-wrap:wrap;">
       <strong><a href="index.html" style="text-decoration:none; color:inherit;">Louis Le Lay</a></strong>
       <nav aria-label="Primary">
         <ul>
@@ -96,7 +189,8 @@
 
   <main class="wrap">
     <h1 class="title">Open-source contributions</h1>
-    <p class="muted">A selection of PRs, reviews, and issues I’ve opened (curated for impact and technical depth). Last updated: Aug 14, 2025.</p>
+    <p class="muted">A selection of PRs, reviews, and issues I’ve opened (curated for impact and technical depth). Last
+      updated: Aug 19, 2025.</p>
 
     <!-- NVIDIA Isaac Lab (featured) -->
     <section>
@@ -118,7 +212,7 @@
 
         <article class="item">
           <h2>Basic validation tests for scale-based randomization ranges</h2>
-          <div class="meta">isaac-sim/IsaacLab · PR #3058 · Open · Jul 2025</div>
+          <div class="meta">isaac-sim/IsaacLab · PR #3058 · Merged · Jul 2025</div>
           <p>Adds sanity tests to catch invalid domain-randomization bounds early in CI.</p>
           <p><a href="https://github.com/isaac-sim/IsaacLab/pull/3058" target="_blank" rel="noopener">PR link</a></p>
         </article>
@@ -148,7 +242,8 @@
           <h2>Proposal: fix mismatch between policy input shape &amp; observation</h2>
           <div class="meta">isaac-sim/IsaacLab · Issue/Proposal #3124 · Open · Aug 2025</div>
           <p>Flags an interface mismatch affecting direct RL envs; proposes consistent obs shaping.</p>
-          <p><a href="https://github.com/isaac-sim/IsaacLab/issues/3124" target="_blank" rel="noopener">Issue link</a></p>
+          <p><a href="https://github.com/isaac-sim/IsaacLab/issues/3124" target="_blank" rel="noopener">Issue link</a>
+          </p>
         </article>
       </div>
     </section>
@@ -161,7 +256,8 @@
           <h2>RealSense-ROS: refresh topics &amp; services in README</h2>
           <div class="meta">IntelRealSense/realsense-ros · PR #3215 · Merged · Feb 2025</div>
           <p>Ensures D4xx users see accurate interfaces when integrating cameras in ROS/ROS2.</p>
-          <p><a href="https://github.com/IntelRealSense/realsense-ros/pull/3215" target="_blank" rel="noopener">PR link</a></p>
+          <p><a href="https://github.com/IntelRealSense/realsense-ros/pull/3215" target="_blank" rel="noopener">PR
+              link</a></p>
         </article>
       </div>
     </section>
@@ -174,7 +270,8 @@
           <h2>Menagerie: changelog, PR template, contributors</h2>
           <div class="meta">google-deepmind/mujoco_menagerie · PR #166 · Merged · Apr 2025</div>
           <p>Improves repo governance and contributor experience for the community’s robot model zoo.</p>
-          <p><a href="https://github.com/google-deepmind/mujoco_menagerie/pull/166" target="_blank" rel="noopener">PR link</a></p>
+          <p><a href="https://github.com/google-deepmind/mujoco_menagerie/pull/166" target="_blank" rel="noopener">PR
+              link</a></p>
         </article>
 
         <article class="item">
@@ -196,21 +293,24 @@
           <div class="meta">newton-physics/newton · PRs #202 &amp; #203 · Merged · Jun 2025</div>
           <p>Modernizes developer docs with tabsets (OS/flows) and copy-to-clipboard controls.</p>
           <p><a href="https://github.com/newton-physics/newton/pull/202" target="_blank" rel="noopener">#202</a> ·
-             <a href="https://github.com/newton-physics/newton/pull/203" target="_blank" rel="noopener">#203</a></p>
+            <a href="https://github.com/newton-physics/newton/pull/203" target="_blank" rel="noopener">#203</a>
+          </p>
         </article>
 
         <article class="item">
           <h2>Awesome Robot Descriptions: Kinova Gen3/Lite links</h2>
           <div class="meta">robot-descriptions/awesome-robot-descriptions · PR #19 · Merged · Apr 2025</div>
           <p>Adds official sources so users can find accurate models quickly.</p>
-          <p><a href="https://github.com/robot-descriptions/awesome-robot-descriptions/pull/19" target="_blank" rel="noopener">PR link</a></p>
+          <p><a href="https://github.com/robot-descriptions/awesome-robot-descriptions/pull/19" target="_blank"
+              rel="noopener">PR link</a></p>
         </article>
 
         <article class="item">
           <h2>Awesome Robot Descriptions: Disney BD-X entry</h2>
           <div class="meta">robot-descriptions/awesome-robot-descriptions · PR #11 · Merged · Feb 2025</div>
           <p>Introduces BD-X biped to the index for easier discovery/benchmarking.</p>
-          <p><a href="https://github.com/robot-descriptions/awesome-robot-descriptions/pull/11" target="_blank" rel="noopener">PR link</a></p>
+          <p><a href="https://github.com/robot-descriptions/awesome-robot-descriptions/pull/11" target="_blank"
+              rel="noopener">PR link</a></p>
         </article>
       </div>
     </section>
@@ -223,21 +323,24 @@
           <h2>MJCF Importer: “Create for Isaac Lab” option</h2>
           <div class="meta">isaac-sim/mjcf-importer-extension · PR #9 · Open · Jul 2025</div>
           <p>Adds an import toggle to flatten link hierarchy and remove worldBody/floor for Lab training scenes.</p>
-          <p><a href="https://github.com/isaac-sim/mjcf-importer-extension/pull/9" target="_blank" rel="noopener">PR link</a></p>
+          <p><a href="https://github.com/isaac-sim/mjcf-importer-extension/pull/9" target="_blank" rel="noopener">PR
+              link</a></p>
         </article>
 
         <article class="item">
           <h2>MJCF Importer: README fixes</h2>
           <div class="meta">isaac-sim/mjcf-importer-extension · PR #8 · Open · Jul 2025</div>
           <p>Corrects startup script name and doc links for the latest release.</p>
-          <p><a href="https://github.com/isaac-sim/mjcf-importer-extension/pull/8" target="_blank" rel="noopener">PR link</a></p>
+          <p><a href="https://github.com/isaac-sim/mjcf-importer-extension/pull/8" target="_blank" rel="noopener">PR
+              link</a></p>
         </article>
 
         <article class="item">
           <h2>ros2_so_arm100: simplify installation &amp; usage</h2>
           <div class="meta">JafarAbdi/ros2_so_arm100 · PR #17 · Merged · Jul 2025</div>
           <p>Streamlines getting started with the SO-ARM100 ROS2 stack.</p>
-          <p><a href="https://github.com/JafarAbdi/ros2_so_arm100/pull/17" target="_blank" rel="noopener">PR link</a></p>
+          <p><a href="https://github.com/JafarAbdi/ros2_so_arm100/pull/17" target="_blank" rel="noopener">PR link</a>
+          </p>
         </article>
       </div>
     </section>
@@ -249,7 +352,8 @@
         <article class="item">
           <h2>SO-ARM101: structure, templates, and CI quality</h2>
           <div class="meta">MuammerBay/isaac_so_arm101 · Multiple PRs · Merged · Aug 2025</div>
-          <p>Led repo clean-up and contributor workflow: README/LICENSE, issue/PR templates, auto-assign reviewers, review workflow, citation file, and asset hygiene.</p>
+          <p>Led repo clean-up and contributor workflow: README/LICENSE, issue/PR templates, auto-assign reviewers,
+            review workflow, citation file, and asset hygiene.</p>
           <p>
             <a href="https://github.com/MuammerBay/isaac_so_arm101/pull/6" target="_blank" rel="noopener">#6</a> ·
             <a href="https://github.com/MuammerBay/isaac_so_arm101/pull/7" target="_blank" rel="noopener">#7</a> ·
@@ -268,7 +372,8 @@
         <article class="item">
           <h2>Naova docs site: versioned docs &amp; GH Pages automation</h2>
           <div class="meta">Naova/Naova.github.io · Multiple PRs · Merged · Feb–Jul 2025</div>
-          <p>Migrated Sphinx → GitHub Pages, added versioning, CI workflows, and content structure for students/contributors.</p>
+          <p>Migrated Sphinx → GitHub Pages, added versioning, CI workflows, and content structure for
+            students/contributors.</p>
           <p>
             <a href="https://github.com/Naova/Naova.github.io/pull/39" target="_blank" rel="noopener">#39</a> ·
             <a href="https://github.com/Naova/Naova.github.io/pull/41" target="_blank" rel="noopener">#41</a> ·
@@ -302,17 +407,19 @@
     <footer role="contentinfo">
       <p>
         © <span id="y">2025</span> Louis Le Lay · <a href="#top" title="Back to top">π</a><br />
-        Content licensed under <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="license noopener">CC BY 4.0</a>.<br />
+        Content licensed under <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank"
+          rel="license noopener">CC BY 4.0</a>.<br />
         Contact:
         <a href="https://github.com/louislelay" target="_blank" rel="noopener">GitHub</a> ·
         <a href="https://www.linkedin.com/in/louis-le-lay/" target="_blank" rel="noopener">LinkedIn</a> ·
         <a href="https://x.com/LouisLeLay4" target="_blank" rel="noopener">Twitter</a> ·
         <a href="mailto:le.lay.louis@gmail.com">e-mail</a>
       </p>
-      <script> 
+      <script>
         const y = document.getElementById('y'); if (y) y.textContent = new Date().getFullYear();
       </script>
     </footer>
   </main>
 </body>
+
 </html>
