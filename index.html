@@ -1,115 +1,195 @@
 <!doctype html>
 <html lang="en">
+
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Louis Le Lay - Robotics</title>
-  <meta name="description" content="Personal site of Louis Le Lay: robotics, publications, teaching, talks." /> 
-  <style> 
-    :root{
+  <meta name="description" content="Personal site of Louis Le Lay: robotics, publications, teaching, talks." />
+  <style>
+    :root {
       --bg: #ffffff;
       --fg: #111111;
-      --muted:#666666;
-      --link:#0a66c2;
+      --muted: #666666;
+      --link: #0a66c2;
       --maxw: 720px;
       --pad: 18px;
       --radius: 10px;
     }
-    @media (prefers-color-scheme: dark){
-      :root{
-        --bg:#0b0b0b;
-        --fg:#f2f2f2;
-        --muted:#a6a6a6;
-        --link:#8ab4f8;
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #0b0b0b;
+        --fg: #f2f2f2;
+        --muted: #a6a6a6;
+        --link: #8ab4f8;
       }
     }
-    html,body{height:100%}
-    body{
-      margin:0;
+
+    html,
+    body {
+      height: 100%
+    }
+
+    body {
+      margin: 0;
       font: 16px/1.6 system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, "Helvetica Neue", Arial, sans-serif;
       background: var(--bg);
       color: var(--fg);
       -webkit-font-smoothing: antialiased;
       text-rendering: optimizeLegibility;
     }
-    .wrap{max-width:var(--maxw); margin:0 auto; padding: calc(var(--pad) * 1.25) var(--pad);}
-    header{
-      position: sticky; top: 0;
+
+    .wrap {
+      max-width: var(--maxw);
+      margin: 0 auto;
+      padding: calc(var(--pad) * 1.25) var(--pad);
+    }
+
+    header {
+      position: sticky;
+      top: 0;
       background: color-mix(in oklab, var(--bg) 90%, transparent);
       backdrop-filter: blur(6px);
       border-bottom: 1px solid color-mix(in oklab, var(--fg) 10%, transparent);
       z-index: 10;
     }
-    nav ul{display:flex; gap:14px; list-style:none; margin:0; padding:0; flex-wrap: wrap;}
-    nav a{
-      display:inline-block; padding:6px 10px; border-radius: 8px;
-      text-decoration: none; color: var(--fg);
+
+    nav ul {
+      display: flex;
+      gap: 14px;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      flex-wrap: wrap;
     }
-    nav a:hover, nav a:focus{outline: none; background: color-mix(in oklab, var(--fg) 10%, transparent);}
-    .title{margin: 28px 0 10px; font-size: clamp(28px, 5vw, 40px); line-height:1.2}
-    p{margin: 0 0 14px;}
-    .muted{color: var(--muted)}
-    a{color: var(--link)}
-    main section{margin: 36px 0;}
-    h2{
-      font-size: 20px; margin: 22px 0 10px;
+
+    nav a {
+      display: inline-block;
+      padding: 6px 10px;
+      border-radius: 8px;
+      text-decoration: none;
+      color: var(--fg);
+    }
+
+    nav a:hover,
+    nav a:focus {
+      outline: none;
+      background: color-mix(in oklab, var(--fg) 10%, transparent);
+    }
+
+    .title {
+      margin: 28px 0 10px;
+      font-size: clamp(28px, 5vw, 40px);
+      line-height: 1.2
+    }
+
+    p {
+      margin: 0 0 14px;
+    }
+
+    .muted {
+      color: var(--muted)
+    }
+
+    a {
+      color: var(--link)
+    }
+
+    main section {
+      margin: 36px 0;
+    }
+
+    h2 {
+      font-size: 20px;
+      margin: 22px 0 10px;
       border-bottom: 1px solid color-mix(in oklab, var(--fg) 15%, transparent);
       padding-bottom: 6px;
     }
-    .card{
+
+    .card {
       border: 1px solid color-mix(in oklab, var(--fg) 12%, transparent);
       border-radius: var(--radius);
-      padding: 14px 16px; margin: 10px 0;
+      padding: 14px 16px;
+      margin: 10px 0;
     }
-    ul.clean{list-style:none; padding:0; margin: 8px 0;}
-    ul.clean li{margin: 6px 0;}
-    footer{
-      margin-top: 40px; padding-top: 18px;
+
+    ul.clean {
+      list-style: none;
+      padding: 0;
+      margin: 8px 0;
+    }
+
+    ul.clean li {
+      margin: 6px 0;
+    }
+
+    footer {
+      margin-top: 40px;
+      padding-top: 18px;
       border-top: 1px solid color-mix(in oklab, var(--fg) 10%, transparent);
       font-size: 14px;
     }
-    .skip-link{
-      position:absolute; left:-9999px; top:auto; width:1px; height:1px; overflow:hidden;
+
+    .skip-link {
+      position: absolute;
+      left: -9999px;
+      top: auto;
+      width: 1px;
+      height: 1px;
+      overflow: hidden;
     }
-    .skip-link:focus{
-      position:static; width:auto; height:auto; padding:8px 10px; border-radius:8px;
+
+    .skip-link:focus {
+      position: static;
+      width: auto;
+      height: auto;
+      padding: 8px 10px;
+      border-radius: 8px;
       background: color-mix(in oklab, var(--fg) 10%, var(--bg));
     }
-    .intro{
-      display:grid;
-      grid-template-columns: 1fr 140px; 
-      align-items:start;
-      gap:16px;
+
+    .intro {
+      display: grid;
+      grid-template-columns: 1fr 140px;
+      align-items: start;
+      gap: 16px;
       margin: 6px 0 18px;
     }
-    @media (max-width: 560px){
-      .intro{ grid-template-columns: 1fr; }
+
+    @media (max-width: 560px) {
+      .intro {
+        grid-template-columns: 1fr;
+      }
     }
-    .avatar{
-      width:140px; aspect-ratio:1;
-      border-radius: 12px;          
+
+    .avatar {
+      width: 140px;
+      aspect-ratio: 1;
+      border-radius: 12px;
       object-fit: cover;
       border: 1px solid color-mix(in oklab, var(--fg) 12%, transparent);
       box-shadow: 0 2px 10px color-mix(in oklab, var(--fg) 8%, transparent);
     }
-
   </style>
 </head>
+
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
 
   <header role="banner">
-    <div class="wrap" style="display:flex; align-items:center; justify-content:space-between; gap:14px; flex-wrap:wrap;">
+    <div class="wrap"
+      style="display:flex; align-items:center; justify-content:space-between; gap:14px; flex-wrap:wrap;">
       <strong><a href="#top" style="text-decoration:none; color:inherit;">Louis Le Lay</a></strong>
       <nav aria-label="Primary">
         <ul>
           <li><a href="projects.html">Projects</a></li>
           <li><a href="contributions.html">OS Contributions</a></li>
-          <!-- <li><a href="#blog">Blog</a></li>
-          <li><a href="#publications">Publications</a></li>
-          <li><a href="#robotics">Robotics</a></li>
-          <li><a href="#talks">Talks</a></li>
-          <li><a href="#teaching">Teaching</a></li> -->
+          <!-- <li><a href="#blog">Blog</a></li>                  -->
+          <!-- <li><a href="#publications">Publications</a></li>  -->
+          <!-- <li><a href="#robotics">Robotics</a></li>          -->
+          <!-- <li><a href="#talks">Talks</a></li>                -->
+          <!-- <li><a href="#teaching">Teaching</a></li>          -->
         </ul>
       </nav>
     </div>
@@ -119,23 +199,31 @@
     <h1 class="title" id="top">Hello!</h1>
 
     <p>
-      I’m <strong>Louis Le Lay</strong>, a robotics engineer student turning advanced simulation and AI into real-world capabilities.
-      I work on <em>reinforcement learning</em>, <em>sim-to-real transfer</em>, and <em>multi-sensor fusion</em>, building 
+      I’m <strong>Louis Le Lay</strong>, a robotics engineer student turning advanced simulation and AI into real-world
+      capabilities.
+      I work on <em>reinforcement learning</em>, <em>sim-to-real transfer</em>, and <em>multi-sensor fusion</em>,
+      building
       robots that can move, see, and adapt in both simulation and reality.
     </p>
     <p>
-      I’ve contributed to open-source projects like <a href="https://github.com/isaac-sim/IsaacLab" target="_blank" rel="noopener">Isaac Lab</a>,
-        <a href="https://github.com/google-deepmind/mujoco_menagerie" target="_blank" rel="noopener">MuJoCo Menagerie</a>, and 
-        <a href="https://github.com/IntelRealSense/realsense-ros" target="_blank" rel="noopener">RealSense-ROS</a>, and built 
-        sim-to-real tools from Kinova Gen3 manipulation pipelines to Disney BD-X locomotion tasks.
+      I’ve contributed to open-source projects like <a href="https://github.com/isaac-sim/IsaacLab" target="_blank"
+        rel="noopener">Isaac Lab</a>,
+      <a href="https://github.com/google-deepmind/mujoco_menagerie" target="_blank" rel="noopener">MuJoCo Menagerie</a>,
+      and
+      <a href="https://github.com/IntelRealSense/realsense-ros" target="_blank" rel="noopener">RealSense-ROS</a>, and
+      built
+      sim-to-real tools from Kinova Gen3 manipulation pipelines to Disney BD-X locomotion tasks.
     </p>
     <p>
-      My experience spans <strong>PAL Robotics</strong>, <strong>the University of Tokyo</strong>, <strong>Naova</strong>, and <strong>AIRBUS</strong>, with skills 
-      in Python, C++, ROS/ROS2, and simulation platforms like Isaac Lab and MuJoCo. I’ve worked with hardware from Kinova arms and Unitree quadrupeds to custom 
-      bipeds and full humanoids. 
+      My experience spans <strong>PAL Robotics</strong>, <strong>the University of Tokyo</strong>,
+      <strong>Naova</strong>, and <strong>AIRBUS</strong>, with skills
+      in Python, C++, ROS/ROS2, and simulation platforms like Isaac Lab and MuJoCo. I’ve worked with hardware from
+      Kinova arms and Unitree quadrupeds to custom
+      bipeds and full humanoids.
     </p>
     <p>
-      My current work at <strong>PAL Robotics</strong> focuses on developing a RL-based locomotion for PAL's humanoid robot Kangaroo, using Isaac Lab.
+      My current work at <strong>PAL Robotics</strong> focuses on developing a RL-based locomotion for PAL's humanoid
+      robot Kangaroo, using Isaac Lab.
     </p>
     <p>
       Outside of work, I enjoy mentoring students on Isaac Lab and building my own biped robots.
@@ -151,25 +239,21 @@
     <section id="robotics" aria-labelledby="robotics-heading">
       <h2 id="robotics-heading">Simulation & Reinforcement Learning</h2>
       <p>
-        My work centers on physics simulation: designing, training, and validating control policies 
-        before taking them to hardware. I craft custom RL environments, refine rewards for stable 
+        My work centers on physics simulation: designing, training, and validating control policies
+        before taking them to hardware. I craft custom RL environments, refine rewards for stable
         locomotion, and bridge simulation and robots for dependable sim-to-real transfer.
       </p>
       <div class="card">
         <p class="muted" style="margin:0 0 8px;">Example projects</p>
         <ul class="clean" style="margin:0;">
-          <li>• <a href="https://www.youtube.com/watch?v=dT1HWIXhEPs" target="_blank" rel="noopener">Disney BD-X biped locomotion task (video)</a></li>
-          <li>• <a href="https://www.youtube.com/watch?v=5cP7AM1-FTA" target="_blank" rel="noopener">Kinova Gen3 sim-to-real reach policy (video)</a></li>
-          <li>• <a href="https://github.com/MuammerBay/isaac_so_arm101" target="_blank" rel="noopener">RL manipulation with SO-ARM101 robot (repository)</a></li>
+          <li>• <a href="https://www.youtube.com/watch?v=dT1HWIXhEPs" target="_blank" rel="noopener">Disney BD-X biped
+              locomotion task (video)</a></li>
+          <li>• <a href="https://www.youtube.com/watch?v=5cP7AM1-FTA" target="_blank" rel="noopener">Kinova Gen3
+              sim-to-real reach policy (video)</a></li>
+          <li>• <a href="https://github.com/MuammerBay/isaac_so_arm101" target="_blank" rel="noopener">RL manipulation
+              with SO-ARM101 robot (repository)</a></li>
         </ul>
       </div>
-    </section>
-
-    <section id="open-access" aria-labelledby="open-access-heading">
-      <h2 id="open-access-heading">Open access</h2>
-      <p>
-        I keep most of my work public whenever possible.
-      </p>
     </section>
 
     <!-- <section id="publications" aria-labelledby="pubs-heading">
@@ -178,24 +262,46 @@
         <li><strong>Paper Title</strong> — Venue, Year. <a href="#">pdf</a> · <a href="#">code</a> · <a href="#">bib</a></li>
         <li><strong>Another Title</strong> — Venue, Year. <a href="#">pdf</a> · <a href="#">code</a></li>
       </ul>
-    </section>
+    </section>  -->
 
-    <section id="talks" aria-labelledby="talks-heading">
+    <!-- <section id="talks" aria-labelledby="talks-heading">
       <h2 id="talks-heading">Talks</h2>
       <ul class="clean">
-        <li><strong>Talk name</strong> — Event, Year. <a href="#">slides</a> · <a href="#">video</a></li>
-      </ul>
-    </section>
+        <li>
+          <strong>Building Humanoid Locomotion from Scratch: Training to Deployment</strong>
+          — Workshop at NVIDIA GTC, Mar 2026.
+          <a href="#">slides</a> · <a href="#">video</a>
+        </li>
 
-    <section id="teaching" aria-labelledby="teaching-heading">
+        <li>
+          <strong>Imitation Learning for Humanoids: A Complete Walkthrough</strong>
+          — Livestream Guest, OpenUSD Insider Series (NVIDIA Omniverse YouTube), Jan 2026.
+          <a href="#">slides</a> · <a href="#">video</a>
+        </li>
+
+        <li>
+          <strong>From Isaac Lab to Reality: Deploying Robotic Manipulation Policies</strong>
+          — Livestream Guest, OpenUSD Insider Series (NVIDIA Omniverse YouTube), Dec 2025.
+          <a href="#">slides</a> · <a href="#">video</a>
+        </li>
+
+        <li>
+          <strong>Training and Deploying Manipulation Policies on the SO-ARM</strong>
+          — Talk at ROSCon España, Nov 2025.
+          <a href="#">slides</a> · <a href="#">video</a>
+        </li>
+      </ul>
+    </section> -->
+
+    <!-- <section id="teaching" aria-labelledby="teaching-heading">
       <h2 id="teaching-heading">Teaching</h2>
       <ul class="clean">
         <li><strong>Course / Workshop</strong> — Role, Year. <a href="#">materials</a></li>
       </ul>
-    </section>
+    </section> -->
 
-    <section id="blog" aria-labelledby="blog-heading">
-      <h2 id="blog-heading">Blog</h2>
+    <!-- <section id="blog" aria-labelledby="blog-heading">
+      <h2 id="blog-heading">Blog</h2> 
       <div class="card">
         <ul class="clean" style="margin:0;">
           <li><a href="#">Balancing as a low-frequency task</a> — May 2025</li>
@@ -205,14 +311,22 @@
       </div>
     </section> -->
 
+    <section id="open-access" aria-labelledby="open-access-heading">
+      <h2 id="open-access-heading">Open access</h2>
+      <p>
+        I keep most of my work public whenever possible.
+      </p>
+    </section>
+
     <footer role="contentinfo">
       <p>
         © <span id="y">2025</span> Louis Le Lay · <a href="#top" title="Back to top">π</a><br />
-        Content licensed under <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="license noopener">CC BY 4.0</a>.<br />
-        Contact: 
-        <a href="https://github.com/louislelay" target="_blank" rel="noopener">GitHub</a> · 
-        <a href="https://www.linkedin.com/in/louis-le-lay/" target="_blank" rel="noopener">LinkedIn</a> · 
-        <a href="https://x.com/LouisLeLay4" target="_blank" rel="noopener">Twitter</a> · 
+        Content licensed under <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank"
+          rel="license noopener">CC BY 4.0</a>.<br />
+        Contact:
+        <a href="https://github.com/louislelay" target="_blank" rel="noopener">GitHub</a> ·
+        <a href="https://www.linkedin.com/in/louis-le-lay/" target="_blank" rel="noopener">LinkedIn</a> ·
+        <a href="https://x.com/LouisLeLay4" target="_blank" rel="noopener">Twitter</a> ·
         <a href="mailto:le.lay.louis@gmail.com">e-mail</a>
       </p>
       <script>
@@ -222,4 +336,5 @@
     </footer>
   </main>
 </body>
+
 </html>
