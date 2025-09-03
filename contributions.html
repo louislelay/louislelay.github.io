@@ -36,13 +36,11 @@
       -webkit-font-smoothing: antialiased;
       text-rendering: optimizeLegibility;
     }
-
     .wrap {
       max-width: var(--maxw);
       margin: 0 auto;
       padding: calc(var(--pad) * 1.25) var(--pad);
     }
-
     header {
       position: sticky;
       top: 0;
@@ -51,7 +49,6 @@
       border-bottom: 1px solid color-mix(in oklab, var(--fg) 10%, transparent);
       z-index: 10;
     }
-
     nav ul {
       display: flex;
       gap: 14px;
@@ -60,7 +57,6 @@
       padding: 0;
       flex-wrap: wrap;
     }
-
     nav a {
       display: inline-block;
       padding: 6px 10px;
@@ -68,66 +64,54 @@
       text-decoration: none;
       color: var(--fg);
     }
-
     nav a:hover,
     nav a:focus {
       outline: none;
       background: color-mix(in oklab, var(--fg) 10%, transparent);
     }
-
     .title {
       margin: 28px 0 10px;
       font-size: clamp(28px, 5vw, 40px);
       line-height: 1.2
     }
-
     p {
       margin: 0 0 14px;
     }
-
     .muted {
       color: var(--muted)
     }
-
     a {
       color: var(--link)
     }
-
     main section {
       margin: 36px 0;
     }
-
     h2 {
       font-size: 20px;
       margin: 22px 0 10px;
       border-bottom: 1px solid color-mix(in oklab, var(--fg) 15%, transparent);
       padding-bottom: 6px;
     }
-
     .card {
       border: 1px solid color-mix(in oklab, var(--fg) 12%, transparent);
       border-radius: var(--radius);
       padding: 14px 16px;
       margin: 10px 0;
     }
-
     ul.clean {
       list-style: none;
       padding: 0;
       margin: 8px 0;
     }
-
     ul.clean li {
       margin: 6px 0;
     }
-
     footer {
       margin-top: 40px;
       padding-top: 18px;
       border-top: 1px solid color-mix(in oklab, var(--fg) 10%, transparent);
       font-size: 14px;
     }
-
     .skip-link {
       position: absolute;
       left: -9999px;
@@ -136,7 +120,6 @@
       height: 1px;
       overflow: hidden;
     }
-
     .skip-link:focus {
       position: static;
       width: auto;
@@ -145,29 +128,24 @@
       border-radius: 8px;
       background: color-mix(in oklab, var(--fg) 10%, var(--bg));
     }
-
     .list {
       display: grid;
       gap: 12px;
       margin-top: 16px
     }
-
     .item {
       border: 1px solid color-mix(in oklab, var(--fg) 12%, transparent);
       border-radius: var(--radius);
       padding: 12px 14px
     }
-
     .item h2 {
       font-size: 16px;
       margin: 0 0 6px
     }
-
     .meta {
       font-size: 13px;
       color: var(--muted)
     }
-
     /* --- Account stats strip --- */
     .stats {
       display: grid;
@@ -175,7 +153,6 @@
       gap: 10px;
       margin: 14px 0 24px;
     }
-
     .stat {
       display: flex;
       flex-direction: column;
@@ -185,17 +162,15 @@
       padding: 10px 12px;
       background: color-mix(in oklab, var(--fg) 3%, transparent);
     }
-
     .stat .value {
       font-weight: 700;
       font-size: clamp(18px, 4vw, 24px);
       line-height: 1.1;
     }
-
     .stat .label {
       font-size: 12px;
       color: var(--muted);
-      text-transform: uppercase;
+      /* text-transform: uppercase; */
       letter-spacing: .03em;
     }
   </style>
