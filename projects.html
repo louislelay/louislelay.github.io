@@ -143,27 +143,49 @@
     <h1 class="title">Projects</h1>
     <p class="muted">
       A curated set of things I’ve built, shipped, or validated on hardware.
-      For a more visual overview, see my
-      <a href="https://www.canva.com/design/DAGpdV1RaQo/csFPc-v0Fp2XsbiTDZYOmg/view?utm_content=DAGpdV1RaQo&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=hd4047af1d0" target="_blank" rel="noopener">portfolio</a>.
+      <!-- For a more visual overview, see my
+      <a href="https://www.canva.com/design/DAGpdV1RaQo/csFPc-v0Fp2XsbiTDZYOmg/view?utm_content=DAGpdV1RaQo&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=hd4047af1d0" target="_blank" rel="noopener">portfolio</a>. -->
     </p>
 
     <div class="grid" style="margin-top:16px">
 
       <!-- SO-ARM RL: Manipulation tasks -->
       <article class="card">
-        <h2>SO-ARM RL: Manipulation tasks (WIP)</h2>
-        <div class="meta">2025 · Isaac Lab · PPO</div>
-        <p>End-to-end RL policy to lift a cube on SO-ARM100/101. Domain randomization and deployment helpers.</p>
+        <h2>mjlab</h2>
+        <div class="meta">Sept 2025</div>
+        <p>Combines Isaac Lab's proven API with best-in-class MuJoCo physics to provide lightweight, 
+          modular abstractions for RL robotics research and sim-to-real deployment.</p>
+        <div class="yt" data-yt-id="9L5sdrW5CAE" aria-label="Play Kinova Gen3 Sim2Real demo">
+          <img src="https://i.ytimg.com/vi/9L5sdrW5CAE/hqdefault.jpg" alt="Kinova Gen3 Sim2Real demo thumbnail" loading="lazy" decoding="async">
+          <div class="play"></div>
+        </div>
+        <p><a href="https://github.com/mujocolab/mjlab" target="_blank" rel="noopener">GitHub Repo</a></p>
+        <div class="tags">
+          <span class="tag">RL</span><span class="tag">Isaac Lab</span><span class="tag">MjWarp</span>
+        </div>
+      </article>
+
+      <!-- SO-ARM RL: Manipulation tasks -->
+      <article class="card">
+        <h2>SO-ARM RL: Manipulation tasks</h2>
+        <div class="meta">July 2025</div>
+        <p>Implementation of RL-based manipulation tasks for the SO‑ARM100 and SO‑ARM101 robots 
+            using Isaac Lab. Presented by Muammer Bay (LycheeAI) during numerous tutorials on his channel and Omniverse 
+            livestreams.</p>
+        <div class="yt" data-yt-id="jixDbttGpBg" aria-label="Play quadruped leg prototype demo">
+          <img src="https://i.ytimg.com/vi/_HMk7I-vSBQ/hqdefault.jpg" alt="Quadruped leg prototype demo thumbnail" loading="lazy" decoding="async">
+          <div class="play"></div>
+        </div>
         <p><a href="https://github.com/MuammerBay/isaac_so_arm101" target="_blank" rel="noopener">GitHub Repo</a></p>
         <div class="tags">
-          <span class="tag">RL</span><span class="tag">Isaac Lab</span><span class="tag">Deployment</span>
+          <span class="tag">RL</span><span class="tag">Isaac Lab</span><span class="tag">Manipulation</span>
         </div>
       </article>
 
       <!-- Kinova Gen3 RL & Sim2Real Toolkit -->
       <article class="card">
         <h2>Kinova Gen3 RL &amp; Sim2Real Toolkit</h2>
-        <div class="meta">2025 · Isaac Lab · ROS&nbsp;2</div>
+        <div class="meta">April 2025</div>
         <p>
           Modular pipeline enabling end-to-end training in Isaac Lab and <em>deployment on the real Gen3</em> without a runtime sim dependency.
           Includes training scripts, pre-trained weights, and ROS&nbsp;2 nodes to stream joint targets directly to the arm.
@@ -175,14 +197,14 @@
         </div>
         <p><a href="https://github.com/louislelay/kinova_isaaclab_sim2real" target="_blank" rel="noopener">GitHub Repo</a></p>
         <div class="tags">
-          <span class="tag">Sim2Real</span><span class="tag">Manipulation</span><span class="tag">PPO</span>
+          <span class="tag">RL</span><span class="tag">Manipulation</span><span class="tag">Sim2Real</span>
         </div>
       </article>
 
       <!-- Disney BD-X Robot Locomotion Training -->
       <article class="card">
         <h2>Disney BD-X Robot Locomotion Training</h2>
-        <div class="meta">2025 · Isaac Lab PR · Biped</div>
+        <div class="meta">May 2025</div>
         <p>
           Clean locomotion environment for the BD-X biped with a 10-DoF task, curriculum randomization, and reward shaping.
           Designed for efficient training and easy reproduction; pending upstream integration in Isaac Lab.
@@ -200,7 +222,7 @@
       <!-- VR-Based Throwing Accuracy Study -->
       <article class="card">
         <h2>VR-Based Throwing Accuracy Study</h2>
-        <div class="meta">2023 · Unity · HCI</div>
+        <div class="meta">2024</div>
         <p>
           Built a VR environment to study how manipulated visual feedback affects throwing accuracy and skill transfer.
           The study highlights VR’s potential for improving motor learning and precision.
@@ -218,7 +240,7 @@
       <!-- Bipedal Wheeled Robot (IMAGE matches video width) -->
       <article class="card">
         <h2>Bipedal Wheeled Robot</h2>
-        <div class="meta">2023–2024 · ROS&nbsp;2 · Custom Hardware</div>
+        <div class="meta">2023 - 2024</div>
         <p>
           Designed an innovative wheeled-biped with a zero-cantilever mechanism for stability.
           3D-printed the structure and implemented ROS&nbsp;2 control and RViz visualization for robust motion in varied environments.
@@ -236,7 +258,7 @@
       <!-- Experimental Equipment for Orthostatic Exercise (IMAGE matches video width) -->
       <article class="card">
         <h2>Experimental Equipment for Orthostatic Exercise</h2>
-        <div class="meta">2024 · University of Tokyo · MATLAB</div>
+        <div class="meta">2024</div>
         <p>
           Assistive sit-to-stand system using EMG-based intent detection and real-time seat hardening/tilting to reduce quadriceps load.
           Implemented data capture and analysis; validated with synchronized camera and EMG measurements.
@@ -255,7 +277,7 @@
       <!-- Semantic Sensor Fusion for Unitree Go1 (IMAGE matches video width) -->
       <article class="card">
         <h2>Semantic Sensor Fusion for Unitree Go1</h2>
-        <div class="meta">2024 · ROS/ROS&nbsp;2 Bridge · Tokyo</div>
+        <div class="meta">2024</div>
         <p>
           Fused Velodyne LiDAR and RealSense D455 data for semantic mapping and person-following.
           Included calibration (ArUco), point-cloud colorization/interpolation, and YOLO/CLIP hooks — deployed on Jetson Xavier with ARM-Docker fixes.
@@ -273,7 +295,7 @@
       <!-- Lane Detection and Vehicle Tracking (IMAGE matches video width) -->
       <article class="card">
         <h2>Lane Detection &amp; Vehicle Tracking</h2>
-        <div class="meta">2022 · C++/OpenCV</div>
+        <div class="meta">2023</div>
         <p>
           Edge-based lane extraction (Hough) and real-time multi-object tracking for vehicle counting.
           Designed to be resilient to changing lighting and weather conditions.
@@ -291,12 +313,12 @@
       <!-- 8 DOF Quadruped Robot -->
       <article class="card">
         <h2>8-DoF Quadruped Robot</h2>
-        <div class="meta">2022 · Arduino · Proto</div>
+        <div class="meta">2023</div>
         <p>
           Low-cost leg module prototype (2-DoF per leg) with a roadmap toward a 12-DoF upgrade and more dynamic gait control.
         </p>
-        <div class="yt" data-yt-id="jixDbttGpBg" aria-label="Play quadruped leg prototype demo">
-          <img src="https://i.ytimg.com/vi/jixDbttGpBg/hqdefault.jpg" alt="Quadruped leg prototype demo thumbnail" loading="lazy" decoding="async">
+        <div class="yt" data-yt-id="_HMk7I-vSBQ" aria-label="Play quadruped leg prototype demo">
+          <img src="https://i.ytimg.com/vi/_HMk7I-vSBQ/hqdefault.jpg" alt="Quadruped leg prototype demo thumbnail" loading="lazy" decoding="async">
           <div class="play"></div>
         </div>
         <div class="tags">
@@ -307,7 +329,7 @@
       <!-- Minimalist C++ 1v1 Game -->
       <article class="card">
         <h2>Minimalist C++ 1v1 Game</h2>
-        <div class="meta">2021 · 8×8 Grid · From-scratch</div>
+        <div class="meta">2022</div>
         <p>
           Tiny 1v1 game coded entirely in C++ (no engine), supporting keyboard and gamepad.
           Focused on core game loop, collisions, and rendering in a compact codebase.
