@@ -146,33 +146,6 @@
       font-size: 13px;
       color: var(--muted)
     }
-    /* --- Account stats strip --- */
-    .stats {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
-      gap: 10px;
-      margin: 14px 0 24px;
-    }
-    .stat {
-      display: flex;
-      flex-direction: column;
-      gap: 2px;
-      border: 1px solid color-mix(in oklab, var(--fg) 12%, transparent);
-      border-radius: var(--radius);
-      padding: 10px 12px;
-      background: color-mix(in oklab, var(--fg) 3%, transparent);
-    }
-    .stat .value {
-      font-weight: 700;
-      font-size: clamp(18px, 4vw, 24px);
-      line-height: 1.1;
-    }
-    .stat .label {
-      font-size: 12px;
-      color: var(--muted);
-      /* text-transform: uppercase; */
-      letter-spacing: .03em;
-    }
   </style>
 </head>
 
@@ -191,29 +164,13 @@
   </header>
 
   <main class="wrap">
-    <!-- Account stats (edit numbers manually) -->
-    <section class="stats" aria-label="Account stats">
-      <div class="stat">
-        <div class="value"><data value="205+">205+</data></div>
-        <div class="label">Total Stars Earned</div>
-      </div>
-      <div class="stat">
-        <div class="value"><data value="350+">350+</data></div>
-        <div class="label">Total Commits (2025)</div>
-      </div>
-      <div class="stat">
-        <div class="value"><data value="85+">85+</data></div>
-        <div class="label">Total PRs</div>
-      </div>
-      <div class="stat">
-        <div class="value"><data value="40+">40+</data></div>
-        <div class="label">Total Issues</div>
-      </div>
-      <div class="stat">
-        <div class="value"><data value="20+">20+</data></div>
-        <div class="label">Contributed to (last year)</div>
-      </div>
-    </section>
+    
+    <a href="https://github.com/louislelay">
+      <img
+        src="https://github-readme-stats.vercel.app/api?username=louislelay&show_icons=true&count_private=true&hide_border=true&title_color=00CFFF&text_color=F2F2F2&icon_color=00CFFF&bg_color=0D1117"
+        alt="My GitHub stats"
+      />
+    </a>
 
     <h1 class="title">Open-source contributions</h1>
 
