@@ -4,8 +4,8 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Louis Le Lay - Robotics</title>
-  <meta name="description" content="Personal site of Louis Le Lay: robotics, publications, teaching, talks." />
+  <title>Louis Le Lay</title>
+  <meta name="description" content="Louis Le Lay's Website" />
   <style>
     :root {
       --bg: #ffffff;
@@ -19,18 +19,16 @@
 
     @media (prefers-color-scheme: dark) {
       :root {
-        --bg: #0D1117;
-        /* new background */
-        --fg: #F2F2F2;
-        --muted: #B5B5B5;
-        --link: #00CFFF;
-        /* bright blue accent */
+        --bg: #ffffff;
+        --fg: #111111;
+        --muted: #666666;
+        --link: #0a66c2;
       }
     }
 
     html,
     body {
-      height: 100%
+      height: 100%;
     }
 
     body {
@@ -185,11 +183,11 @@
       <strong><a href="#top" style="text-decoration:none; color:inherit;">Louis Le Lay</a></strong>
       <nav aria-label="Primary">
         <ul>
-          <li><a href="projects.html">Projects</a></li>
-          <li><a href="contributions.html">OS Contributions</a></li>
+          <!-- <li><a href="projects.html">Projects</a></li>
+          <li><a href="contributions.html">OS Contributions</a></li> -->
           <!-- <li><a href="#blog">Blog</a></li>                  -->
           <!-- <li><a href="#publications">Publications</a></li>  -->
-          <!-- <li><a href="#robotics">Robotics</a></li>          -->
+          <li><a href="#software">Software</a></li>         
           <li><a href="#talks">Talks</a></li>               
           <!-- <li><a href="#teaching">Teaching</a></li>          -->
         </ul>
@@ -208,25 +206,27 @@
     </p>
 
     <p>
-      I'm <strong>Louis Le Lay</strong>, a robotics engineer working on humanoids to make them agile through RL &
-      simulation.
+      I'm <strong>Louis Le Lay</strong>, an incoming robotics research engineer. I'm working on making humanoid robots
+      genuinely agile through reinforcement learning and simulation.
     </p>
+
     <p>
       I’m an active contributor to
-      <a href="https://github.com/isaac-sim/IsaacLab" target="_blank" rel="noopener">Isaac Lab</a>,
-      and have recently helped to the creation of
-      <a href="https://github.com/mujocolab/mjlab" target="_blank" rel="noopener">mjlab</a>
-      [<a href="https://x.com/kevin_zakka/status/1972757435707424898" target="_blank" rel="noopener">tweet</a>],
-      a project to develop an Isaac Lab-style API on top of
-      <a href="https://github.com/google-deepmind/mujoco_warp" target="_blank" rel="noopener">MuJoCo Warp</a>.
+      <a href="https://github.com/isaac-sim/IsaacLab" target="_blank" rel="noopener"><strong>Isaac Lab</strong></a>
+      and contributed to creating
+      <a href="https://github.com/mujocolab/mjlab" target="_blank" rel="noopener"><strong>mjlab</strong></a>
+      [
+      <a href="https://x.com/kevin_zakka/status/1972757435707424898" target="_blank" rel="noopener">tweet</a>
+      ], an Isaac Lab-style RL framework built on top of
+      <a href="https://github.com/google-deepmind/mujoco_warp" target="_blank" rel="noopener"><strong>MuJoCo Warp</strong></a>.
     </p>
+
     <p>
-      My current work at <strong>PAL Robotics</strong> focuses on developing a RL-based locomotion for PAL's latest
-      humanoid
-      robot
-      <a href="https://pal-robotics.com/robot/kangaroo/" target="_blank" rel="noopener">KANGAROO</a>,
-      using Isaac Lab.
+      At <strong>PAL Robotics</strong>, I'm in charge of the RL locomotion stack for 
+      <a href="https://pal-robotics.com/robot/kangaroo/" target="_blank" rel="noopener"><strong>Kangaroo</strong></a> 
+      humanoid, from Isaac Lab/mjlab training to deployment with ROS/ROS 2.
     </p>
+
 
 
     <!-- <img class="avatar"
@@ -236,7 +236,7 @@
        loading="lazy" decoding="async"> -->
 
 
-    <section id="robotics" aria-labelledby="robotics-heading">
+    <section id="software" aria-labelledby="software-heading">
       <div class="card">
         <p class="muted" style="margin:0 0 8px;">Software</p>
         <ul class="clean" style="margin:0;">
@@ -297,9 +297,8 @@
       <h2 id="blog-heading">Blog</h2> 
       <div class="card">
         <ul class="clean" style="margin:0;">
-          <li><a href="#">Balancing as a low-frequency task</a> — May 2025</li>
-          <li><a href="#">Intro to optimal control: LQR</a> — Feb 2025</li>
-          <li><a href="#">Notes on QP optimality tolerances</a> — Nov 2024</li>
+          <li><a href="#">Bla bla bla part 1</a> — May 2025</li>
+          <li><a href="#">Hello World part 25</a> — Feb 2025</li>
         </ul>
       </div>
     </section> -->
