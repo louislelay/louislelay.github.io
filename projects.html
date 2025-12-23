@@ -1,0 +1,456 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Projects — Louis Le Lay</title>
+  <meta name="description" content="Louis Le Lay's robotics and reinforcement learning projects" />
+  <style>
+    :root {
+      --bg: #ffffff;
+      --fg: #111111;
+      --muted: #666666;
+      --link: #0a66c2;
+      --accent: #00b4d8;
+      --maxw: 720px;
+      --pad: 18px;
+      --radius: 10px;
+    }
+
+    html,
+    body {
+      height: 100%;
+    }
+
+    body {
+      margin: 0;
+      font: 16px/1.6 system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, "Helvetica Neue", Arial, sans-serif;
+      background: var(--bg);
+      color: var(--fg);
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+    }
+
+    .wrap {
+      max-width: var(--maxw);
+      margin: 0 auto;
+      padding: calc(var(--pad) * 1.25) var(--pad);
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      background: color-mix(in oklab, var(--bg) 90%, transparent);
+      backdrop-filter: blur(6px);
+      border-bottom: 1px solid color-mix(in oklab, var(--fg) 10%, transparent);
+      z-index: 10;
+    }
+
+    nav ul {
+      display: flex;
+      gap: 14px;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      flex-wrap: wrap;
+    }
+
+    nav a {
+      display: inline-block;
+      padding: 6px 10px;
+      border-radius: 8px;
+      text-decoration: none;
+      color: var(--fg);
+    }
+
+    nav a:hover,
+    nav a:focus {
+      outline: none;
+      background: color-mix(in oklab, var(--fg) 10%, transparent);
+    }
+
+    .title {
+      margin: 28px 0 10px;
+      font-size: clamp(28px, 5vw, 40px);
+      line-height: 1.2;
+    }
+
+    p {
+      margin: 0 0 14px;
+    }
+
+    .muted {
+      color: var(--muted);
+    }
+
+    a {
+      color: var(--link);
+    }
+
+    .project-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+      margin: 28px 0;
+    }
+
+    .project-card {
+      border: 1px solid color-mix(in oklab, var(--fg) 12%, transparent);
+      border-radius: var(--radius);
+      padding: 20px 22px;
+      transition: box-shadow 0.2s ease, border-color 0.2s ease;
+    }
+
+    .project-card:hover {
+      border-color: color-mix(in oklab, var(--link) 40%, transparent);
+      box-shadow: 0 4px 20px color-mix(in oklab, var(--fg) 6%, transparent);
+    }
+
+    .project-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 12px;
+      margin-bottom: 10px;
+      flex-wrap: wrap;
+    }
+
+    .project-title {
+      font-size: 18px;
+      font-weight: 600;
+      margin: 0;
+      line-height: 1.3;
+    }
+
+    .project-title a {
+      color: var(--fg);
+      text-decoration: none;
+    }
+
+    .project-title a:hover {
+      color: var(--link);
+    }
+
+    .project-badge {
+      font-size: 12px;
+      padding: 3px 8px;
+      border-radius: 4px;
+      background: color-mix(in oklab, var(--accent) 15%, transparent);
+      color: color-mix(in oklab, var(--accent) 80%, var(--fg));
+      font-weight: 500;
+      white-space: nowrap;
+    }
+
+    .project-meta {
+      font-size: 14px;
+      color: var(--muted);
+      margin-bottom: 12px;
+    }
+
+    .project-description {
+      margin-bottom: 14px;
+    }
+
+    .project-results {
+      background: color-mix(in oklab, var(--fg) 4%, transparent);
+      border-radius: 6px;
+      padding: 12px 14px;
+      margin-bottom: 14px;
+    }
+
+    .project-results-title {
+      font-size: 13px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      color: var(--muted);
+      margin-bottom: 6px;
+    }
+
+    .project-results ul {
+      margin: 0;
+      padding-left: 18px;
+    }
+
+    .project-results li {
+      margin: 4px 0;
+      font-size: 15px;
+    }
+
+    .project-links {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+
+    .project-links a {
+      font-size: 14px;
+    }
+
+    .tech-stack {
+      display: flex;
+      gap: 6px;
+      flex-wrap: wrap;
+      margin-top: 12px;
+    }
+
+    .tech-tag {
+      font-size: 12px;
+      padding: 2px 8px;
+      border-radius: 4px;
+      background: color-mix(in oklab, var(--fg) 8%, transparent);
+      color: var(--muted);
+    }
+
+    .section-label {
+      font-size: 13px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      color: var(--muted);
+      margin: 40px 0 16px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid color-mix(in oklab, var(--fg) 10%, transparent);
+    }
+
+    footer {
+      margin-top: 40px;
+      padding-top: 18px;
+      border-top: 1px solid color-mix(in oklab, var(--fg) 10%, transparent);
+      font-size: 14px;
+    }
+
+    .skip-link {
+      position: absolute;
+      left: -9999px;
+      top: auto;
+      width: 1px;
+      height: 1px;
+      overflow: hidden;
+    }
+
+    .skip-link:focus {
+      position: static;
+      width: auto;
+      height: auto;
+      padding: 8px 10px;
+      border-radius: 8px;
+      background: color-mix(in oklab, var(--fg) 10%, var(--bg));
+    }
+  </style>
+</head>
+
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header role="banner">
+    <div class="wrap"
+      style="display:flex; align-items:center; justify-content:space-between; gap:14px; flex-wrap:wrap;">
+      <strong><a href="index.html" style="text-decoration:none; color:inherit;">Louis Le Lay</a></strong>
+      <nav aria-label="Primary">
+        <ul>
+          <li><a href="projects.html">Projects</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main" class="wrap">
+    <h1 class="title">Projects</h1>
+    <p class="muted">Things I've built, contributed to, broken, and occasionally got working on real robots.</p>
+
+    <div class="section-label">Featured Work</div>
+
+    <div class="project-grid">
+
+      <!-- PAL Robotics -->
+      <article class="project-card">
+        <div class="project-header">
+          <h2 class="project-title">RL Locomotion for Kangaroo Humanoid</h2>
+          <span class="project-badge">Current Role</span>
+        </div>
+        <p class="project-meta">PAL Robotics · July 2025 – Present</p>
+        <p class="project-description">
+          Leading the reinforcement learning locomotion stack for PAL's Kangaroo humanoid robot. Replacing legacy Zero Moment Point (ZMP) walking with RL-based policies trained in Isaac Lab and mjlab, deployed via ROS/ROS 2.
+        </p>
+        <div class="project-results">
+          <div class="project-results-title">Results</div>
+          <ul>
+            <li>Successful sim-to-real transfer for RL-based locomotion</li>
+            <li>Integrated PAL's humanoid and mobile manipulator robots into Isaac Lab and mjlab for training</li>
+            <li>Built ROS package for seamless policy deployment from simulation to hardware</li>
+          </ul>
+        </div>
+        <div class="project-links">
+          <a href="https://pal-robotics.com/robot/kangaroo/" target="_blank" rel="noopener">Kangaroo Robot →</a>
+        </div>
+        <div class="tech-stack">
+          <span class="tech-tag">Isaac Lab</span>
+          <span class="tech-tag">mjlab</span>
+          <span class="tech-tag">PyTorch</span>
+          <span class="tech-tag">ROS 2</span>
+          <span class="tech-tag">Python</span>
+        </div>
+      </article>
+
+      <!-- mjlab -->
+      <article class="project-card">
+        <div class="project-header">
+          <h2 class="project-title"><a href="https://github.com/mujocolab/mjlab" target="_blank" rel="noopener">mjlab</a></h2>
+          <span class="project-badge">1200+ ⭐</span>
+        </div>
+        <p class="project-meta">Open Source · Led by Kevin Zakka</p>
+        <p class="project-description">
+          Early contributor and collaborator to mjlab, an Isaac Lab-style RL framework built on MuJoCo Warp. Contributed to APIs, task implementations, and documentation. But most importantly a daily user/tester! 
+        </p>
+        <div class="project-results">
+          <div class="project-results-title">Results</div>
+          <ul>
+            <li>2× faster performance than Isaac Lab in object-rich environments</li>
+            <li>Deployed sim-to-real policies with zero domain randomization</li>
+            <li>Acknowledged in the project's citation file</li>
+          </ul>
+        </div>
+        <div class="project-links">
+          <a href="https://github.com/mujocolab/mjlab" target="_blank" rel="noopener">GitHub →</a>
+          <span class="muted">·</span>
+          <a href="https://x.com/kevin_zakka/status/1972757435707424898" target="_blank" rel="noopener">Announcement →</a>
+        </div>
+        <div class="tech-stack">
+          <span class="tech-tag">MuJoCo Warp</span>
+          <span class="tech-tag">Python</span>
+          <span class="tech-tag">PyTorch</span>
+        </div>
+      </article>
+
+      <!-- Kinova Sim2Real -->
+      <article class="project-card">
+        <div class="project-header">
+          <h2 class="project-title"><a href="https://github.com/louislelay/kinova_isaaclab_sim2real" target="_blank" rel="noopener">Kinova Gen3 RL & Sim2Real Toolkit</a></h2>
+          <span class="project-badge">180+ ⭐</span>
+        </div>
+        <p class="project-meta">Open Source · Personal Project</p>
+        <p class="project-description">
+          End-to-end pipeline for training RL manipulation policies in Isaac Lab and deploying them on a real Kinova Gen3 arm via ROS 2. Created as the missing "Hello World → Real Robot" bridge for Isaac Lab users.
+        </p>
+        <div class="project-results">
+          <div class="project-results-title">Results</div>
+          <ul>
+            <li>156k+ social impressions (LinkedIn, X, Reddit)</li>
+            <li>Adopted by INIT Lab (ÉTS Montréal) and researchers in Europe and Japan</li>
+            <li>Includes docs, tutorials, and pre-trained weights</li>
+          </ul>
+        </div>
+        <div class="project-links">
+          <a href="https://github.com/louislelay/kinova_isaaclab_sim2real" target="_blank" rel="noopener">GitHub →</a>
+        </div>
+        <div class="tech-stack">
+          <span class="tech-tag">Isaac Lab</span>
+          <span class="tech-tag">ROS 2</span>
+          <span class="tech-tag">PyTorch</span>
+          <span class="tech-tag">Python</span>
+        </div>
+      </article>
+
+      <!-- Tokyo University -->
+      <article class="project-card">
+        <div class="project-header">
+          <h2 class="project-title">Semantic Sensor Fusion for Unitree Go1</h2>
+        </div>
+        <p class="project-meta">University of Tokyo · June – Sept 2024</p>
+        <p class="project-description">
+          Built a ROS pipeline fusing Velodyne LiDAR with RealSense D455 for semantic navigation on a quadruped platform. Enabled object-centric SLAM and person-following for Jiaxu Wu's PhD research.
+        </p>
+        <div class="project-results">
+          <div class="project-results-title">Results</div>
+          <ul>
+            <li>Live colored point-cloud at 10 Hz with YOLO object labels</li>
+            <li>Became the lab's reference template for LiDAR-camera fusion</li>
+            <li>Resolved ARM-Docker issues on Jetson Xavier for edge deployment</li>
+          </ul>
+        </div>
+        <div class="tech-stack">
+          <span class="tech-tag">ROS</span>
+          <span class="tech-tag">C++</span>
+          <span class="tech-tag">YOLO</span>
+          <span class="tech-tag">CLIP</span>
+          <span class="tech-tag">Docker</span>
+        </div>
+      </article>
+
+    </div>
+
+    <div class="section-label">Other Projects</div>
+
+    <div class="project-grid">
+
+      <!-- SO-ARM -->
+      <article class="project-card">
+        <div class="project-header">
+          <h2 class="project-title"><a href="https://github.com/MuammerBay/isaac_so_arm101" target="_blank" rel="noopener">SO-ARM RL: Manipulation Tasks</a></h2>
+          <span class="project-badge">150+ ⭐</span>
+        </div>
+        <p class="project-meta">Open Source · Collaboration</p>
+        <p class="project-description">
+          RL-based manipulation tasks for SO-ARM100/101 robots using Isaac Lab. Presented at ROSCon España (Nov 2025).
+        </p>
+        <div class="project-links">
+          <a href="https://github.com/MuammerBay/isaac_so_arm101" target="_blank" rel="noopener">GitHub →</a>
+        </div>
+        <div class="tech-stack">
+          <span class="tech-tag">Isaac Lab</span>
+          <span class="tech-tag">PyTorch</span>
+          <span class="tech-tag">ROS 2</span>
+        </div>
+      </article>
+
+      <!-- Wheeled Biped -->
+      <article class="project-card">
+        <div class="project-header">
+          <h2 class="project-title">Wheeled Biped Prototype</h2>
+        </div>
+        <p class="project-meta">Personal Project · ROS 2</p>
+        <p class="project-description">
+          Designed, 3D-printed, and brought up a 6-DOF wheeled biped robot. Wrote custom controllers and RViz visualization to validate stability and zero-cantilever design.
+        </p>
+        <div class="tech-stack">
+          <span class="tech-tag">ROS 2</span>
+          <span class="tech-tag">SolidWorks</span>
+          <span class="tech-tag">Python</span>
+        </div>
+      </article>
+
+      <!-- NAO Walking -->
+      <article class="project-card">
+        <div class="project-header">
+          <h2 class="project-title">NAO Walking Control</h2>
+        </div>
+        <p class="project-meta">Naova RoboCup Team · Nov 2024 – April 2025</p>
+        <p class="project-description">
+          Enhanced NAO biped walking stability by ~15% by converting discrete to continuous control signals. Also developed a neural network for automatic referee signal interpretation.
+        </p>
+        <div class="tech-stack">
+          <span class="tech-tag">Python</span>
+          <span class="tech-tag">PyTorch</span>
+          <span class="tech-tag">Control</span>
+        </div>
+      </article>
+
+    </div>
+
+    <footer role="contentinfo">
+      <p>
+        © <span id="y">2025</span> Louis Le Lay · <a href="index.html">Home</a><br />
+        Content licensed under <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank"
+          rel="license noopener">CC BY 4.0</a>.
+      </p>
+      <script>
+        const y = document.getElementById('y'); if (y) y.textContent = new Date().getFullYear();
+      </script>
+    </footer>
+  </main>
+</body>
+
+</html>
