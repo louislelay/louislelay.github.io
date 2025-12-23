@@ -161,6 +161,11 @@
       .intro {
         grid-template-columns: 1fr;
       }
+
+      .avatar {
+        order: -1;
+        justify-self: center;
+      }
     }
 
     .avatar {
@@ -183,13 +188,10 @@
       <strong><a href="#top" style="text-decoration:none; color:inherit;">Louis Le Lay</a></strong>
       <nav aria-label="Primary">
         <ul>
-          <!-- <li><a href="projects.html">Projects</a></li>
-          <li><a href="contributions.html">OS Contributions</a></li> -->
+          <!-- <li><a href="projects.html">Projects</a></li> -->
+          <!-- <li><a href="contributions.html">OS Contributions</a></li> -->
           <!-- <li><a href="#blog">Blog</a></li>                  -->
           <!-- <li><a href="#publications">Publications</a></li>  -->
-          <li><a href="#software">Software</a></li>         
-          <li><a href="#talks">Talks</a></li>               
-          <!-- <li><a href="#teaching">Teaching</a></li>          -->
         </ul>
       </nav>
     </div>
@@ -205,36 +207,37 @@
       <a href="mailto:le.lay.louis@gmail.com">E-mail</a>
     </p>
 
-    <p>
-      I'm <strong>Louis Le Lay</strong>, an incoming robotics research engineer. I'm working on making humanoid robots
-      genuinely agile through reinforcement learning and simulation.
-    </p>
+    <div class="intro">
+      <div>
+        <p>
+          I'm <strong>Louis Le Lay</strong>, an incoming robotics research engineer. I'm working on making humanoid robots
+          genuinely agile through reinforcement learning and simulation.
+        </p>
 
-    <p>
-      I’m an active contributor to
-      <a href="https://github.com/isaac-sim/IsaacLab" target="_blank" rel="noopener"><strong>Isaac Lab</strong></a>
-      and contributed to creating
-      <a href="https://github.com/mujocolab/mjlab" target="_blank" rel="noopener"><strong>mjlab</strong></a>
-      [
-      <a href="https://x.com/kevin_zakka/status/1972757435707424898" target="_blank" rel="noopener">tweet</a>
-      ], an Isaac Lab-style RL framework built on top of
-      <a href="https://github.com/google-deepmind/mujoco_warp" target="_blank" rel="noopener"><strong>MuJoCo Warp</strong></a>.
-    </p>
+        <p>
+          I'm an active contributor to
+          <a href="https://github.com/isaac-sim/IsaacLab" target="_blank" rel="noopener"><strong>Isaac Lab</strong></a>
+          and contributed to creating
+          <a href="https://github.com/mujocolab/mjlab" target="_blank" rel="noopener"><strong>mjlab</strong></a>
+          [
+          <a href="https://x.com/kevin_zakka/status/1972757435707424898" target="_blank" rel="noopener">tweet</a>
+          ], an Isaac Lab-style RL framework built on top of
+          <a href="https://github.com/google-deepmind/mujoco_warp" target="_blank" rel="noopener"><strong>MuJoCo Warp</strong></a>.
+        </p>
 
-    <p>
-      At <strong>PAL Robotics</strong>, I'm in charge of the RL locomotion stack for 
-      <a href="https://pal-robotics.com/robot/kangaroo/" target="_blank" rel="noopener"><strong>Kangaroo</strong></a> 
-      humanoid, from Isaac Lab/mjlab training to deployment with ROS/ROS 2.
-    </p>
+        <p>
+          At <strong>PAL Robotics</strong>, I'm in charge of the RL locomotion stack for 
+          <a href="https://pal-robotics.com/robot/kangaroo/" target="_blank" rel="noopener"><strong>Kangaroo</strong></a> 
+          humanoid, from Isaac Lab/mjlab training to deployment with ROS/ROS 2.
+        </p>
+      </div>
 
-
-
-    <!-- <img class="avatar"
-       src="media/me.jpg"
-       alt="Me"
-       width="640" height="640"
-       loading="lazy" decoding="async"> -->
-
+      <img class="avatar"
+         src="media/me.jpg"
+         alt="Louis Le Lay"
+         width="140" height="140"
+         loading="lazy" decoding="async">
+    </div>
 
     <section id="software" aria-labelledby="software-heading">
       <div class="card">
