@@ -268,30 +268,30 @@
       <!-- PAL Robotics -->
       <article class="project-card">
         <div class="project-header">
-          <h2 class="project-title">RL Locomotion for Kangaroo Humanoid</h2>
+          <h2 class="project-title">RL Locomotion Stack for KANGAROO Humanoid</h2>
           <span class="project-badge">Current Role</span>
         </div>
         <p class="project-meta">PAL Robotics · July 2025 – Present</p>
         <p class="project-description">
-          Leading the reinforcement learning locomotion stack for PAL's Kangaroo humanoid robot. Replacing legacy Zero Moment Point (ZMP) walking with RL-based policies trained in Isaac Lab and mjlab, deployed via ROS/ROS 2.
+          Built pal_mjlab (PAL's mjlab extension) and ROS deployment package, enabling org-wide RL development.
         </p>
         <div class="project-results">
           <div class="project-results-title">Results</div>
           <ul>
-            <li>Successful sim-to-real transfer for RL-based locomotion</li>
-            <li>Integrated PAL's humanoid and mobile manipulator robots into Isaac Lab and mjlab for training</li>
-            <li>Built ROS package for seamless policy deployment from simulation to hardware</li>
+            <li><strong>Velocity Tracking:</strong> RL-based walking controller to replace legacy MPC stack</li>
+            <li><strong>Motion Imitation:</strong> GMR retargeting + BeyondMimic for natural movement imitation</li>
+            <li><strong>Fall Recovery:</strong> Trained recovery policies (sim-validated, hardware deployment pending)</li>
           </ul>
         </div>
         <div class="project-links">
-          <a href="https://pal-robotics.com/robot/kangaroo/" target="_blank" rel="noopener">Kangaroo Robot →</a>
+          <a href="https://pal-robotics.com/robot/kangaroo/" target="_blank" rel="noopener">KANGAROO Robot →</a>
         </div>
         <div class="tech-stack">
-          <span class="tech-tag">Isaac Lab</span>
           <span class="tech-tag">mjlab</span>
           <span class="tech-tag">PyTorch</span>
-          <span class="tech-tag">ROS 2</span>
-          <span class="tech-tag">Python</span>
+          <span class="tech-tag">ROS</span>
+          <span class="tech-tag">MuJoCo</span>
+          <span class="tech-tag">PPO</span>
         </div>
       </article>
 
@@ -299,24 +299,25 @@
       <article class="project-card">
         <div class="project-header">
           <h2 class="project-title"><a href="https://github.com/mujocolab/mjlab" target="_blank" rel="noopener">mjlab</a></h2>
-          <span class="project-badge">1200+ ⭐</span>
+          <span class="project-badge">1600+ ⭐</span>
         </div>
         <p class="project-meta">Open Source · Led by Kevin Zakka</p>
         <p class="project-description">
-          Early contributor and collaborator to mjlab, an Isaac Lab-style RL framework built on MuJoCo Warp. Contributed to APIs, task implementations, and documentation. But most importantly a daily user/tester! 
+          Core contributor to mjlab, a MuJoCo Warp-based RL framework built by Kevin Zakka. 
         </p>
         <div class="project-results">
           <div class="project-results-title">Results</div>
           <ul>
-            <li>2× faster performance than Isaac Lab in object-rich environments</li>
-            <li>Deployed sim-to-real policies with zero domain randomization</li>
-            <li>Acknowledged in the project's citation file</li>
+            <li>~2× faster than Isaac Lab in object-rich manipulation environments</li>
+            <li>Successful sim-to-real transfer with near zero domain randomization</li>
+            <li>Adopted by UC Berkeley's graduate robotics course (ME 292b/193b)</li>
           </ul>
         </div>
         <div class="project-links">
           <a href="https://github.com/mujocolab/mjlab" target="_blank" rel="noopener">GitHub →</a>
           <span class="muted">·</span>
-          <a href="https://x.com/kevin_zakka/status/1972757435707424898" target="_blank" rel="noopener">Announcement →</a>
+          <a href="https://x.com/kevin_zakka/status/1972757435707424898" target="_blank" rel="noopener">Announcement →</a>·
+          <a href="https://arxiv.org/abs/2601.22074" target="_blank" rel="noopener">arXiv preprint →</a>
         </div>
         <div class="tech-stack">
           <span class="tech-tag">MuJoCo Warp</span>
