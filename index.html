@@ -5,214 +5,18 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Louis Le Lay</title>
-  <meta name="description" content="Louis Le Lay's Website" />
-  <style>
-    :root {
-      --bg: #ffffff;
-      --fg: #111111;
-      --muted: #666666;
-      --link: #0a66c2;
-      --maxw: 720px;
-      --pad: 18px;
-      --radius: 10px;
-    }
-
-    @media (prefers-color-scheme: dark) {
-      :root {
-        --bg: #ffffff;
-        --fg: #111111;
-        --muted: #666666;
-        --link: #0a66c2;
-      }
-    }
-
-    html,
-    body {
-      height: 100%;
-    }
-
-    body {
-      margin: 0;
-      font: 16px/1.6 system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, "Helvetica Neue", Arial, sans-serif;
-      background: var(--bg);
-      color: var(--fg);
-      -webkit-font-smoothing: antialiased;
-      text-rendering: optimizeLegibility;
-    }
-
-    .wrap {
-      max-width: var(--maxw);
-      margin: 0 auto;
-      padding: calc(var(--pad) * 1.25) var(--pad);
-    }
-
-    header {
-      position: sticky;
-      top: 0;
-      background: color-mix(in oklab, var(--bg) 90%, transparent);
-      backdrop-filter: blur(6px);
-      border-bottom: 1px solid color-mix(in oklab, var(--fg) 10%, transparent);
-      z-index: 10;
-    }
-
-    nav ul {
-      display: flex;
-      gap: 14px;
-      list-style: none;
-      margin: 0;
-      padding: 0;
-      flex-wrap: wrap;
-    }
-
-    nav a {
-      display: inline-block;
-      padding: 6px 10px;
-      border-radius: 8px;
-      text-decoration: none;
-      color: var(--fg);
-    }
-
-    nav a:hover,
-    nav a:focus {
-      outline: none;
-      background: color-mix(in oklab, var(--fg) 10%, transparent);
-    }
-
-    .title {
-      margin: 28px 0 10px;
-      font-size: clamp(28px, 5vw, 40px);
-      line-height: 1.2
-    }
-
-    p {
-      margin: 0 0 14px;
-    }
-
-    .muted {
-      color: var(--muted)
-    }
-
-    a {
-      color: var(--link)
-    }
-
-    main section {
-      margin: 36px 0;
-    }
-
-    h2 {
-      font-size: 20px;
-      margin: 22px 0 10px;
-      border-bottom: 1px solid color-mix(in oklab, var(--fg) 15%, transparent);
-      padding-bottom: 6px;
-    }
-
-    .card {
-      border: 1px solid color-mix(in oklab, var(--fg) 12%, transparent);
-      border-radius: var(--radius);
-      padding: 14px 16px;
-      margin: 10px 0;
-    }
-
-    ul.clean {
-      list-style: none;
-      padding: 0;
-      margin: 8px 0;
-    }
-
-    ul.clean li {
-      margin: 6px 0;
-    }
-
-    footer {
-      margin-top: 40px;
-      padding-top: 18px;
-      border-top: 1px solid color-mix(in oklab, var(--fg) 10%, transparent);
-      font-size: 14px;
-    }
-
-    .skip-link {
-      position: absolute;
-      left: -9999px;
-      top: auto;
-      width: 1px;
-      height: 1px;
-      overflow: hidden;
-    }
-
-    .skip-link:focus {
-      position: static;
-      width: auto;
-      height: auto;
-      padding: 8px 10px;
-      border-radius: 8px;
-      background: color-mix(in oklab, var(--fg) 10%, var(--bg));
-    }
-
-    .intro {
-      display: grid;
-      grid-template-columns: 1fr 140px;
-      align-items: start;
-      gap: 16px;
-      margin: 6px 0 18px;
-    }
-
-    @media (max-width: 560px) {
-      .intro {
-        grid-template-columns: 1fr;
-      }
-
-      .avatar {
-        order: -1;
-        justify-self: center;
-      }
-    }
-
-    .avatar {
-      width: 140px;
-      aspect-ratio: 1;
-      border-radius: 12px;
-      object-fit: cover;
-      border: 1px solid color-mix(in oklab, var(--fg) 12%, transparent);
-      box-shadow: 0 2px 10px color-mix(in oklab, var(--fg) 8%, transparent);
-    }
-
-    .pub-item {
-      margin: 16px 0;
-    }
-
-    .pub-title {
-      font-weight: 600;
-      margin-bottom: 4px;
-    }
-
-    .pub-authors {
-      color: var(--muted);
-      font-size: 15px;
-      margin-bottom: 4px;
-    }
-
-    .pub-venue {
-      font-style: italic;
-      margin-bottom: 6px;
-    }
-
-    .pub-links {
-      font-size: 14px;
-    }
-  </style>
+  <meta name="description" content="Louis Le Lay — Robotics engineer building agile humanoid locomotion with reinforcement learning" />
+  <link rel="stylesheet" href="style.css" />
 </head>
 
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
 
   <header role="banner">
-    <div class="wrap"
-      style="display:flex; align-items:center; justify-content:space-between; gap:14px; flex-wrap:wrap;">
-      <strong><a href="#top" style="text-decoration:none; color:inherit;">Louis Le Lay</a></strong>
+    <div class="wrap header-inner">
+      <strong><a href="#top">Louis Le Lay</a></strong>
       <nav aria-label="Primary">
         <ul>
-          <li><a href="projects.html">Projects</a></li>
         </ul>
       </nav>
     </div>
@@ -232,24 +36,26 @@
     <div class="intro">
       <div>
         <p>
-          I'm <strong>Louis Le Lay</strong>, an incoming robotics research engineer. I'm working on making humanoid robots
+          I'm <strong>Louis Le Lay</strong>, a robotics engineer working on making humanoid robots
           genuinely agile through reinforcement learning and simulation.
         </p>
 
         <p>
-          I'm an active contributor to
-          <a href="https://github.com/isaac-sim/IsaacLab" target="_blank" rel="noopener"><strong>Isaac Lab</strong></a>
-          and helped to the creation of
+          I contributed to the creation of
           <a href="https://github.com/mujocolab/mjlab" target="_blank" rel="noopener"><strong>mjlab</strong></a>
-          <span style="white-space: nowrap;">[ <a href="https://x.com/kevin_zakka/status/1972757435707424898" target="_blank" rel="noopener">tweet</a> ]</span>
-          , an Isaac Lab-style RL framework built on top of
-          <a href="https://github.com/google-deepmind/mujoco_warp" target="_blank" rel="noopener"><strong>MuJoCo Warp</strong></a>.
+          <span style="white-space: nowrap;">[ <a href="https://x.com/kevin_zakka/status/1972757435707424898" target="_blank" rel="noopener">tweet</a> ]</span>,
+          an Isaac Lab-style RL framework built on
+          <a href="https://github.com/google-deepmind/mujoco_warp" target="_blank" rel="noopener"><strong>MuJoCo Warp</strong></a>,
+          and I'm an active contributor to
+          <a href="https://github.com/isaac-sim/IsaacLab" target="_blank" rel="noopener"><strong>Isaac Lab</strong></a>.
         </p>
 
         <p>
-          At <strong>PAL Robotics</strong>, I'm in charge of the RL locomotion stack for 
-          <a href="https://pal-robotics.com/robot/kangaroo/" target="_blank" rel="noopener"><strong>Kangaroo</strong></a> 
-          humanoid, from Isaac Lab/mjlab training to deployment with ROS/ROS 2.
+          At <strong>PAL Robotics</strong>, I owned the RL locomotion effort for the
+          <a href="https://pal-robotics.com/robot/kangaroo/" target="_blank" rel="noopener"><strong>Kangaroo</strong></a>
+          humanoid end-to-end: built the full pipeline from scratch, led the technical direction,
+          and open-sourced the stack
+          (<a href="https://github.com/pal-robotics/pal_mjlab" target="_blank" rel="noopener"><strong>pal_mjlab</strong></a>).
         </p>
       </div>
 
@@ -287,27 +93,29 @@
       <h2 id="software-heading">Software</h2>
       <div class="card">
         <ul class="clean" style="margin:0;">
-          <li>• <a href="https://github.com/mujocolab/mjlab" target="_blank" rel="noopener">
-              mjlab</a> </li>
+          <li><strong><a href="https://github.com/pal-robotics/pal_mjlab" target="_blank" rel="noopener">
+              pal_mjlab</a></strong> </li>
           <p>
-            Project led by <a href="https://kzakka.com/" target="_blank" rel="noopener">Kevin Zakka</a>.
-            Combines Isaac Lab's proven API with best-in-class MuJoCo physics to provide lightweight,
-            modular abstractions for RL robotics research and sim-to-real deployment.
+            PAL Robotics' robots in mjlab. Standard RL interface for Kangaroo, Talos, and TIAGo.
+          </p>
+          <img alt="GitHub stars" src="https://img.shields.io/github/stars/pal-robotics/pal_mjlab?style=social" />
+          <li><strong><a href="https://github.com/mujocolab/mjlab" target="_blank" rel="noopener">
+              mjlab</a></strong> </li>
+          <p>
+            Isaac Lab API on MuJoCo Warp. Led by <a href="https://kzakka.com/" target="_blank" rel="noopener">Kevin Zakka</a>.
           </p>
           <img alt="GitHub stars" src="https://img.shields.io/github/stars/mujocolab/mjlab?style=social" />
-          <li>• <a href="https://github.com/louislelay/kinova_isaaclab_sim2real" target="_blank" rel="noopener">
-              Kinova Gen3 RL & Sim2Real Toolkit</a> </li>
+          <li><strong><a href="https://github.com/louislelay/kinova_isaaclab_sim2real" target="_blank" rel="noopener">
+              Kinova Gen3 RL &amp; Sim2Real Toolkit</a></strong> </li>
           <p>
-            Modular framework for training RL agents on the Kinova Gen3 robot using Isaac Lab,
-            and deploying trained models either in Isaac Sim, or on the real robot via ROS2.
+            Isaac Lab training to real Kinova Gen3 deployment via ROS 2.
           </p>
           <img alt="GitHub stars"
             src="https://img.shields.io/github/stars/louislelay/kinova_isaaclab_sim2real?style=social" />
-          <li>• <a href="https://github.com/MuammerBay/isaac_so_arm101" target="_blank" rel="noopener">
-              SO-ARM RL: Manipulation tasks</a> </li>
+          <li><strong><a href="https://github.com/MuammerBay/isaac_so_arm101" target="_blank" rel="noopener">
+              SO-ARM RL: Manipulation tasks</a></strong> </li>
           <p>
-            Implementation of RL-based manipulation tasks for the SO‑ARM100 and SO‑ARM101 robots
-            using Isaac Lab.
+            RL manipulation tasks for SO&#8209;ARM100/101 in Isaac Lab.
           </p>
           <img alt="GitHub stars" src="https://img.shields.io/github/stars/MuammerBay/isaac_so_arm101?style=social" />
         </ul>
@@ -319,8 +127,30 @@
       <ul class="clean">
         <li>
           <strong>Training and Deploying RL Agents for Manipulation on the SO-ARM</strong>
-          — Talk at ROSCon España, Nov 2025.
-          </li>
+          — Talk at ROSCon Espa&ntilde;a, Nov 2025.
+        </li>
+      </ul>
+    </section>
+
+    <section id="industry" aria-labelledby="industry-heading">
+      <h2 id="industry-heading">Industry</h2>
+      <ul class="clean">
+        <li>
+          <strong>PAL Robotics</strong><br />
+          <span class="muted">Robotics Engineer Intern · Jul 2025 – Mar 2026</span>
+        </li>
+        <li>
+          <strong>Naova</strong><br />
+          <span class="muted">Robotics Software Developer · Nov 2024 – Apr 2025</span>
+        </li>
+        <li>
+          <strong>University of Tokyo</strong><br />
+          <span class="muted">Research Engineer Intern · Jun – Sep 2024</span>
+        </li>
+        <li>
+          <strong>Airbus</strong><br />
+          <span class="muted">Robotics Engineer Student · Sep 2023 – Jun 2024</span>
+        </li>
       </ul>
     </section>
 
@@ -333,7 +163,7 @@
 
     <footer role="contentinfo">
       <p>
-        © <span id="y">2025</span> Louis Le Lay · <a href="#top" title="Back to top">π</a><br />
+        &copy; <span id="y">2025</span> Louis Le Lay · <a href="#top" title="Back to top">&pi;</a><br />
         Content licensed under <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank"
           rel="license noopener">CC BY 4.0</a>.<br />
         Contact:
@@ -344,7 +174,6 @@
         <a href="https://scholar.google.com/citations?user=nwzA__AAAAAJ" target="_blank" rel="noopener">Scholar</a>
       </p>
       <script>
-        // keep the year current, but keep the HTML fully static if JS is disabled
         const y = document.getElementById('y'); if (y) y.textContent = new Date().getFullYear();
       </script>
     </footer>

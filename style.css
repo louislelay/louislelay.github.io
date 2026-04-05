@@ -1,0 +1,255 @@
+:root {
+  --bg: #ffffff;
+  --fg: #1a1a1a;
+  --muted: #6b7280;
+  --link: #2563eb;
+  --accent: #0891b2;
+  --maxw: 720px;
+  --pad: 18px;
+  --radius: 10px;
+}
+
+/* ── Base ─────────────────────────────────────── */
+
+html {
+  scroll-behavior: smooth;
+}
+
+html, body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font: 16px/1.65 system-ui, -apple-system, Segoe UI, Roboto, Ubuntu,
+    Cantarell, "Helvetica Neue", Arial, sans-serif;
+  background: var(--bg);
+  color: var(--fg);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+::selection {
+  background: color-mix(in oklab, var(--link) 20%, transparent);
+}
+
+p {
+  margin: 0 0 14px;
+}
+
+.muted {
+  color: var(--muted);
+}
+
+a {
+  color: var(--link);
+  text-decoration-color: color-mix(in oklab, var(--link) 35%, transparent);
+  text-underline-offset: 2px;
+  transition: color 0.15s ease, text-decoration-color 0.15s ease;
+}
+
+a:hover {
+  text-decoration-color: currentColor;
+}
+
+/* ── Layout ───────────────────────────────────── */
+
+.wrap {
+  max-width: var(--maxw);
+  margin: 0 auto;
+  padding: calc(var(--pad) * 1.25) var(--pad);
+}
+
+/* ── Header ───────────────────────────────────── */
+
+header {
+  position: sticky;
+  top: 0;
+  background: color-mix(in oklab, var(--bg) 90%, transparent);
+  backdrop-filter: blur(6px);
+  border-bottom: 1px solid color-mix(in oklab, var(--fg) 8%, transparent);
+  z-index: 10;
+}
+
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
+.header-inner > strong a {
+  text-decoration: none;
+  color: inherit;
+}
+
+nav ul {
+  display: flex;
+  gap: 6px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  flex-wrap: wrap;
+}
+
+nav a {
+  display: inline-block;
+  padding: 6px 12px;
+  border-radius: 8px;
+  text-decoration: none;
+  color: var(--fg);
+  font-size: 15px;
+  transition: background 0.15s ease;
+}
+
+nav a:hover,
+nav a:focus-visible {
+  outline: none;
+  background: color-mix(in oklab, var(--fg) 8%, transparent);
+}
+
+/* ── Title / subtitle ─────────────────────────── */
+
+.title {
+  margin: 28px 0 4px;
+  font-size: clamp(28px, 5vw, 40px);
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+}
+
+/* ── Intro + avatar ───────────────────────────── */
+
+.intro {
+  display: grid;
+  grid-template-columns: 1fr 140px;
+  align-items: start;
+  gap: 24px;
+  margin: 0 0 24px;
+}
+
+@media (max-width: 560px) {
+  .intro {
+    grid-template-columns: 1fr;
+  }
+
+  .avatar {
+    order: -1;
+    justify-self: center;
+  }
+}
+
+.avatar {
+  width: 140px;
+  aspect-ratio: 1;
+  border-radius: 14px;
+  object-fit: cover;
+  border: 2px solid color-mix(in oklab, var(--fg) 8%, transparent);
+  box-shadow: 0 2px 12px color-mix(in oklab, var(--fg) 8%, transparent);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.avatar:hover {
+  transform: scale(1.04);
+  box-shadow: 0 6px 24px color-mix(in oklab, var(--fg) 12%, transparent);
+}
+
+/* ── Sections ─────────────────────────────────── */
+
+main section {
+  margin: 44px 0;
+}
+
+h2 {
+  font-size: 20px;
+  margin: 22px 0 12px;
+  border-bottom: 1px solid color-mix(in oklab, var(--fg) 12%, transparent);
+  padding-bottom: 6px;
+}
+
+/* ── Generic card ─────────────────────────────── */
+
+.card {
+  border: 1px solid color-mix(in oklab, var(--fg) 12%, transparent);
+  border-radius: var(--radius);
+  padding: 14px 16px;
+  margin: 10px 0;
+}
+
+/* ── Publications ─────────────────────────────── */
+
+.pub-item {
+  margin: 0;
+}
+
+.pub-title {
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+
+.pub-authors {
+  color: var(--muted);
+  font-size: 15px;
+  margin-bottom: 4px;
+}
+
+.pub-venue {
+  font-style: italic;
+  margin-bottom: 8px;
+}
+
+.pub-links {
+  font-size: 14px;
+}
+
+/* ── Clean lists (talks, etc.) ────────────────── */
+
+ul.clean {
+  list-style: none;
+  padding: 0;
+  margin: 8px 0;
+}
+
+ul.clean li {
+  margin: 8px 0;
+}
+
+/* ── Footer ───────────────────────────────────── */
+
+footer {
+  margin-top: 48px;
+  padding-top: 18px;
+  border-top: 1px solid color-mix(in oklab, var(--fg) 8%, transparent);
+  font-size: 14px;
+  color: var(--muted);
+}
+
+footer a {
+  color: var(--muted);
+  transition: color 0.15s ease;
+}
+
+footer a:hover {
+  color: var(--link);
+}
+
+/* ── Skip link ────────────────────────────────── */
+
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  top: auto;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
+.skip-link:focus {
+  position: static;
+  width: auto;
+  height: auto;
+  padding: 8px 10px;
+  border-radius: 8px;
+  background: color-mix(in oklab, var(--fg) 10%, var(--bg));
+}
+
