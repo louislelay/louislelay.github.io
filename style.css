@@ -154,6 +154,27 @@ nav a:focus-visible {
   box-shadow: 0 6px 24px color-mix(in oklab, var(--fg) 12%, transparent);
 }
 
+/* ── Demo grid ────────────────────────────────── */
+
+.demo-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin: 0 0 24px;
+}
+
+@media (max-width: 560px) {
+  .demo-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.demo-grid img {
+  width: 100%;
+  border-radius: var(--radius);
+  border: 1px solid color-mix(in oklab, var(--fg) 12%, transparent);
+}
+
 /* ── Sections ─────────────────────────────────── */
 
 main section {
@@ -200,6 +221,13 @@ h2 {
 
 .pub-links {
   font-size: 14px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.pub-links img {
+  vertical-align: middle;
 }
 
 /* ── Clean lists (talks, etc.) ────────────────── */
@@ -212,6 +240,14 @@ ul.clean {
 
 ul.clean li {
   margin: 8px 0;
+}
+
+/* ── Open-access note ────────────────────────── */
+
+.open-access {
+  font-size: 14px;
+  font-style: italic;
+  margin: 36px 0 0;
 }
 
 /* ── Footer ───────────────────────────────────── */

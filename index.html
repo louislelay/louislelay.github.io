@@ -15,17 +15,11 @@
   <header role="banner">
     <div class="wrap header-inner">
       <strong><a href="#top">Louis Le Lay</a></strong>
-      <nav aria-label="Primary">
-        <ul>
-        </ul>
-      </nav>
     </div>
   </header>
 
   <main id="main" class="wrap">
-    <h1 class="title" id="top">Hello!</h1>
-
-    <p>
+    <p id="top">
       <a href="https://github.com/louislelay" target="_blank" rel="noopener">GitHub</a> ·
       <a href="https://www.linkedin.com/in/louis-le-lay/" target="_blank" rel="noopener">LinkedIn</a> ·
       <a href="https://x.com/LouisLeLay4" target="_blank" rel="noopener">Twitter</a> ·
@@ -66,6 +60,12 @@
          loading="lazy" decoding="async">
     </div>
 
+    <div class="demo-grid">
+      <img src="media/kang_walk.gif" alt="Kangaroo humanoid walking with RL locomotion" loading="lazy" decoding="async">
+      <img src="media/getup_g1.gif" alt="G1 robot getting up using reinforcement learning" loading="lazy" decoding="async">
+      <img src="media/tennis_retargeting.gif" alt="Tennis motion retargeting to a robot" loading="lazy" decoding="async">
+    </div>
+
     <section id="publications" aria-labelledby="pubs-heading">
       <h2 id="pubs-heading">Publications</h2>
       <p>
@@ -92,33 +92,52 @@
     <section id="software" aria-labelledby="software-heading">
       <h2 id="software-heading">Software</h2>
       <div class="card">
-        <ul class="clean" style="margin:0;">
-          <li><strong><a href="https://github.com/pal-robotics/pal_mjlab" target="_blank" rel="noopener">
-              pal_mjlab</a></strong> </li>
-          <p>
-            PAL Robotics' robots in mjlab. Standard RL interface for Kangaroo, Talos, and TIAGo.
-          </p>
-          <img alt="GitHub stars" src="https://img.shields.io/github/stars/pal-robotics/pal_mjlab?style=social" />
-          <li><strong><a href="https://github.com/mujocolab/mjlab" target="_blank" rel="noopener">
-              mjlab</a></strong> </li>
-          <p>
-            Isaac Lab API on MuJoCo Warp. Led by <a href="https://kzakka.com/" target="_blank" rel="noopener">Kevin Zakka</a>.
-          </p>
-          <img alt="GitHub stars" src="https://img.shields.io/github/stars/mujocolab/mjlab?style=social" />
-          <li><strong><a href="https://github.com/louislelay/kinova_isaaclab_sim2real" target="_blank" rel="noopener">
-              Kinova Gen3 RL &amp; Sim2Real Toolkit</a></strong> </li>
-          <p>
-            Isaac Lab training to real Kinova Gen3 deployment via ROS 2.
-          </p>
-          <img alt="GitHub stars"
-            src="https://img.shields.io/github/stars/louislelay/kinova_isaaclab_sim2real?style=social" />
-          <li><strong><a href="https://github.com/MuammerBay/isaac_so_arm101" target="_blank" rel="noopener">
-              SO-ARM RL: Manipulation tasks</a></strong> </li>
-          <p>
-            RL manipulation tasks for SO&#8209;ARM100/101 in Isaac Lab.
-          </p>
-          <img alt="GitHub stars" src="https://img.shields.io/github/stars/MuammerBay/isaac_so_arm101?style=social" />
-        </ul>
+        <div class="pub-item">
+          <div class="pub-title">
+            <a href="https://github.com/pal-robotics/pal_mjlab" target="_blank" rel="noopener">pal_mjlab</a>
+          </div>
+          <div class="pub-authors">PAL Robotics' robots in mjlab. Standard RL interface for Kangaroo, Talos, and TIAGo.</div>
+          <div class="pub-links">
+            <a href="https://github.com/pal-robotics/pal_mjlab" target="_blank" rel="noopener">code</a> ·
+            <img alt="GitHub stars" src="https://img.shields.io/github/stars/pal-robotics/pal_mjlab?style=social" />
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="pub-item">
+          <div class="pub-title">
+            <a href="https://github.com/mujocolab/mjlab" target="_blank" rel="noopener">mjlab</a>
+          </div>
+          <div class="pub-authors">Isaac Lab API on MuJoCo Warp. Led by <a href="https://kzakka.com/" target="_blank" rel="noopener">Kevin Zakka</a>.</div>
+          <div class="pub-links">
+            <a href="https://github.com/mujocolab/mjlab" target="_blank" rel="noopener">code</a> ·
+            <img alt="GitHub stars" src="https://img.shields.io/github/stars/mujocolab/mjlab?style=social" />
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="pub-item">
+          <div class="pub-title">
+            <a href="https://github.com/louislelay/kinova_isaaclab_sim2real" target="_blank" rel="noopener">Kinova Gen3 RL &amp; Sim2Real Toolkit</a>
+          </div>
+          <div class="pub-authors">Isaac Lab training to real Kinova Gen3 deployment via ROS 2.</div>
+          <div class="pub-links">
+            <a href="https://github.com/louislelay/kinova_isaaclab_sim2real" target="_blank" rel="noopener">code</a> ·
+            <img alt="GitHub stars" src="https://img.shields.io/github/stars/louislelay/kinova_isaaclab_sim2real?style=social" />
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="pub-item">
+          <div class="pub-title">
+            <a href="https://github.com/MuammerBay/isaac_so_arm101" target="_blank" rel="noopener">SO-ARM RL: Manipulation tasks</a>
+          </div>
+          <div class="pub-authors">RL manipulation tasks for SO&#8209;ARM100/101 in Isaac Lab.</div>
+          <div class="pub-links">
+            <a href="https://github.com/MuammerBay/isaac_so_arm101" target="_blank" rel="noopener">code</a> ·
+            <img alt="GitHub stars" src="https://img.shields.io/github/stars/MuammerBay/isaac_so_arm101?style=social" />
+          </div>
+        </div>
       </div>
     </section>
 
@@ -132,40 +151,12 @@
       </ul>
     </section>
 
-    <section id="industry" aria-labelledby="industry-heading">
-      <h2 id="industry-heading">Industry</h2>
-      <ul class="clean">
-        <li>
-          <strong>PAL Robotics</strong><br />
-          <span class="muted">Robotics Engineer Intern · Jul 2025 – Mar 2026</span>
-        </li>
-        <li>
-          <strong>Naova</strong><br />
-          <span class="muted">Robotics Software Developer · Nov 2024 – Apr 2025</span>
-        </li>
-        <li>
-          <strong>University of Tokyo</strong><br />
-          <span class="muted">Research Engineer Intern · Jun – Sep 2024</span>
-        </li>
-        <li>
-          <strong>Airbus</strong><br />
-          <span class="muted">Robotics Engineer Student · Sep 2023 – Jun 2024</span>
-        </li>
-      </ul>
-    </section>
-
-    <section id="open-access" aria-labelledby="open-access-heading">
-      <h2 id="open-access-heading">Open access</h2>
-      <p>
-        I keep most of my work public whenever possible.
-      </p>
-    </section>
-
     <footer role="contentinfo">
       <p>
-        &copy; <span id="y">2025</span> Louis Le Lay · <a href="#top" title="Back to top">&pi;</a><br />
+        &copy; <span id="y">2026</span> Louis Le Lay · <a href="#top" title="Back to top">&pi;</a><br />
         Content licensed under <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank"
           rel="license noopener">CC BY 4.0</a>.<br />
+        All my work is open source whenever possible.<br />
         Contact:
         <a href="https://github.com/louislelay" target="_blank" rel="noopener">GitHub</a> ·
         <a href="https://www.linkedin.com/in/louis-le-lay/" target="_blank" rel="noopener">LinkedIn</a> ·
