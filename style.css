@@ -169,11 +169,22 @@ nav a:focus-visible {
   }
 }
 
+.demo-grid figure {
+  margin: 0;
+}
+
 .demo-grid img {
   width: 100%;
   height: auto;
   border-radius: var(--radius);
   border: 1px solid color-mix(in oklab, var(--fg) 12%, transparent);
+}
+
+.demo-grid figcaption {
+  font-size: 13px;
+  color: var(--muted);
+  text-align: center;
+  margin-top: 6px;
 }
 
 /* ── Sections ─────────────────────────────────── */
