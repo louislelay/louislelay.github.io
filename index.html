@@ -5,7 +5,8 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Louis Le Lay</title>
-  <meta name="description" content="Louis Le Lay — Robotics engineer building agile humanoid locomotion with reinforcement learning" />
+  <meta name="description"
+    content="Louis Le Lay — Robotics engineer building agile humanoid locomotion with reinforcement learning" />
   <link rel="stylesheet" href="style.css" />
 </head>
 
@@ -14,100 +15,133 @@
 
   <header role="banner">
     <div class="wrap header-inner">
-      <strong><a href="#top">Louis Le Lay</a></strong>
+      <div>
+        <strong><a href="#top">Louis Le Lay</a></strong>
+        <div class="subtitle">simulation & rl for humanoids</div>
+      </div>
     </div>
   </header>
 
   <main id="main" class="wrap">
-    <h1 class="title" id="top">Hello!</h1>
-
-    <p>
-      <a href="https://github.com/louislelay" target="_blank" rel="noopener">GitHub</a> ·
-      <a href="https://www.linkedin.com/in/louis-le-lay/" target="_blank" rel="noopener">LinkedIn</a> ·
-      <a href="https://x.com/LouisLeLay4" target="_blank" rel="noopener">Twitter</a> ·
-      <a href="mailto:le.lay.louis@gmail.com">E-mail</a> ·
-      <a href="https://scholar.google.com/citations?user=nwzA__AAAAAJ" target="_blank" rel="noopener">Scholar</a>
-    </p>
-
     <div class="intro">
       <div>
         <p>
-          I'm <strong>Louis Le Lay</strong>, a robotics engineer working on making humanoid robots
-          genuinely agile through reinforcement learning and simulation.
-        </p>
-
-        <p>
-          I contributed to the creation of
-          <a href="https://github.com/mujocolab/mjlab" target="_blank" rel="noopener"><strong>mjlab</strong></a>
-          <span style="white-space: nowrap;">[ <a href="https://x.com/kevin_zakka/status/1972757435707424898" target="_blank" rel="noopener">tweet</a> ]</span>,
-          an Isaac Lab-style RL framework built on
-          <a href="https://github.com/google-deepmind/mujoco_warp" target="_blank" rel="noopener"><strong>MuJoCo Warp</strong></a>,
-          and I'm an active contributor to
-          <a href="https://github.com/isaac-sim/IsaacLab" target="_blank" rel="noopener"><strong>Isaac Lab</strong></a>.
-        </p>
-
-        <p>
-          At <strong>PAL Robotics</strong>, I owned the RL locomotion effort for the
-          <a href="https://pal-robotics.com/robot/kangaroo/" target="_blank" rel="noopener"><strong>Kangaroo</strong></a>
-          humanoid end-to-end: built the full pipeline from scratch, led the technical direction,
+          I'm <strong>Louis Le Lay</strong>, a robotics engineer.
+          At <a href="https://pal-robotics.com/" target="_blank" rel="noopener"><strong>PAL Robotics</strong></a>,
+          I owned the RL locomotion effort for the
+          <a href="https://pal-robotics.com/robot/kangaroo/" target="_blank"
+            rel="noopener"><strong>Kangaroo</strong></a>
+          humanoid end-to-end: built the full pipeline from scratch
           and replaced the MPC-based walk the company had used for over 20&nbsp;years.
-          The stack is open source
-          (<a href="https://github.com/pal-robotics/pal_mjlab" target="_blank" rel="noopener"><strong>pal_mjlab</strong></a>).
-          My work was <a href="https://www.dailymotion.com/video/xagcef2" target="_blank" rel="noopener">highlighted on stage at VivaTech 2026</a> during a live humanoid demo.
+          The stack is
+          <a href="https://github.com/pal-robotics/pal_mjlab" target="_blank" rel="noopener">open source</a>.
+        </p>
+
+        <p>
+          I also contributed to the creation of
+          <a href="https://github.com/mujocolab/mjlab" target="_blank"
+            rel="noopener"><strong>mjlab</strong></a>
+          <span style="white-space: nowrap;">[ <a
+              href="https://x.com/kevin_zakka/status/1972757435707424898" target="_blank"
+              rel="noopener">tweet</a> ]</span>,
+          an Isaac Lab-style RL framework built on
+          <a href="https://github.com/google-deepmind/mujoco_warp" target="_blank"
+            rel="noopener"><strong>MuJoCo Warp</strong></a>,
+          and I'm an active contributor to
+          <a href="https://github.com/isaac-sim/IsaacLab" target="_blank"
+            rel="noopener"><strong>Isaac Lab</strong></a>.
+        </p>
+
+        <p class="mission">
+          I'm working toward humanoid robots that move through the real world
+          with the agility and robustness of humans.
+        </p>
+
+        <p>
+          <a href="https://github.com/louislelay" target="_blank" rel="noopener">GitHub</a> ·
+          <a href="https://www.linkedin.com/in/louis-le-lay/" target="_blank" rel="noopener">LinkedIn</a> ·
+          <a href="https://x.com/LouisLeLay4" target="_blank" rel="noopener">Twitter</a> ·
+          <a href="mailto:le.lay.louis@gmail.com">E-mail</a> ·
+          <a href="https://scholar.google.com/citations?user=nwzA__AAAAAJ" target="_blank"
+            rel="noopener">Scholar</a>
         </p>
       </div>
 
-      <img class="avatar"
-         src="media/me.jpg"
-         alt="Louis Le Lay"
-         width="140" height="140"
-         loading="lazy" decoding="async"
-         onmouseenter="this.src='media/me_hover.png'"
-         onmouseleave="this.src='media/me.jpg'">
+      <img class="avatar" src="media/me.jpg" alt="Louis Le Lay" width="140" height="140" loading="lazy"
+        decoding="async" onmouseenter="this.src='media/me_hover.png'" onmouseleave="this.src='media/me.jpg'">
     </div>
 
     <div class="demo-grid">
       <figure>
-        <img src="media/kang_walk.gif" alt="Kangaroo humanoid walking on real hardware with RL locomotion" width="1152" height="648" loading="lazy" decoding="async">
-        <figcaption>Real hardware</figcaption>
+        <img src="media/kang_walk.gif"
+          alt="Kangaroo humanoid walking on real hardware with RL locomotion"
+          loading="lazy" decoding="async">
+        <figcaption>Kangaroo at 0.5&nbsp;m/s — RL replacing 20&nbsp;years of MPC</figcaption>
       </figure>
       <figure>
-        <img src="media/getup_g1.gif" alt="G1 robot getting up using reinforcement learning" width="1152" height="648" loading="lazy" decoding="async">
+        <img src="media/getup_g1.gif" alt="G1 robot getting up using reinforcement learning"
+          loading="lazy" decoding="async">
         <figcaption>G1 fall recovery</figcaption>
       </figure>
       <figure>
-        <img src="media/tennis_retargeting.gif" alt="Tennis motion retargeting to a robot" width="1152" height="648" loading="lazy" decoding="async">
+        <img src="media/tennis_retargeting.gif" alt="Tennis motion retargeting to a robot"
+          loading="lazy" decoding="async">
         <figcaption>Motion retargeting</figcaption>
       </figure>
     </div>
 
     <section id="experience" aria-labelledby="exp-heading">
       <h2 id="exp-heading">Experience</h2>
-      <ul class="clean">
-        <li>
-          <strong>PAL Robotics</strong> · Robotics Engineer<span class="muted"> — Jul 2025 – Mar 2026</span>
-        </li>
-        <li>
-          <strong>University of Tokyo</strong> · Research Intern<span class="muted"> — Jun – Sep 2024</span>
-        </li>
-        <li>
-          <strong>Airbus</strong> · Robotics Engineer Intern<span class="muted"> — Sep 2023 – Jun 2024</span>
-        </li>
-      </ul>
+
+      <div class="exp-item">
+        <div class="exp-header">
+          <span><strong>PAL Robotics</strong> · Robotics Engineer</span>
+          <span class="muted">Jul 2025 – Mar 2026</span>
+        </div>
+        <p class="exp-desc">
+          Owned the RL locomotion effort for the
+          <a href="https://pal-robotics.com/robot/kangaroo/" target="_blank" rel="noopener">Kangaroo</a>
+          humanoid end-to-end. Built the full sim-to-real pipeline from scratch,
+          led the technical direction, and replaced the legacy MPC-based walker
+          with a learned policy.
+          <a href="https://homepages.laas.fr/ostasse/" target="_blank" rel="noopener">Olivier Stasse</a>
+          (Research Director, LAAS-CNRS)
+          <a href="https://www.dailymotion.com/video/xagcef2" target="_blank" rel="noopener">referenced
+            my work on stage at VivaTech 2026</a> during a live humanoid demo.
+        </p>
+      </div>
+
+      <div class="exp-item">
+        <div class="exp-header">
+          <span><strong>University of Tokyo</strong> · Research Intern</span>
+          <span class="muted">Jun – Sep 2024</span>
+        </div>
+      </div>
+
+      <div class="exp-item">
+        <div class="exp-header">
+          <span><strong>Airbus</strong> · Robotics Engineer Intern</span>
+          <span class="muted">Sep 2023 – Jun 2024</span>
+        </div>
+      </div>
     </section>
 
     <section id="publications" aria-labelledby="pubs-heading">
       <h2 id="pubs-heading">Publications</h2>
       <p>
-        For a complete and up-to-date list of publications, see my <a href="https://scholar.google.com/citations?user=nwzA__AAAAAJ" target="_blank" rel="noopener">Google Scholar profile</a>.
+        For a complete and up-to-date list, see my
+        <a href="https://scholar.google.com/citations?user=nwzA__AAAAAJ" target="_blank" rel="noopener">Google
+          Scholar</a>.
       </p>
       <div class="card">
         <div class="pub-item">
           <div class="pub-title">
-            <a href="https://arxiv.org/abs/2601.22074" target="_blank" rel="noopener">mjlab: A Lightweight Framework for GPU-Accelerated Robot Learning</a>
+            <a href="https://arxiv.org/abs/2601.22074" target="_blank" rel="noopener">mjlab: A Lightweight
+              Framework for GPU-Accelerated Robot Learning</a>
           </div>
           <div class="pub-authors">
-            Kevin Zakka, Qiayuan Liao, Brent Yi, <strong>Louis Le Lay</strong>, Koushil Sreenath, Pieter Abbeel
+            Kevin Zakka, Qiayuan Liao, Brent Yi, <strong>Louis Le Lay</strong>, Koushil Sreenath,
+            Pieter Abbeel
           </div>
           <div class="pub-venue">arXiv preprint, Jan 2026</div>
           <div class="pub-links">
@@ -126,10 +160,12 @@
           <div class="pub-title">
             <a href="https://github.com/pal-robotics/pal_mjlab" target="_blank" rel="noopener">pal_mjlab</a>
           </div>
-          <div class="pub-authors">PAL Robotics' robots in mjlab. Standard RL interface for Kangaroo, Talos, and TIAGo.</div>
+          <div class="pub-authors">PAL Robotics' robots in mjlab. Standard RL interface for Kangaroo, Talos,
+            and TIAGo.</div>
           <div class="pub-links">
             <a href="https://github.com/pal-robotics/pal_mjlab" target="_blank" rel="noopener">code</a> ·
-            <img alt="GitHub stars" src="https://img.shields.io/github/stars/pal-robotics/pal_mjlab?style=social" />
+            <img alt="GitHub stars"
+              src="https://img.shields.io/github/stars/pal-robotics/pal_mjlab?style=social" />
           </div>
         </div>
       </div>
@@ -138,34 +174,42 @@
           <div class="pub-title">
             <a href="https://github.com/mujocolab/mjlab" target="_blank" rel="noopener">mjlab</a>
           </div>
-          <div class="pub-authors">Isaac Lab API on MuJoCo Warp. Led by <a href="https://kzakka.com/" target="_blank" rel="noopener">Kevin Zakka</a>.</div>
+          <div class="pub-authors">Isaac Lab API on MuJoCo Warp. Led by <a href="https://kzakka.com/"
+              target="_blank" rel="noopener">Kevin Zakka</a>.</div>
           <div class="pub-links">
             <a href="https://github.com/mujocolab/mjlab" target="_blank" rel="noopener">code</a> ·
-            <img alt="GitHub stars" src="https://img.shields.io/github/stars/mujocolab/mjlab?style=social" />
+            <img alt="GitHub stars"
+              src="https://img.shields.io/github/stars/mujocolab/mjlab?style=social" />
           </div>
         </div>
       </div>
       <div class="card">
         <div class="pub-item">
           <div class="pub-title">
-            <a href="https://github.com/louislelay/kinova_isaaclab_sim2real" target="_blank" rel="noopener">Kinova Gen3 RL &amp; Sim2Real Toolkit</a>
+            <a href="https://github.com/louislelay/kinova_isaaclab_sim2real" target="_blank"
+              rel="noopener">Kinova Gen3 RL &amp; Sim2Real Toolkit</a>
           </div>
           <div class="pub-authors">Isaac Lab training to real Kinova Gen3 deployment via ROS 2.</div>
           <div class="pub-links">
-            <a href="https://github.com/louislelay/kinova_isaaclab_sim2real" target="_blank" rel="noopener">code</a> ·
-            <img alt="GitHub stars" src="https://img.shields.io/github/stars/louislelay/kinova_isaaclab_sim2real?style=social" />
+            <a href="https://github.com/louislelay/kinova_isaaclab_sim2real" target="_blank"
+              rel="noopener">code</a> ·
+            <img alt="GitHub stars"
+              src="https://img.shields.io/github/stars/louislelay/kinova_isaaclab_sim2real?style=social" />
           </div>
         </div>
       </div>
       <div class="card">
         <div class="pub-item">
           <div class="pub-title">
-            <a href="https://github.com/MuammerBay/isaac_so_arm101" target="_blank" rel="noopener">SO-ARM RL: Manipulation tasks</a>
+            <a href="https://github.com/MuammerBay/isaac_so_arm101" target="_blank" rel="noopener">SO-ARM
+              RL: Manipulation tasks</a>
           </div>
           <div class="pub-authors">RL manipulation tasks for SO&#8209;ARM100/101 in Isaac Lab.</div>
           <div class="pub-links">
-            <a href="https://github.com/MuammerBay/isaac_so_arm101" target="_blank" rel="noopener">code</a> ·
-            <img alt="GitHub stars" src="https://img.shields.io/github/stars/MuammerBay/isaac_so_arm101?style=social" />
+            <a href="https://github.com/MuammerBay/isaac_so_arm101" target="_blank" rel="noopener">code</a>
+            ·
+            <img alt="GitHub stars"
+              src="https://img.shields.io/github/stars/MuammerBay/isaac_so_arm101?style=social" />
           </div>
         </div>
       </div>
@@ -176,8 +220,10 @@
       <ul class="clean">
         <li>
           <strong>VivaTech 2026 — Live Demo with PAL Robotics &times; LAAS</strong>
-          — Referenced by <a href="https://homepages.laas.fr/ostasse/" target="_blank" rel="noopener">Olivier Stasse</a> (Research Director, LAAS-CNRS) for my work on Kangaroo's RL locomotion. Jun 2026.
-          <span style="white-space: nowrap;">[ <a href="https://www.dailymotion.com/video/xagcef2" target="_blank" rel="noopener">video</a> ]</span>
+          — Referenced by <a href="https://homepages.laas.fr/ostasse/" target="_blank" rel="noopener">Olivier
+            Stasse</a> (Research Director, LAAS-CNRS) for my work on Kangaroo's RL locomotion. Jun 2026.
+          <span style="white-space: nowrap;">[ <a href="https://www.dailymotion.com/video/xagcef2"
+              target="_blank" rel="noopener">video</a> ]</span>
         </li>
       </ul>
     </section>
@@ -187,7 +233,8 @@
       <ul class="clean">
         <li>
           <strong>From Arms to Humanoids: an RL Journey</strong>
-          — Invited talk at <a href="https://initrobots.ca/" target="_blank" rel="noopener">INIT Robots Lab</a>, Apr 2026.
+          — Invited talk at <a href="https://initrobots.ca/" target="_blank" rel="noopener">INIT Robots
+            Lab</a>, Apr 2026.
         </li>
         <li>
           <strong>Teaching a Full-Size Humanoid to Walk with RL, from Scratch</strong>
@@ -195,7 +242,8 @@
         </li>
         <li>
           <strong>Training and Deploying RL Agents for Manipulation on the SO-ARM</strong>
-          — Talk at <a href="https://roscon.org.es/roscon2025/ROSConES2025.html" target="_blank" rel="noopener">ROSCon Espa&ntilde;a</a>, Nov 2025.
+          — Talk at <a href="https://roscon.org.es/roscon2025/ROSConES2025.html" target="_blank"
+            rel="noopener">ROSCon Espa&ntilde;a</a>, Nov 2025.
         </li>
       </ul>
     </section>
@@ -204,26 +252,28 @@
       <h2 id="edu-heading">Education</h2>
       <ul class="clean">
         <li>
-          <strong>Sorbonne University</strong> · Master of Engineering, Robotics<span class="muted"> — 2022 – 2025</span>
+          <strong>Sorbonne University</strong> · Master of Engineering, Robotics<span class="muted"> — 2022 –
+            2025</span>
         </li>
         <li>
-          <strong>ÉTS Montréal</strong> · Dual Degree, Information Technology<span class="muted"> — 2024 – 2025</span>
+          <strong>ÉTS Montréal</strong> · Dual Degree, Information Technology<span class="muted"> — 2024 –
+            2025</span>
         </li>
       </ul>
     </section>
 
     <footer role="contentinfo">
       <p>
-        &copy; <span id="y">2026</span> Louis Le Lay · <a href="#top" title="Back to top">&pi;</a><br />
+        &copy; <span id="y">2026</span> Louis Le Lay<br />
         Content licensed under <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank"
-          rel="license noopener">CC BY 4.0</a>.<br />
+          rel="license noopener">CC BY 4.0</a>.
         All my work is open source whenever possible.<br />
-        Contact:
         <a href="https://github.com/louislelay" target="_blank" rel="noopener">GitHub</a> ·
         <a href="https://www.linkedin.com/in/louis-le-lay/" target="_blank" rel="noopener">LinkedIn</a> ·
         <a href="https://x.com/LouisLeLay4" target="_blank" rel="noopener">Twitter</a> ·
         <a href="mailto:le.lay.louis@gmail.com">E-mail</a> ·
-        <a href="https://scholar.google.com/citations?user=nwzA__AAAAAJ" target="_blank" rel="noopener">Scholar</a>
+        <a href="https://scholar.google.com/citations?user=nwzA__AAAAAJ" target="_blank"
+          rel="noopener">Scholar</a>
       </p>
       <script>
         const y = document.getElementById('y'); if (y) y.textContent = new Date().getFullYear();

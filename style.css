@@ -4,10 +4,12 @@
   --muted: #6b7280;
   --link: #2563eb;
   --accent: #0891b2;
+  --border: color-mix(in oklab, var(--fg) 10%, transparent);
   --maxw: 720px;
   --pad: 18px;
   --radius: 10px;
 }
+
 
 /* ── Base ─────────────────────────────────────── */
 
@@ -30,7 +32,7 @@ body {
 }
 
 ::selection {
-  background: color-mix(in oklab, var(--link) 20%, transparent);
+  background: color-mix(in oklab, var(--link) 25%, transparent);
 }
 
 p {
@@ -67,7 +69,7 @@ header {
   top: 0;
   background: color-mix(in oklab, var(--bg) 90%, transparent);
   backdrop-filter: blur(6px);
-  border-bottom: 1px solid color-mix(in oklab, var(--fg) 8%, transparent);
+  border-bottom: 1px solid var(--border);
   z-index: 10;
 }
 
@@ -79,43 +81,25 @@ header {
   flex-wrap: wrap;
 }
 
-.header-inner > strong a {
+.header-inner a {
   text-decoration: none;
   color: inherit;
 }
 
-nav ul {
-  display: flex;
-  gap: 6px;
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  flex-wrap: wrap;
-}
-
-nav a {
-  display: inline-block;
-  padding: 6px 12px;
-  border-radius: 8px;
-  text-decoration: none;
-  color: var(--fg);
-  font-size: 15px;
-  transition: background 0.15s ease;
-}
-
-nav a:hover,
-nav a:focus-visible {
-  outline: none;
-  background: color-mix(in oklab, var(--fg) 8%, transparent);
-}
-
-/* ── Title / subtitle ─────────────────────────── */
+/* ── Title ────────────────────────────────────── */
 
 .title {
-  margin: 28px 0 4px;
-  font-size: clamp(28px, 5vw, 40px);
+  margin: 32px 0 8px;
+  font-size: clamp(26px, 5vw, 36px);
   line-height: 1.2;
   letter-spacing: -0.02em;
+}
+
+.subtitle {
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.2;
+  letter-spacing: 0.02em;
 }
 
 /* ── Intro + avatar ───────────────────────────── */
@@ -125,7 +109,7 @@ nav a:focus-visible {
   grid-template-columns: 1fr 140px;
   align-items: start;
   gap: 24px;
-  margin: 0 0 24px;
+  margin: 0 0 28px;
 }
 
 @media (max-width: 560px) {
@@ -144,30 +128,31 @@ nav a:focus-visible {
   aspect-ratio: 1;
   border-radius: 14px;
   object-fit: cover;
-  border: 2px solid color-mix(in oklab, var(--fg) 8%, transparent);
-  box-shadow: 0 2px 12px color-mix(in oklab, var(--fg) 8%, transparent);
+  border: 2px solid var(--border);
+  box-shadow: 0 2px 12px color-mix(in oklab, var(--fg) 6%, transparent);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .avatar:hover {
   transform: scale(1.04);
-  box-shadow: 0 6px 24px color-mix(in oklab, var(--fg) 12%, transparent);
+  box-shadow: 0 6px 24px color-mix(in oklab, var(--fg) 10%, transparent);
   object-position: 70% center;
 }
+
+.mission {
+  font-style: italic;
+  color: var(--muted);
+}
+
+/* ── Demo showcase ────────────────────────────── */
 
 /* ── Demo grid ────────────────────────────────── */
 
 .demo-grid {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: repeat(3, 1fr);
   gap: 16px;
   margin: 0 0 24px;
-}
-
-@media (max-width: 560px) {
-  .demo-grid {
-    grid-template-columns: 1fr;
-  }
 }
 
 .demo-grid figure {
@@ -178,7 +163,8 @@ nav a:focus-visible {
   width: 100%;
   height: auto;
   border-radius: var(--radius);
-  border: 1px solid color-mix(in oklab, var(--fg) 12%, transparent);
+  border: 1px solid var(--border);
+  display: block;
 }
 
 .demo-grid figcaption {
@@ -186,6 +172,12 @@ nav a:focus-visible {
   color: var(--muted);
   text-align: center;
   margin-top: 6px;
+}
+
+@media (max-width: 560px) {
+  .demo-grid {
+    grid-template-columns: 1fr;
+  }
 }
 
 /* ── Sections ─────────────────────────────────── */
@@ -197,14 +189,43 @@ main section {
 h2 {
   font-size: 20px;
   margin: 22px 0 12px;
-  border-bottom: 1px solid color-mix(in oklab, var(--fg) 12%, transparent);
+  border-bottom: 1px solid var(--border);
   padding-bottom: 6px;
+}
+
+/* ── Experience ───────────────────────────────── */
+
+.exp-item {
+  margin: 16px 0;
+}
+
+.exp-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 4px;
+}
+
+.exp-desc {
+  color: var(--muted);
+  font-size: 15px;
+  margin: 4px 0 0;
+}
+
+.exp-desc a {
+  color: var(--muted);
+  transition: color 0.15s ease;
+}
+
+.exp-desc a:hover {
+  color: var(--link);
 }
 
 /* ── Generic card ─────────────────────────────── */
 
 .card {
-  border: 1px solid color-mix(in oklab, var(--fg) 12%, transparent);
+  border: 1px solid var(--border);
   border-radius: var(--radius);
   padding: 14px 16px;
   margin: 10px 0;
@@ -255,20 +276,12 @@ ul.clean li {
   margin: 8px 0;
 }
 
-/* ── Open-access note ────────────────────────── */
-
-.open-access {
-  font-size: 14px;
-  font-style: italic;
-  margin: 36px 0 0;
-}
-
 /* ── Footer ───────────────────────────────────── */
 
 footer {
   margin-top: 48px;
   padding-top: 18px;
-  border-top: 1px solid color-mix(in oklab, var(--fg) 8%, transparent);
+  border-top: 1px solid var(--border);
   font-size: 14px;
   color: var(--muted);
 }
@@ -301,4 +314,3 @@ footer a:hover {
   border-radius: 8px;
   background: color-mix(in oklab, var(--fg) 10%, var(--bg));
 }
-
