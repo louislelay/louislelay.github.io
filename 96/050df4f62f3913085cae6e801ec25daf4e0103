@@ -1,0 +1,31 @@
+index.html
+  s_2e6b019db4c8da::t_b520f10969da86 51,56-57,61-62
+  s_2e6b019db4c8da::t_916bed23e990d9 32-33
+  s_2e6b019db4c8da::t_4c3fbf54747d93 34
+  s_2e6b019db4c8da::t_150a20941f863f 9
+  s_2e6b019db4c8da::t_d14121cb8ee393 103-106,112-114
+  s_2e6b019db4c8da::t_10ece0007d9053 20
+  s_2e6b019db4c8da::t_db57de2647e709 36-38,40
+  s_2e6b019db4c8da::t_9a4b64a9ac3f04 107,110-111
+  s_2e6b019db4c8da::t_31c1724b52f68f 108-109
+  s_2e6b019db4c8da::t_de8e579c39601e 35
+  s_2e6b019db4c8da::t_3897ae12310952 29
+  s_2e6b019db4c8da::t_a1e77fc17d9281 30-31,39,41,44,46,54
+  s_2e6b019db4c8da::t_95cd1ce9c83fdb 101-102
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.12",
+  "base_commit_sha": "96050df4f62f3913085cae6e801ec25daf4e0103",
+  "prompts": {},
+  "sessions": {
+    "s_2e6b019db4c8da": {
+      "agent_id": {
+        "tool": "cursor",
+        "id": "bc4541a2-a24d-454c-be72-52274d441b21",
+        "model": "claude-fable-5"
+      },
+      "human_author": "Louis Le Lay <louis_lelay@tests-macbook-pro.home>"
+    }
+  }
+}
