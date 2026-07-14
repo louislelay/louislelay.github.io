@@ -1,0 +1,20 @@
+index.html
+  s_2e6b019db4c8da::t_b57b70b8f62b0b 30
+  s_2e6b019db4c8da::t_68512e99c45971 39,41
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.14",
+  "base_commit_sha": "feba68e1ac985bf971512f2dc220f81785fb9e35",
+  "prompts": {},
+  "sessions": {
+    "s_2e6b019db4c8da": {
+      "agent_id": {
+        "tool": "cursor",
+        "id": "bc4541a2-a24d-454c-be72-52274d441b21",
+        "model": "claude-fable-5"
+      },
+      "human_author": "Louis Le Lay <louis_lelay@tests-macbook-pro.home>"
+    }
+  }
+}
