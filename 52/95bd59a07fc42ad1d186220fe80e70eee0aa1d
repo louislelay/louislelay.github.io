@@ -1,0 +1,19 @@
+index.html
+  s_2e6b019db4c8da::t_bef40a46b7f9a4 31
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.14",
+  "base_commit_sha": "5295bd59a07fc42ad1d186220fe80e70eee0aa1d",
+  "prompts": {},
+  "sessions": {
+    "s_2e6b019db4c8da": {
+      "agent_id": {
+        "tool": "cursor",
+        "id": "bc4541a2-a24d-454c-be72-52274d441b21",
+        "model": "claude-sonnet-5"
+      },
+      "human_author": "Louis Le Lay <louis_lelay@tests-MacBook-Pro.local>"
+    }
+  }
+}
