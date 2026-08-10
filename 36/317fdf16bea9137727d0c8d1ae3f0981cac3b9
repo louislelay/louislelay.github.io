@@ -1,0 +1,19 @@
+index.html
+  s_516503d2d05d8c::t_ad100e6e25f76d 49
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.21",
+  "base_commit_sha": "36317fdf16bea9137727d0c8d1ae3f0981cac3b9",
+  "prompts": {},
+  "sessions": {
+    "s_516503d2d05d8c": {
+      "agent_id": {
+        "tool": "cursor",
+        "id": "0b272638-5f4a-46d9-8881-85d2f8e3b83e",
+        "model": "gpt-5.6-sol"
+      },
+      "human_author": "Louis Le Lay <le.lay.louis@gmail.com>"
+    }
+  }
+}
