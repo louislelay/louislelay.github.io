@@ -139,16 +139,11 @@ header {
   object-position: 70% center;
 }
 
-.mission {
-}
-
-/* ── Demo showcase ────────────────────────────── */
-
 /* ── Demo grid ────────────────────────────────── */
 
 .demo-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   gap: 16px;
   margin: 0 0 24px;
 }
@@ -159,10 +154,12 @@ header {
 
 .demo-grid img {
   width: 100%;
-  height: auto;
+  aspect-ratio: 16 / 9;
   border-radius: var(--radius);
   border: 1px solid var(--border);
   display: block;
+  object-fit: cover;
+  box-sizing: border-box;
 }
 
 .demo-grid figcaption {
