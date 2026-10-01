@@ -10,7 +10,7 @@
   <link rel="stylesheet" href="style.css" />
 </head>
 
-<body>
+<body id="top">
   <a class="skip-link" href="#main">Skip to content</a>
 
   <header role="banner">
@@ -26,19 +26,19 @@
     <div class="intro">
       <div>
         <p>
-          I'm <strong>Louis Le Lay</strong>. I build learning-based controllers that make humanoid
-          robots walk and move.
+          I'm <strong>Louis Le Lay</strong>. I build learning-based controllers to make humanoid
+          robots agile and useful.
         </p>
 
         <p>
-          At <strong>UMA</strong>, I own locomotion and simulation for <strong>ASTRO</strong>,
-          taking Version&nbsp;0 from bare hardware to walking and whole-body teleoperation. I also
-          deploy the same stack on platforms including the G1 and X2.
+          At <strong>UMA</strong>, I lead locomotion and simulation for ASTRO, from bare hardware
+          to walking and whole-body teleoperation. I deploy the same stack across the Unitree G1,
+          AgiBot X2, and Booster K1.
         </p>
 
         <p>
-          Previously, I built the first RL controller to walk PAL Robotics'
-          <strong>Kangaroo</strong> humanoid, replacing its legacy MPC walker. I am also a co-author of
+          Previously, I built the first RL locomotion controller for PAL Robotics'
+          <strong>Kangaroo</strong>, a serial-parallel humanoid, replacing its legacy MPC walker. I am also a co-author of
           <a href="https://github.com/mujocolab/mjlab" target="_blank"
             rel="noopener"><strong>mjlab</strong></a> and an active contributor to
           <a href="https://github.com/isaac-sim/IsaacLab" target="_blank"
@@ -62,15 +62,15 @@
     <div class="demo-grid">
       <figure>
         <img src="media/astro_reveal.gif"
-          alt="ASTRO Version 0 walking during its reveal by UMA Robotics"
+          alt="ASTRO Version 0 demonstrating whole-body teleoperation during its reveal"
           loading="lazy" decoding="async">
-        <figcaption>ASTRO Version&nbsp;0 reveal — locomotion &amp; whole-body teleoperation</figcaption>
+        <figcaption>ASTRO 0 at the MACHINA Summit reveal</figcaption>
       </figure>
       <figure>
         <img src="media/kang_walk.gif"
           alt="Kangaroo humanoid walking on real hardware with RL locomotion"
           loading="lazy" decoding="async">
-        <figcaption>Kangaroo at 0.5&nbsp;m/s — RL replacing 20&nbsp;years of MPC</figcaption>
+        <figcaption>Kangaroo at 0.5&nbsp;m/s</figcaption>
       </figure>
       <figure>
         <img src="media/getup_g1.gif" alt="G1 robot getting up using reinforcement learning"
@@ -93,23 +93,20 @@
           <span class="muted">Mar 2026 – Present</span>
         </div>
         <p class="exp-desc">
-          Own locomotion and simulation for ASTRO — bare hardware to walking and whole-body
-          control. This work was featured in Rémi Cadene's keynote at
-          <a href="https://www.youtube.com/watch?v=0vc-dAQDIQc" target="_blank"
-            rel="noopener">MACHINA Summit 2026</a>. Also develop locomotion and whole-body control
-          for the G1 and X2.
+          Leading sim-to-real robot learning across humanoid platforms.
         </p>
       </div>
 
       <div class="exp-item">
         <div class="exp-header">
-          <span><strong>PAL Robotics</strong> · Robotics Engineer</span>
+          <span><strong>PAL Robotics</strong> · Robotics Engineer Intern</span>
           <span class="muted">Jul 2025 – Mar 2026</span>
         </div>
         <p class="exp-desc">
-          Built the full RL sim-to-real locomotion pipeline for the
-          <a href="https://pal-robotics.com/robot/kangaroo/" target="_blank" rel="noopener">Kangaroo</a>
-          humanoid, replacing the legacy MPC-based walker.
+          Built the complete sim-to-real RL locomotion stack for <a href="https://pal-robotics.com/robot/kangaroo/"
+            target="_blank" rel="noopener">Kangaroo</a>, a serial-parallel humanoid. Supervised by <a
+            href="https://www.linkedin.com/in/sai-kishor-kothakota/" target="_blank" rel="noopener">Sai
+            Kishor Kothakota</a>.
         </p>
       </div>
 
@@ -118,6 +115,9 @@
           <span><strong>University of Tokyo</strong> · Research Intern</span>
           <span class="muted">Jun – Sep 2024</span>
         </div>
+        <p class="exp-desc">
+          Multimodal perception for legged robots. Supervised by <a href="https://www.robot.t.u-tokyo.ac.jp/anlab/" target="_blank" rel="noopener">Prof. An</a>.
+        </p>
       </div>
 
       <div class="exp-item">
@@ -217,6 +217,26 @@
       </div>
     </section>
 
+    <section id="talks" aria-labelledby="talks-heading">
+      <h2 id="talks-heading">Talks</h2>
+      <ul class="clean">
+        <li>
+          <strong>From Arms to Humanoids: an RL Journey</strong>
+          — Invited talk at <a href="https://initrobots.ca/" target="_blank" rel="noopener">INIT Robots
+            Lab</a>, Apr 2026.
+        </li>
+        <li>
+          <strong>Teaching a Full-Size Humanoid to Walk with RL, from Scratch</strong>
+          — Master's thesis defense, Sorbonne University, Apr 2026.
+        </li>
+        <li>
+          <strong>Training and Deploying RL Agents for Manipulation on the SO-ARM</strong>
+          — Talk at <a href="https://roscon.org.es/roscon2025/ROSConES2025.html" target="_blank"
+            rel="noopener">ROSCon Espa&ntilde;a</a>, Nov 2025.
+        </li>
+      </ul>
+    </section>
+
     <section id="mentions" aria-labelledby="mentions-heading">
       <h2 id="mentions-heading">Press &amp; Mentions</h2>
       <ul class="clean">
@@ -261,26 +281,6 @@
       </ul>
     </section>
 
-    <section id="talks" aria-labelledby="talks-heading">
-      <h2 id="talks-heading">Talks</h2>
-      <ul class="clean">
-        <li>
-          <strong>From Arms to Humanoids: an RL Journey</strong>
-          — Invited talk at <a href="https://initrobots.ca/" target="_blank" rel="noopener">INIT Robots
-            Lab</a>, Apr 2026.
-        </li>
-        <li>
-          <strong>Teaching a Full-Size Humanoid to Walk with RL, from Scratch</strong>
-          — Master's thesis defense, Sorbonne University, Apr 2026.
-        </li>
-        <li>
-          <strong>Training and Deploying RL Agents for Manipulation on the SO-ARM</strong>
-          — Talk at <a href="https://roscon.org.es/roscon2025/ROSConES2025.html" target="_blank"
-            rel="noopener">ROSCon Espa&ntilde;a</a>, Nov 2025.
-        </li>
-      </ul>
-    </section>
-
     <section id="education" aria-labelledby="edu-heading">
       <h2 id="edu-heading">Education</h2>
       <ul class="clean">
@@ -299,8 +299,9 @@
       <p>
         &copy; <span id="y">2026</span> Louis Le Lay<br />
         Content licensed under <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank"
-          rel="license noopener">CC BY 4.0</a>.
+          rel="license noopener">CC BY 4.0</a>.<br />
         All my work is open source whenever possible.<br />
+        Research discussions and collaborations are always welcome.<br />
         <a href="https://github.com/louislelay" target="_blank" rel="noopener">GitHub</a> ·
         <a href="https://www.linkedin.com/in/louis-le-lay/" target="_blank" rel="noopener">LinkedIn</a> ·
         <a href="https://x.com/LouisLeLay4" target="_blank" rel="noopener">Twitter</a> ·
