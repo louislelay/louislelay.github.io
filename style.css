@@ -143,13 +143,19 @@ header {
 
 .demo-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(6, 1fr);
   gap: 16px;
   margin: 0 0 24px;
 }
 
+/* 5 items as a row of 3 then a centered row of 2. */
 .demo-grid figure {
   margin: 0;
+  grid-column: span 2;
+}
+
+.demo-grid figure:nth-child(4) {
+  grid-column: 2 / span 2;
 }
 
 .demo-grid img {
@@ -172,6 +178,11 @@ header {
 @media (max-width: 560px) {
   .demo-grid {
     grid-template-columns: 1fr;
+  }
+
+  .demo-grid figure,
+  .demo-grid figure:nth-child(4) {
+    grid-column: auto;
   }
 }
 
